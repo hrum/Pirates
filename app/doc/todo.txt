@@ -1,7 +1,9 @@
+- refactor
+- check everything is ok
+
+
+
 - write basic methods for map
-
-
-=======================================
 
 - generate simple card (random hexes)
 - show map on the screen

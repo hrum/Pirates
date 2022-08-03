@@ -22,17 +22,17 @@ public class Layout {
         this.origin = origin;
     }
 
-    public Point hexToPixel(Hex h) {
-        float x = (f0 * h.q + f1 * h.r) * size.x;
-        float y = (f2 * h.q + f3 * h.r) * size.y;
+    public Point hexToPixel(HexVector h) {
+        float x = (f0 * h.q() + f1 * h.r()) * size.x;
+        float y = (f2 * h.q() + f3 * h.r()) * size.y;
         return new Point(x + origin.x, y + origin.y);
     }
 
-    public Hex pixelToHex(Point p) {
+    public HexVector pixelToHex(Point p) {
         Point point = new Point((p.x - origin.x) / size.x, (p.y - origin.y) / size.y);
         float q = b0 * point.x + b1 * point.y;
         float r = b2 * point.x + b3 * point.y;
-        return new Hex(q, r, -q - r);
+        return new HexVector(q, r, -q - r);
     }
 
     public Point hexCornerOffset(int corner) {
@@ -40,7 +40,7 @@ public class Layout {
         return new Point((float)(size.x * Math.cos(angle)), (float)(size.y * Math.sin(angle)));
     }
 
-    public ArrayList<Point> polygonCorners(Hex h) {
+    public ArrayList<Point> polygonCorners(HexVector h) {
         ArrayList<Point> corners = new ArrayList<Point>(){{}};
         Point center = hexToPixel(h);
         for (int i = 0; i < 6; i++) {
