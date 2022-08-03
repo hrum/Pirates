@@ -31,6 +31,27 @@ public class Hex
             throw new IllegalArgumentException("q + r + s must be 0");
     }
 
+    public Hex(float qFloat, float rFloat, float sFloat) {
+        int q = Math.round(qFloat);
+        int r = Math.round(rFloat);
+        int s = Math.round(sFloat);
+
+        double qDiff = Math.abs(q - qFloat);
+        double rDiff = Math.abs(r - rFloat);
+        double sDiff = Math.abs(s - sFloat);
+
+        if(qDiff > rDiff && qDiff > sDiff)
+            q = -r - s;
+        else if(rDiff > sDiff)
+            r = -q - s;
+        else
+            s = -q - r;
+
+        this.q = q;
+        this.r = r;
+        this.s = s;
+    }
+
     public Hex add(Hex b) {
         return new Hex(q + b.q, r + b.r, s + b.s);
     }
