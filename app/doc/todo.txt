@@ -1,4 +1,8 @@
-- show tile on screen
+- generate simple card (random hexes)
+- show map on the screen
+
+
+
 
 - map should be square/rectangle
 - the map should consist of hexagonal tiles

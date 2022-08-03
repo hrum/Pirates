@@ -5,3 +5,6 @@ MAP GENERATION
 - generate objects in the ocean
 - generate objects on the land
 - each object on the map must occur at least 2 times
+
+
+- check map generators

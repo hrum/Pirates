@@ -1,8 +1,10 @@
-package com.shuvzero.pirates;
+package com.shuvzero.pirates.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.shuvzero.pirates.R;
 
 public class MainActivity extends AppCompatActivity {
 

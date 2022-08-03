@@ -67,6 +67,7 @@ LAND OBJECTS
 - waterfall
 - swamp
 - mountains (often located together)
+- obstacles? (which can not be moved on)
 
 EXTENDED OBJECTS
 - river (starts in lake/ocean, ends in lake/ocean)
