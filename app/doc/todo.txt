@@ -1,2 +1,1 @@
-- improve design
 - start implementing prototype
