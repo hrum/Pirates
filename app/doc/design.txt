@@ -9,10 +9,6 @@ START OF THE GAME
 - the order of the move is determined randomly
 - all players begin the game from the "start" cell (in the ocean)
 
-GAME PROGRESS
-- players take their turns in order
-- on each turn, the player can move and/or dig (if the player is on the land tile)
-
 MAP GENERATION
 - the map consists of hexagonal tiles
 - determine the size of the map
@@ -22,6 +18,10 @@ MAP GENERATION
 - generate objects in the ocean
 - generate objects on the land
 - each object on the map must occur at least 2 times
+
+GAME PROGRESS
+- players take their turns in order
+- on each turn, the player can move and/or dig (if the player is on the land tile)
 
 MOVING
 - the player can move one cell around himself
