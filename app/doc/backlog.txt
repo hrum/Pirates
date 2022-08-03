@@ -1,0 +1,7 @@
+- create prototype of the game
+
+PROTOTYPE REQUIREMENTS:
+- hex grid
+- some simple graphics
+- player can move and dig
+- just solo mode

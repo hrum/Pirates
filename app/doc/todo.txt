@@ -1,5 +1,2 @@
-
-
-
-
-- create prototype of the game
+- improve design
+- start implementing prototype
