@@ -1,17 +1,13 @@
+- initialize all hexes
 
 
-- write basic methods for map
-
-- generate simple card (random hexes)
+====================================
+- map size depends on number of players
+- generate simple map (random hexes)
 - show map on the screen
 
 
 
-
-- map should be square/rectangle
-- the map should consist of hexagonal tiles
 - player can scroll map
 - player can scroll up to the edge of map
 - player can zoom in/zoom out map
-- map looks flat (as a geographical map)
-- map size depends on number of players

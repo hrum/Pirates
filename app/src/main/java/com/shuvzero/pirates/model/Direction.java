@@ -9,7 +9,7 @@ public enum Direction {
     W(new HexVector(-1, 0, 1)),
     NW(new HexVector(0, -1, 1));
 
-    private HexVector hexVector;
+    private final HexVector hexVector;
 
     Direction(HexVector hexVector) {
         this.hexVector = hexVector;

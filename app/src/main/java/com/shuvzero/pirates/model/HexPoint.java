@@ -2,9 +2,9 @@ package com.shuvzero.pirates.model;
 
 public class HexPoint {
 
-    private int q;
-    private int r;
-    private int s;
+    private final int q;
+    private final int r;
+    private final int s;
 
     public HexPoint(int q, int r, int s) {
         this.q = q;
@@ -12,27 +12,6 @@ public class HexPoint {
         this.s = s;
         if(q + r + s != 0)
             throw new IllegalArgumentException("q + r + s must be 0");
-    }
-
-    public HexPoint(float qF, float rF, float sF) {
-        int q = Math.round(qF);
-        int r = Math.round(rF);
-        int s = Math.round(sF);
-
-        double qDiff = Math.abs(q - qF);
-        double rDiff = Math.abs(r - rF);
-        double sDiff = Math.abs(s - sF);
-
-        if(qDiff > rDiff && qDiff > sDiff)
-            q = -r - s;
-        else if(rDiff > sDiff)
-            r = -q - s;
-        else
-            s = -q - r;
-
-        this.q = q;
-        this.r = r;
-        this.s = s;
     }
 
     public int q() {
@@ -52,7 +31,7 @@ public class HexPoint {
     }
 
     public HexPoint sub(HexVector b) {
-        return new HexPoint(q - b.q(), r -= b.r(), s -= b.s());
+        return new HexPoint(q - b.q(), r - b.r(), s - b.s());
     }
 
     public HexPoint getNeighbour(Direction direction) {

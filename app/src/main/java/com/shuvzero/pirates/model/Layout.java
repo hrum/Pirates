@@ -43,9 +43,26 @@ public class Layout {
 
     public HexPoint getHexPoint(Point p) {
         Point point = new Point((p.x() - origin.x()) / size, (p.y() - origin.y()) / size);
-        float q = b0 * point.x() + b1 * point.y();
-        float r = b2 * point.x() + b3 * point.y();
-        return new HexPoint(q, r, -q - r);
+        float qF = b0 * point.x() + b1 * point.y();
+        float rF = b2 * point.x() + b3 * point.y();
+        float sF = -qF - rF;
+
+        int q = Math.round(qF);
+        int r = Math.round(rF);
+        int s = Math.round(sF);
+
+        double qDiff = Math.abs(q - qF);
+        double rDiff = Math.abs(r - rF);
+        double sDiff = Math.abs(s - sF);
+
+        if(qDiff > rDiff && qDiff > sDiff)
+            q = -r - s;
+        else if(rDiff > sDiff)
+            r = -q - s;
+        else
+            s = -q - r;
+
+        return new HexPoint(q, r, s);
     }
 
 }
