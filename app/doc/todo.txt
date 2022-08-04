@@ -1,6 +1,4 @@
-- improve code
 
-======================================
 
 - player can scroll map
 - player can scroll up to the edge of map

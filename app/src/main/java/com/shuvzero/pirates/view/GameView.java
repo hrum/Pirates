@@ -19,6 +19,7 @@ import java.util.Map;
 
 public class GameView extends View {
 
+    private float size = 100;
     private Game game;
     private Layout layout;
     private Map<Biome, Integer> biomes;
@@ -26,7 +27,7 @@ public class GameView extends View {
     public GameView(Context context, Game game) {
         super(context);
         this.game = game;
-        layout = new Layout(new Point(0,0), 100);
+        layout = new Layout(new Point(0,0), size);
         initBiomes();
     }
 
@@ -49,8 +50,8 @@ public class GameView extends View {
             Point p = layout.getPoint(cell);
             tile.setBounds(Math.round(p.x()),
                     Math.round(p.y()),
-                    Math.round(p.x() + 100),
-                    Math.round(p.y() + 100));
+                    Math.round(p.x() + 2 * size),
+                    Math.round(p.y() + 2 * size));
             tile.draw(canvas);
         }
     }
