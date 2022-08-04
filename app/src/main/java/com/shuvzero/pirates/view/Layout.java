@@ -1,4 +1,7 @@
-package com.shuvzero.pirates.model;
+package com.shuvzero.pirates.view;
+
+import com.shuvzero.pirates.model.HexCell;
+import com.shuvzero.pirates.model.Point;
 
 public class Layout {
 

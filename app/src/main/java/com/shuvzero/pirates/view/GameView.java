@@ -12,6 +12,7 @@ import com.shuvzero.pirates.model.Biome;
 import com.shuvzero.pirates.model.CellData;
 import com.shuvzero.pirates.model.Game;
 import com.shuvzero.pirates.model.HexCell;
+import com.shuvzero.pirates.model.Point;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,10 +20,13 @@ import java.util.Map;
 public class GameView extends View {
 
     private Game game;
+    private Layout layout;
     private Map<Biome, Integer> biomes;
 
-    public GameView(Context context) {
+    public GameView(Context context, Game game) {
         super(context);
+        this.game = game;
+        layout = new Layout(new Point(0,0), 100);
         initBiomes();
     }
 
@@ -41,7 +45,12 @@ public class GameView extends View {
     private void drawMap(Canvas canvas) {
         for(Map.Entry<HexCell, CellData> entry: game.getTreasureMap().getMap().entrySet()) {
             Drawable tile = getDrawable(biomes.get(entry.getValue().getBiome()));
-            tile.setBounds(0, 0, 100, 100);
+            HexCell cell = entry.getKey();
+            Point p = layout.getPoint(cell);
+            tile.setBounds(Math.round(p.x()),
+                    Math.round(p.y()),
+                    Math.round(p.x() + 100),
+                    Math.round(p.y() + 100));
             tile.draw(canvas);
         }
     }

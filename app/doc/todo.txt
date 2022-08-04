@@ -1,7 +1,4 @@
-- start game, and put reference into game view
-- add layout
-
-- show map on the screen
+- improve code
 
 ======================================
 
