@@ -72,3 +72,8 @@ LAND OBJECTS
 EXTENDED OBJECTS
 - river (starts in lake/ocean, ends in lake/ocean)
 - road/path (starts in the ocean, ends with a mark)
+
+MAP
+- player can scroll map
+- player can scroll up to the edge of map
+- player can zoom in/zoom out map

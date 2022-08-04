@@ -19,7 +19,7 @@ import java.util.Map;
 
 public class GameView extends View {
 
-    private float size = 100;
+    private float size = 80;
     private Game game;
     private Layout layout;
     private Map<Biome, Integer> biomes;

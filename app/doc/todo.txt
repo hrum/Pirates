@@ -1,5 +1,7 @@
 
+- generate ocean and land in the rest of the map
+- generate objects in the ocean
+- generate objects on the land
+- each object on the map must occur at least 2 times
 
-- player can scroll map
-- player can scroll up to the edge of map
-- player can zoom in/zoom out map
+- a treasure is placed in one of the randomly selected land tiles (players can not see where)
