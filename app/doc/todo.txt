@@ -1,6 +1,3 @@
-- refactor
-- check everything is ok
-
 
 
 - write basic methods for map

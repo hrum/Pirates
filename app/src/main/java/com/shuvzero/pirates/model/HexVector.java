@@ -14,27 +14,6 @@ public class HexVector {
             throw new IllegalArgumentException("q + r + s must be 0");
     }
 
-    public HexVector(float qF, float rF, float sF) {
-        int q = Math.round(qF);
-        int r = Math.round(rF);
-        int s = Math.round(sF);
-
-        double qDiff = Math.abs(q - qF);
-        double rDiff = Math.abs(r - rF);
-        double sDiff = Math.abs(s - sF);
-
-        if(qDiff > rDiff && qDiff > sDiff)
-            q = -r - s;
-        else if(rDiff > sDiff)
-            r = -q - s;
-        else
-            s = -q - r;
-
-        this.q = q;
-        this.r = r;
-        this.s = s;
-    }
-
     public HexVector(HexPoint origin, HexPoint end) {
         this.q = end.q() - origin.q();
         this.r = end.r() - origin.r();
