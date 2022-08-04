@@ -6,4 +6,8 @@ public class CellData {
     private CellObject cellObject;
     private int hint;
     private boolean isFoggy;
+
+    public CellData(Biome biome) {
+        this.biome = biome;
+    }
 }

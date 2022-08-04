@@ -1,13 +1,6 @@
-- initialize all hexes
-- map size depends on number of players
-
-- generate simple map (random hexes)
-
-
-====================================
 - show map on the screen
 
-
+======================================
 
 - player can scroll map
 - player can scroll up to the edge of map

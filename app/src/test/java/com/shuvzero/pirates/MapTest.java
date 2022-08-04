@@ -10,7 +10,7 @@ public class MapTest {
 
     @Test
     public void checkTreasureMap() {
-        TreasureMap treasureMap = new TreasureMap();
-        treasureMap.fill(5);
+        TreasureMap treasureMap = new TreasureMap(5);
+        treasureMap.fill();
     }
 }
