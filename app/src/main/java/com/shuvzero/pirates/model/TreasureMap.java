@@ -25,5 +25,7 @@ public class TreasureMap {
         }
     }
 
-
+    public HashMap<HexCell, CellData> getMap() {
+        return map;
+    }
 }

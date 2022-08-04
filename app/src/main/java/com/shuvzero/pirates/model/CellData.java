@@ -10,4 +10,8 @@ public class CellData {
     public CellData(Biome biome) {
         this.biome = biome;
     }
+
+    public Biome getBiome() {
+        return biome;
+    }
 }

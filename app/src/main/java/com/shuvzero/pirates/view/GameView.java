@@ -8,11 +8,28 @@ import android.view.View;
 import androidx.core.content.ContextCompat;
 
 import com.shuvzero.pirates.R;
+import com.shuvzero.pirates.model.Biome;
+import com.shuvzero.pirates.model.CellData;
+import com.shuvzero.pirates.model.Game;
+import com.shuvzero.pirates.model.HexCell;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class GameView extends View {
 
+    private Game game;
+    private Map<Biome, Integer> biomes;
+
     public GameView(Context context) {
         super(context);
+        initBiomes();
+    }
+
+    public void initBiomes() {
+        biomes = new HashMap<>();
+        biomes.put(Biome.Ocean, R.drawable.ocean);
+        biomes.put(Biome.Land, R.drawable.land);
     }
 
     @Override
@@ -22,9 +39,11 @@ public class GameView extends View {
     }
 
     private void drawMap(Canvas canvas) {
-        Drawable field = getDrawable(R.drawable.ocean);
-        field.setBounds(0, 0, 100, 100);
-        field.draw(canvas);
+        for(Map.Entry<HexCell, CellData> entry: game.getTreasureMap().getMap().entrySet()) {
+            Drawable tile = getDrawable(biomes.get(entry.getValue().getBiome()));
+            tile.setBounds(0, 0, 100, 100);
+            tile.draw(canvas);
+        }
     }
 
     private Drawable getDrawable(int id) {
