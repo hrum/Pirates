@@ -14,14 +14,14 @@ public class HexVector {
             throw new IllegalArgumentException("q + r + s must be 0");
     }
 
-    public HexVector(float qFloat, float rFloat, float sFloat) {
-        int q = Math.round(qFloat);
-        int r = Math.round(rFloat);
-        int s = Math.round(sFloat);
+    public HexVector(float qF, float rF, float sF) {
+        int q = Math.round(qF);
+        int r = Math.round(rF);
+        int s = Math.round(sF);
 
-        double qDiff = Math.abs(q - qFloat);
-        double rDiff = Math.abs(r - rFloat);
-        double sDiff = Math.abs(s - sFloat);
+        double qDiff = Math.abs(q - qF);
+        double rDiff = Math.abs(r - rF);
+        double sDiff = Math.abs(s - sF);
 
         if(qDiff > rDiff && qDiff > sDiff)
             q = -r - s;
@@ -33,6 +33,12 @@ public class HexVector {
         this.q = q;
         this.r = r;
         this.s = s;
+    }
+
+    public HexVector(HexPoint origin, HexPoint end) {
+        this.q = end.q() - origin.q();
+        this.r = end.r() - origin.r();
+        this.s = end.s() - origin.s();
     }
 
     public int q() {
@@ -47,28 +53,26 @@ public class HexVector {
         return s;
     }
 
-    public HexVector add(HexVector b) {
-        return new HexVector(q + b.q, r + b.r, s + b.s);
+    public void add(HexVector b) {
+        q += b.q;
+        r += b.r;
+        s += b.s;
     }
 
-    public HexVector sub(HexVector b) {
-        return new HexVector(q - b.q, r - b.r, s - b.s);
+    public void sub(HexVector b) {
+        q -= b.q;
+        r -= b.r;
+        s -= b.s;
     }
 
-    public HexVector scale(int k) {
-        return new HexVector(q * k, r * k, s * k);
-    }
-
-    public HexVector neighbour(Direction direction) {
-        return this.add(direction.getHexVector());
+    public void scale(int k) {
+        q *= k;
+        r *= k;
+        s *= k;
     }
 
     public int length() {
         return (Math.abs(q) + Math.abs(r) + Math.abs(s)) / 2;
-    }
-
-    public int distance(HexVector b) {
-        return this.sub(b).length();
     }
 
 }
