@@ -1,12 +1,12 @@
 package com.shuvzero.pirates.model;
 
-public class HexPoint {
+public class HexCell {
 
     private final int q;
     private final int r;
     private final int s;
 
-    public HexPoint(int q, int r, int s) {
+    public HexCell(int q, int r, int s) {
         this.q = q;
         this.r = r;
         this.s = s;
@@ -26,19 +26,19 @@ public class HexPoint {
         return s;
     }
 
-    public HexPoint add(HexVector b) {
-        return new HexPoint(q + b.q(), r + b.r(), s + b.s());
+    public HexCell add(HexVector b) {
+        return new HexCell(q + b.q(), r + b.r(), s + b.s());
     }
 
-    public HexPoint sub(HexVector b) {
-        return new HexPoint(q - b.q(), r - b.r(), s - b.s());
+    public HexCell sub(HexVector b) {
+        return new HexCell(q - b.q(), r - b.r(), s - b.s());
     }
 
-    public HexPoint getNeighbour(Direction direction) {
+    public HexCell getNeighbour(Direction direction) {
         return this.add(direction.getHexVector());
     }
 
-    public int distance(HexPoint b) {
+    public int distance(HexCell b) {
         return new HexVector(this, b).length();
     }
 }

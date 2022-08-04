@@ -35,13 +35,13 @@ public class Layout {
         this.size = size;
     }
 
-    public Point getPoint(HexPoint h) {
+    public Point getPoint(HexCell h) {
         float x = (f0 * h.q() + f1 * h.r()) * size;
         float y = (f2 * h.q() + f3 * h.r()) * size;
         return new Point(x + origin.x(), y + origin.y());
     }
 
-    public HexPoint getHexPoint(Point p) {
+    public HexCell getHexPoint(Point p) {
         Point point = new Point((p.x() - origin.x()) / size, (p.y() - origin.y()) / size);
         float qF = b0 * point.x() + b1 * point.y();
         float rF = b2 * point.x() + b3 * point.y();
@@ -62,7 +62,7 @@ public class Layout {
         else
             s = -q - r;
 
-        return new HexPoint(q, r, s);
+        return new HexCell(q, r, s);
     }
 
 }

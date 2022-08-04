@@ -1,9 +1,10 @@
 - initialize all hexes
+- map size depends on number of players
+
+- generate simple map (random hexes)
 
 
 ====================================
-- map size depends on number of players
-- generate simple map (random hexes)
 - show map on the screen
 
 
