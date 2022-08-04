@@ -1,5 +1,3 @@
-- add splash screen
-
 - start game, and put reference into game view
 - add layout
 

@@ -1,9 +1,8 @@
 package com.shuvzero.pirates.view;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-public class GameActivity extends Activity {
+public class GameActivity extends FullScreenActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
