@@ -1,6 +1,10 @@
-
-
 - use object rarity
+- just 2 biomes
+- several types of objects:
+    singular (palm, house - can not be neighbour with itself)
+    linear (river, road - line across the map)
+    flat (forest, swamp - always occupies several cells)
+    related (road and mark, river and ocean - one object always near another)
 
 - set treasure
 - show hints after dig
