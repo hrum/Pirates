@@ -1,5 +1,9 @@
-- generate map
++ add biome rarity
 
+- add correlation between biome and objects
+- some tiles should be empty
+
+plains, forest, jungles
 
 
 - set treasure

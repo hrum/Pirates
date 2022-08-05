@@ -47,7 +47,7 @@ HINT
 - hints are saved on the map
 
 BIOMES
-- several can be used biomes: ocean, desert, forest, grass, etc
+- several biomes can be used: ocean, desert, forest, grass, etc
 - each object can be located only in specific biomes
 
 OCEAN OBJECTS

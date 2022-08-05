@@ -8,7 +8,7 @@ public class MapTest {
 
     @Test
     public void checkTreasureMap() {
-        TreasureMap treasureMap = new TreasureMap(5);
+        TreasureMap treasureMap = new TreasureMap(5, 5);
         treasureMap.generate();
     }
 }
