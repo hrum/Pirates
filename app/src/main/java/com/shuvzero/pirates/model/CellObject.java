@@ -15,7 +15,12 @@ public enum CellObject {
     Palm(R.drawable.palm, 100, true),
     River(R.drawable.river,100, true),
     Skull(R.drawable.skull,100, true),
-    Volcano(R.drawable.volcano, 100, true);
+    Volcano(R.drawable.volcano, 100, true),
+
+    Shark(R.drawable.shark, 100, false),
+    Coral(R.drawable.coral, 100, false);
+
+
 
     private int id;
     private int rarity;

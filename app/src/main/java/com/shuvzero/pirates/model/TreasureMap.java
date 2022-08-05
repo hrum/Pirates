@@ -25,7 +25,9 @@ public class TreasureMap {
                     biome = Biome.Ocean;
                 else
                     biome = Biome.get(random.nextInt(Biome.getTotalRarity()));
-                CellObject cellObject = generateObject(biome);
+                CellObject cellObject = null;
+                if(random.nextInt(100) > 20)
+                    cellObject = generateObject(biome);
                 map.put(new HexCell(q, r, -q-r), new CellData(biome, cellObject));
             }
         }
