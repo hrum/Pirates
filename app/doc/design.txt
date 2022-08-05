@@ -4,7 +4,7 @@ VICTORY CONDITION
 
 START OF THE GAME
 - the number of players can be from 1 to 4
-- a map is generated from tiles
+- random map is generated
 - a treasure is placed in one of the randomly selected land tiles (players can not see where)
 - the order of the move is determined randomly
 - all players begin the game from the "start" cell (in the ocean)
@@ -45,6 +45,10 @@ HINT
 - the game determines the number of intersections of objects of the treasure area and dig area
 - the number of intersections is shown at the map
 - hints are saved on the map
+
+BIOMES
+- several can be used biomes: ocean, desert, forest, grass, etc
+- each object can be located only in specific biomes
 
 OCEAN OBJECTS
 - ocean
