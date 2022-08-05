@@ -1,4 +1,3 @@
-- create pictures of objects
 - generate map
 - set treasure
 - show hints after dig
