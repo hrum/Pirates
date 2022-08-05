@@ -11,7 +11,16 @@ public class CellData {
         this.biome = biome;
     }
 
+    public CellData(Biome biome, CellObject cellObject) {
+        this.biome = biome;
+        this.cellObject = cellObject;
+    }
+
     public Biome getBiome() {
         return biome;
+    }
+
+    public CellObject getCellObject() {
+        return cellObject;
     }
 }
