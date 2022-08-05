@@ -2,33 +2,29 @@ package com.shuvzero.pirates.model;
 
 import com.shuvzero.pirates.R;
 
-import java.util.Arrays;
-import java.util.List;
-
 public enum CellObject {
 
-    Empty(R.drawable.empty, 100, Biome.Land, Biome.Ocean),
-    Anchor(R.drawable.anchor, 100, Biome.Land, Biome.Ocean),
-    Cactus(R.drawable.cactus, 100, Biome.Land),
-    Cave(R.drawable.cave, 100, Biome.Land),
-    Chest(R.drawable.chest, 100, Biome.Land),
-    House(R.drawable.house, 100, Biome.Land),
-    Lake(R.drawable.lake, 100, Biome.Land),
-    Mark(R.drawable.mark, 100, Biome.Land),
-    Mountain(R.drawable.mountain, 100, Biome.Land),
-    Palm(R.drawable.palm, 100, Biome.Land),
-    River(R.drawable.river,100, Biome.Land),
-    Skull(R.drawable.skull,100, Biome.Land),
-    Volcano(R.drawable.volcano, 100, Biome.Land);
+    Anchor(R.drawable.anchor, 100, true),
+    Cactus(R.drawable.cactus, 100, true),
+    Cave(R.drawable.cave, 100, true),
+    Chest(R.drawable.chest, 100, true),
+    House(R.drawable.house, 100, true),
+    Lake(R.drawable.lake, 100, true),
+    Mark(R.drawable.mark, 100, true),
+    Mountain(R.drawable.mountain, 100, true),
+    Palm(R.drawable.palm, 100, true),
+    River(R.drawable.river,100, true),
+    Skull(R.drawable.skull,100, true),
+    Volcano(R.drawable.volcano, 100, true);
 
     private int id;
     private int rarity;
-    private List<Biome> biomes;
+    private boolean isLand;
 
-    CellObject(int id, int rarity, Biome... biomes) {
+    CellObject(int id, int rarity, boolean isLand) {
         this.id = id;
         this.rarity = rarity;
-        this.biomes = Arrays.asList(biomes);
+        this.isLand = isLand;
     }
 
     public int getId() {
@@ -39,7 +35,7 @@ public enum CellObject {
         return rarity;
     }
 
-    public boolean contains(Biome biome) {
-        return biomes.contains(biome);
+    public boolean isLand() {
+        return isLand;
     }
 }

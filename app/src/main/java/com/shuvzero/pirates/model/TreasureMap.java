@@ -35,7 +35,7 @@ public class TreasureMap {
         CellObject cellObject;
         do {
             cellObject = CellObject.values()[random.nextInt(CellObject.values().length)];
-        } while (!cellObject.contains(biome));
+        } while (cellObject.isLand() != biome.isLand());
             return cellObject;
     }
 

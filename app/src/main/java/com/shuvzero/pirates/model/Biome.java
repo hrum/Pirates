@@ -3,15 +3,17 @@ package com.shuvzero.pirates.model;
 import com.shuvzero.pirates.R;
 
 public enum Biome {
-    Ocean(R.drawable.ocean, 20),
-    Land(R.drawable.land, 100);
+    Ocean(R.drawable.ocean, 20, false),
+    Land(R.drawable.land, 100, true);
 
     private int id;
     private int rarity;
+    private boolean isLand;
 
-    Biome(int id, int rarity) {
+    Biome(int id, int rarity, boolean isLand) {
         this.id = id;
         this.rarity = rarity;
+        this.isLand = isLand;
     }
 
     public int getId() {
@@ -20,6 +22,10 @@ public enum Biome {
 
     public int getRarity() {
         return rarity;
+    }
+
+    public boolean isLand() {
+        return isLand;
     }
 
     public static Biome get(int num) {

@@ -7,10 +7,6 @@ public class CellData {
     private int hint;
     private boolean isFoggy;
 
-    public CellData(Biome biome) {
-        this.biome = biome;
-    }
-
     public CellData(Biome biome, CellObject cellObject) {
         this.biome = biome;
         this.cellObject = cellObject;
