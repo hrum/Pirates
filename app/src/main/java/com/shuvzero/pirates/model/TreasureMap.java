@@ -25,10 +25,18 @@ public class TreasureMap {
                     biome = Biome.Ocean;
                 else
                     biome = Biome.get(random.nextInt(Biome.getTotalRarity()));
-                CellObject cellObject = CellObject.values()[random.nextInt(CellObject.values().length)];
+                CellObject cellObject = generateObject(biome);
                 map.put(new HexCell(q, r, -q-r), new CellData(biome, cellObject));
             }
         }
+    }
+
+    private CellObject generateObject(Biome biome) {
+        CellObject cellObject;
+        do {
+            cellObject = CellObject.values()[random.nextInt(CellObject.values().length)];
+        } while (!cellObject.contains(biome));
+            return cellObject;
     }
 
     public HashMap<HexCell, CellData> getMap() {

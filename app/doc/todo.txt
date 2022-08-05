@@ -1,7 +1,6 @@
-+ add object rarity
 
-- add correlation between biome and objects
 
+- use object rarity
 
 - set treasure
 - show hints after dig
