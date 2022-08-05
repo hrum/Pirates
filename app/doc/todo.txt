@@ -1,9 +1,6 @@
++ add object rarity
 
 - add correlation between biome and objects
-- add object rarity
-
-
-plains, forest, jungles
 
 
 - set treasure

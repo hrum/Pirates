@@ -3,7 +3,7 @@ package com.shuvzero.pirates.model;
 import com.shuvzero.pirates.R;
 
 public enum Biome {
-    Ocean(R.drawable.ocean, 30),
+    Ocean(R.drawable.ocean, 20),
     Land(R.drawable.land, 100);
 
     private int id;

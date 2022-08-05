@@ -16,7 +16,7 @@ import java.util.Map;
 
 public class GameView extends View {
 
-    private float size = 60;
+    private float size = 58;
     private Game game;
     private Layout layout;
 
