@@ -1,7 +1,7 @@
-+ add biome rarity
 
 - add correlation between biome and objects
-- some tiles should be empty
+- add object rarity
+
 
 plains, forest, jungles
 

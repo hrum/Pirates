@@ -4,6 +4,7 @@ import com.shuvzero.pirates.R;
 
 public enum CellObject {
 
+    Empty(R.drawable.empty),
     Anchor(R.drawable.anchor),
     Cactus(R.drawable.cactus),
     Cave(R.drawable.cave),

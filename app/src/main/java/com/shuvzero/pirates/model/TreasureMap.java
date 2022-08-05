@@ -24,7 +24,7 @@ public class TreasureMap {
                 if(r == 0 || r == rows - 1 || q == -r_offset || q == cols - 1 - r_offset)
                     biome = Biome.Ocean;
                 else
-                    biome = Biome.Land;
+                    biome = Biome.get(random.nextInt(Biome.getTotalRarity()));
                 CellObject cellObject = CellObject.values()[random.nextInt(CellObject.values().length)];
                 map.put(new HexCell(q, r, -q-r), new CellData(biome, cellObject));
             }

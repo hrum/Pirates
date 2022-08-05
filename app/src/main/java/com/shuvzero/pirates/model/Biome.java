@@ -21,4 +21,22 @@ public enum Biome {
     public int getRarity() {
         return rarity;
     }
+
+    public static Biome get(int num) {
+        int sum = 0;
+        for(Biome biome: Biome.values()) {
+            sum += biome.rarity;
+            if(num < sum)
+                return biome;
+        }
+        return null;
+    }
+
+    public static int getTotalRarity() {
+        int totalRarity = 0;
+        for(Biome biome: Biome.values()) {
+            totalRarity += biome.rarity;
+        }
+        return totalRarity;
+    }
 }
