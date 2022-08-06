@@ -18,7 +18,7 @@ OCEAN OBJECTS
 - coral
 - shark
 
-LAND OBJECTS(singular)
+LAND OBJECTS(singular) - singular object can be anywhere inside the cell
 - desert (empty)
 - cave
 - bones/skulls

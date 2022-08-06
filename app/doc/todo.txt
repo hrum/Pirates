@@ -1,9 +1,9 @@
-
-
-
-
 - think on map storage - use list?
 
+
+
+
+- move some methods from cell to treasure map
 
 - refactor a bit
 
