@@ -1,7 +1,13 @@
-- improve map generation
-- think on algorithm
-- order of generation:
-1) linear
-2) flat
-3) singular
++ fill the edge of the map (thickness 1 tile) with the ocean
++ generate ocean and land in the rest of the map
+
+
+- check land/ocean generation
+- swap single ocean tiles with lakes?
+- remove single ocean tiles?
+
+- pangaea/continents
+
+
+
 
