@@ -7,9 +7,8 @@ import android.view.View;
 
 import androidx.core.content.ContextCompat;
 
-import com.shuvzero.pirates.model.CellData;
+import com.shuvzero.pirates.model.Cell;
 import com.shuvzero.pirates.model.Game;
-import com.shuvzero.pirates.model.HexCell;
 import com.shuvzero.pirates.model.Point;
 
 import java.util.Map;
@@ -33,17 +32,16 @@ public class GameView extends View {
     }
 
     private void drawMap(Canvas canvas) {
-        for(Map.Entry<HexCell, CellData> entry: game.getTreasureMap().getMap().entrySet()) {
-            Drawable tile = getDrawable(entry.getValue().getBiome().getId());
-            HexCell cell = entry.getKey();
+        for(Cell cell: game.getTreasureMap().getCells()) {
+            Drawable tile = getDrawable(cell.getBiome().getId());
             Point p = layout.getPoint(cell);
             tile.setBounds(Math.round(p.x()),
                     Math.round(p.y()),
                     Math.round(p.x() + 2 * size),
                     Math.round(p.y() + 2 * size));
             tile.draw(canvas);
-            /*if(entry.getValue().getCellObject() != null) {
-                Drawable obj = getDrawable(entry.getValue().getCellObject().getId());
+            /*if(cell.getCellObject() != null) {
+                Drawable obj = getDrawable(cell.getCellObject().getId());
                 obj.setBounds(Math.round(p.x()),
                         Math.round(p.y()),
                         Math.round(p.x() + 2 * size),

@@ -1,13 +1,16 @@
-+ fill the edge of the map (thickness 1 tile) with the ocean
-+ generate ocean and land in the rest of the map
+
+
+
+
+- think on map storage - use list?
+
+
+- refactor a bit
+
+- write method for searching single tiles
+- remove single ocean tiles
+- remove single land tiles
+
 
 
 - check land/ocean generation
-- swap single ocean tiles with lakes?
-- remove single ocean tiles?
-
-- pangaea/continents
-
-
-
-

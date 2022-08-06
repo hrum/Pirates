@@ -14,7 +14,7 @@ public class HexVector {
             throw new IllegalArgumentException("q + r + s must be 0");
     }
 
-    public HexVector(HexCell origin, HexCell end) {
+    public HexVector(Cell origin, Cell end) {
         this.q = end.q() - origin.q();
         this.r = end.r() - origin.r();
         this.s = end.s() - origin.s();

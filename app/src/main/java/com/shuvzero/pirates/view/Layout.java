@@ -1,6 +1,6 @@
 package com.shuvzero.pirates.view;
 
-import com.shuvzero.pirates.model.HexCell;
+import com.shuvzero.pirates.model.Cell;
 import com.shuvzero.pirates.model.Point;
 
 public class Layout {
@@ -38,13 +38,13 @@ public class Layout {
         this.size = size;
     }
 
-    public Point getPoint(HexCell h) {
+    public Point getPoint(Cell h) {
         float x = (f0 * h.q() + f1 * h.r()) * size;
         float y = (f2 * h.q() + f3 * h.r()) * size;
         return new Point(x + origin.x(), y + origin.y());
     }
 
-    public HexCell getHexPoint(Point p) {
+    public Cell getHexPoint(Point p) {
         Point point = new Point((p.x() - origin.x()) / size, (p.y() - origin.y()) / size);
         float qF = b0 * point.x() + b1 * point.y();
         float rF = b2 * point.x() + b3 * point.y();
@@ -65,7 +65,7 @@ public class Layout {
         else
             s = -q - r;
 
-        return new HexCell(q, r, s);
+        return new Cell(q, r, s);
     }
 
 }
