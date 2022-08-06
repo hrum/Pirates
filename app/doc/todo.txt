@@ -1,6 +1,9 @@
+- improve map generation
+- think on algorithm
+- order of generation:
+1) linear
+2) flat
+3) singular
 
-
-- use object rarity
-
-- set treasure
-- show hints after dig
+hills, forest, jungle, marsh
+impassable? - mountains

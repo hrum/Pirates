@@ -28,6 +28,7 @@ MOVING
 - rivers/roads increase speed (x2)
 - ocean increase speed (x2)
 - the mountain reduces the speed (/2)
+- opponent players reduce the speed (/2)
 - some other tiles(like swamps) can also reduce the speed (/2)
 - the mountain increases the view distance by 1 (removes the fog of war)
 - points system: 4 points/move, usual move - 1 point, mountain - 2 points, dig - 1 point
