@@ -1,11 +1,15 @@
-- think on map storage - use list?
+- change coordinate system to single position
+
 
 
 
 
 - move some methods from cell to treasure map
 
-- refactor a bit
+
+
+================================================
+
 
 - write method for searching single tiles
 - remove single ocean tiles

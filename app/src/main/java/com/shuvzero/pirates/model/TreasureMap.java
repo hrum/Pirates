@@ -1,19 +1,20 @@
 package com.shuvzero.pirates.model;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class TreasureMap {
 
     private int rows;
     private int cols;
-    private HashSet<Cell> cells;
+    private List<Cell> cells;
     private final Random random = new Random();
 
     public TreasureMap(int rows, int cols) {
         this.rows = rows;
         this.cols = cols;
-        cells = new HashSet<>();
+        cells = new ArrayList<>();
     }
 
     public void generate() {
@@ -57,7 +58,7 @@ public class TreasureMap {
             return cellObject;
     }
 
-    public HashSet<Cell> getCells() {
+    public List<Cell> getCells() {
         return cells;
     }
 }

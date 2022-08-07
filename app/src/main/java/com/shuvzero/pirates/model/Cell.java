@@ -48,19 +48,8 @@ public class Cell {
         return cellObject;
     }
 
-    public Cell add(HexVector b) {
-        return new Cell(q + b.q(), r + b.r(), s + b.s());
-    }
-
-    public Cell sub(HexVector b) {
-        return new Cell(q - b.q(), r - b.r(), s - b.s());
-    }
-
     public Cell getNeighbour(Direction direction) {
-        return this.add(direction.getHexVector());
+        return null; //todo
     }
 
-    public int distance(Cell b) {
-        return new HexVector(this, b).length();
-    }
 }
