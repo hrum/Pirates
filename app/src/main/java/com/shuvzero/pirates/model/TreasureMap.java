@@ -4,25 +4,35 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+
+/*
+    Treasure map always have the following symmetrical structure:
+    row 0: width cells
+    row 1: width+1 cells
+    row 2: width cells
+    and so on
+ */
 public class TreasureMap {
 
-    private int rows;
-    private int cols;
+    private final int width;
+    private final int height;
+    private final int totalCells;
     private List<Cell> cells;
     private final Random random = new Random();
 
-    public TreasureMap(int rows, int cols) {
-        this.rows = rows;
-        this.cols = cols;
-        cells = new ArrayList<>();
+    public TreasureMap(int height, int width) {
+        this.height = height;
+        this.width = width;
+        this.totalCells = (height / 2) * (2 * width + 1) + (height % 2) * width;
+        createCells();
     }
 
-    public void generate() {
-        for (int r = 0; r < rows; r++) {
+    /*public void generate() {
+        for (int r = 0; r < height; r++) {
             int r_offset = r/2;
-            for (int q = 0 - r_offset; q < cols - r_offset; q++) {
+            for (int q = 0 - r_offset; q < width - r_offset; q++) {
                 Biome biome;
-                if(r == 0 || r == rows - 1 || q == -r_offset || q == cols - 1 - r_offset)
+                if(r == 0 || r == height - 1 || q == -r_offset || q == width - 1 - r_offset)
                     biome = Biome.Ocean;
                 else
                     biome = Biome.get(random.nextInt(Biome.getTotalRarity()));
@@ -35,15 +45,12 @@ public class TreasureMap {
                 cells.add(cell);
             }
         }
-    }
+    }*/
 
     private void createCells() {
-        for (int r = 0; r < rows; r++) {
-            int r_offset = r/2;
-            for (int q = 0 - r_offset; q < cols - r_offset; q++) {
-                cells.add(new Cell(q, r, -q-r));
-            }
-        }
+        cells = new ArrayList<>();
+        for(int position = 0; position < totalCells; position++)
+            cells.add(new Cell(position));
     }
 
     private void fillEdges() {
@@ -60,5 +67,9 @@ public class TreasureMap {
 
     public List<Cell> getCells() {
         return cells;
+    }
+
+    public Cell getNeighbour(Cell cell, Direction direction) {
+        return null; //todo
     }
 }

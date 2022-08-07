@@ -1,3 +1,5 @@
+- fix create cells method
+
 - change coordinate system to single position
 
 
@@ -14,7 +16,3 @@
 - write method for searching single tiles
 - remove single ocean tiles
 - remove single land tiles
-
-
-
-- check land/ocean generation

@@ -39,9 +39,10 @@ public class Layout {
     }
 
     public Point getPoint(Cell h) {
-        float x = (f0 * h.q() + f1 * h.r()) * size;
+        /*float x = (f0 * h.q() + f1 * h.r()) * size;
         float y = (f2 * h.q() + f3 * h.r()) * size;
-        return new Point(x + origin.x(), y + origin.y());
+        return new Point(x + origin.x(), y + origin.y());*/
+        return null;
     }
 
     public Cell getHexPoint(Point p) {
@@ -65,7 +66,7 @@ public class Layout {
         else
             s = -q - r;
 
-        return new Cell(q, r, s);
+        return new Cell(q);
     }
 
 }
