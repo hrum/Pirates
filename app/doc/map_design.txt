@@ -3,8 +3,8 @@ MAP GENERATION
 - at the beginning, the whole map is covered by the fog of war
 - fill the edge of the map (thickness 1 tile) with the ocean
 - generate ocean and land in the rest of the map
-- generate objects in the ocean
 - generate objects on the land
+- generate objects in the ocean
 - each object on the map must occur at least 2 times
 
 GAME OBJECTS
@@ -16,21 +16,15 @@ GAME OBJECTS
 OCEAN OBJECTS
 - ocean (empty)
 - coral
+- turtle
+- jellyfish
 - shark
-
-LAND OBJECTS(singular) - singular object can be anywhere inside the cell
-- desert (empty)
-- cave
-- bones/skulls
-- volcano
-- palm
-- house
-- pyramid
-- cactus
-- mark (cross)
-- chest
 - anchor
-- waterfall
+- octopus
+
+LINEAR OBJECTS
+- river (starts in lake, ends in ocean)
+- road (starts in the ocean, ends with a mark)
 
 FLAT OBJECTS - can occupy one or more cells
 - forest
@@ -41,9 +35,19 @@ FLAT OBJECTS - can occupy one or more cells
 - lake
 - sea (has connection with ocean, or lake with size > 3)
 
-LINEAR OBJECTS
-- river (starts in lake, ends in ocean)
-- road (starts in the ocean, ends with a mark)
+SINGLE OBJECTS (single object can be anywhere inside the cell?)
+- desert (empty)
+- cave
+- bones/skulls
+- volcano
+- palm
+- house
+- pyramid
+- cactus
+- mark (cross)
+- chest
+- waterfall
+- bridge (intersection of road and path)
 
 IDEAS FOR OBJECTS
 - animals can be used as objects (elephants, sharks)

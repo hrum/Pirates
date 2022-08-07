@@ -1,0 +1,11 @@
+- generate rivers
+start/end: lake, sea, ocean, desert
+
+
+==================================================================
+- generate roads
+- generate flat objects
+- generate single objects
+- each single object on the map must occur at least 2 times
+
+- generate objects in the ocean
