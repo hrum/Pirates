@@ -37,7 +37,7 @@ public class TreasureMap {
         /*CellObject cellObject = null;
         if(random.nextInt(100) > 20)
             cellObject = generateObject(biome);
-        cell.setBiome(biome);
+        cell.setLand(biome);
         cell.setCellObject(cellObject);
         cells.add(cell);*/
     }
@@ -61,17 +61,18 @@ public class TreasureMap {
     private void generateLand() {
         for(Cell cell: cells) {
             if(isEdge(cell.getPosition()))
-                cell.setBiome(Biome.Ocean);
-            else
-                cell.setBiome(Biome.get(random.nextInt(Biome.getTotalRarity())));
+                cell.setLand(false);
+            else {
+                cell.setLand(random.nextInt(100) > 25);
+            }
         }
     }
 
-    private CellObject generateObject(Biome biome) {
+    private CellObject generateObject(boolean isLand) {
         CellObject cellObject;
         do {
             cellObject = CellObject.values()[random.nextInt(CellObject.values().length)];
-        } while (cellObject.isLand() != biome.isLand());
+        } while (cellObject.isLand() != isLand);
             return cellObject;
     }
 

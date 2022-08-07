@@ -1,8 +1,4 @@
-- remove biome?
 
-
-
-================================================
 
 - write method for searching single tiles
 - remove single ocean tiles

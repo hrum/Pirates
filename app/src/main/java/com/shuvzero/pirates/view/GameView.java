@@ -7,6 +7,7 @@ import android.view.View;
 
 import androidx.core.content.ContextCompat;
 
+import com.shuvzero.pirates.R;
 import com.shuvzero.pirates.model.Cell;
 import com.shuvzero.pirates.model.Game;
 import com.shuvzero.pirates.model.Point;
@@ -31,7 +32,11 @@ public class GameView extends View {
 
     private void drawMap(Canvas canvas) {
         for(Cell cell: game.getTreasureMap().getCells()) {
-            Drawable tile = getDrawable(cell.getBiome().getId());
+            Drawable tile;
+            if(cell.isLand())
+                tile = getDrawable(R.drawable.land);
+            else
+                tile = getDrawable(R.drawable.ocean);
             Point p = layout.getPoint(cell.getPosition());
             tile.setBounds(Math.round(p.x()),
                     Math.round(p.y()),

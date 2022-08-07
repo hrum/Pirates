@@ -3,7 +3,7 @@ package com.shuvzero.pirates.model;
 public class Cell {
 
     private final int position;
-    private Biome biome;
+    private boolean isLand;
     private CellObject cellObject;
     private int hint;
     private boolean isFoggy;
@@ -12,12 +12,12 @@ public class Cell {
         this.position = position;
     }
 
-    public Biome getBiome() {
-        return biome;
+    public boolean isLand() {
+        return isLand;
     }
 
-    public void setBiome(Biome biome) {
-        this.biome = biome;
+    public void setLand(boolean isLand) {
+        this.isLand = isLand;
     }
 
     public void setCellObject(CellObject cellObject) {
