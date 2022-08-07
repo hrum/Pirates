@@ -34,7 +34,7 @@ public class GameView extends View {
     private void drawMap(Canvas canvas) {
         for(Cell cell: game.getTreasureMap().getCells()) {
             Drawable tile = getDrawable(cell.getBiome().getId());
-            Point p = layout.getPoint(cell);
+            Point p = layout.getPoint(cell.getPosition(), 0);
             tile.setBounds(Math.round(p.x()),
                     Math.round(p.y()),
                     Math.round(p.x() + 2 * size),

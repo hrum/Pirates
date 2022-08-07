@@ -16,6 +16,7 @@ public class TreasureMap {
 
     private final int width;
     private final int height;
+    private final int block;
     private final int totalCells;
     private List<Cell> cells;
     private final Random random = new Random();
@@ -23,7 +24,8 @@ public class TreasureMap {
     public TreasureMap(int height, int width) {
         this.height = height;
         this.width = width;
-        this.totalCells = (height / 2) * (2 * width + 1) + (height % 2) * width;
+        this.block = 2 * width + 1;
+        this.totalCells = (height / 2) * block + (height % 2) * width;
         createCells();
     }
 
@@ -51,7 +53,7 @@ public class TreasureMap {
             return true;
         if(position >= totalCells - width - (height + 1) % 2)
             return true;
-        int rem = position % (2 * width + 1);
+        int rem = position % block;
         return (rem == 0 || rem == width || rem == width - 1 || rem == 2 * width);
 
     }
@@ -79,5 +81,23 @@ public class TreasureMap {
 
     public Cell getNeighbour(Cell cell, Direction direction) {
         return null; //todo
+    }
+
+    public int getRow(int position) {
+        int row = position / block * 2;
+        if(isOddRow(position))
+        row++;
+        return row;
+    }
+
+    public int getColumn(int position) {
+        int column = position % block;
+        if(isOddRow(position))
+            column -= width;
+        return column;
+    }
+
+    private boolean isOddRow(int position) {
+        return position % block >= width;
     }
 }

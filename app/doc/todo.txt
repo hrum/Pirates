@@ -1,20 +1,9 @@
-
 - fix layout methods
 
 - get the same functionality
 
-- change coordinate system to single position
-
-
-
-
-
-- move some methods from cell to treasure map
-
-
 
 ================================================
-
 
 - write method for searching single tiles
 - remove single ocean tiles

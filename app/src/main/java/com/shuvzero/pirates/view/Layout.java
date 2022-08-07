@@ -38,11 +38,11 @@ public class Layout {
         this.size = size;
     }
 
-    public Point getPoint(Cell h) {
-        /*float x = (f0 * h.q() + f1 * h.r()) * size;
-        float y = (f2 * h.q() + f3 * h.r()) * size;
-        return new Point(x + origin.x(), y + origin.y());*/
-        return null;
+    public Point getPoint(int position, int width) {
+
+        float x = 0;
+        float y = 0;
+        return new Point(x + origin.x(), y + origin.y());
     }
 
     public Cell getHexPoint(Point p) {

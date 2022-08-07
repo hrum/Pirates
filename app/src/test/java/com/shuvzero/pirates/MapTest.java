@@ -8,9 +8,8 @@ public class MapTest {
 
     @Test
     public void checkTreasureMap() {
-        int width = 4;
-        int height = 4;
-        int totalCells = (height / 2) * (2 * width + 1) + (height % 2) * width;
-        System.out.println(totalCells);
+        TreasureMap map = new TreasureMap(10, 4);
+        for(int pos = 0; pos < 30; pos++)
+            System.out.println(pos + ": " + map.getRow(pos) + " " + map.getColumn(pos));
     }
 }
