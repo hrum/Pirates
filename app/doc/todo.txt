@@ -1,8 +1,5 @@
-- fill edges with ocean
-- fill other map with ocean/land
 
-- fix generate method
-
+- fix layout methods
 
 - get the same functionality
 
