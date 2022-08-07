@@ -11,18 +11,16 @@ import com.shuvzero.pirates.model.Cell;
 import com.shuvzero.pirates.model.Game;
 import com.shuvzero.pirates.model.Point;
 
-import java.util.Map;
-
 public class GameView extends View {
 
-    private float size = 58;
+    private float size = 51;
     private Game game;
-    private Layout layout;
+    private MapLayout layout;
 
     public GameView(Context context, Game game) {
         super(context);
         this.game = game;
-        layout = new Layout(new Point(0,0), size);
+        layout = new MapLayout(game.getTreasureMap(), new Point(0,0), size);
     }
 
     @Override
@@ -34,7 +32,7 @@ public class GameView extends View {
     private void drawMap(Canvas canvas) {
         for(Cell cell: game.getTreasureMap().getCells()) {
             Drawable tile = getDrawable(cell.getBiome().getId());
-            Point p = layout.getPoint(cell.getPosition(), 0);
+            Point p = layout.getPoint(cell.getPosition());
             tile.setBounds(Math.round(p.x()),
                     Math.round(p.y()),
                     Math.round(p.x() + 2 * size),

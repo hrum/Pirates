@@ -97,7 +97,7 @@ public class TreasureMap {
         return column;
     }
 
-    private boolean isOddRow(int position) {
+    public boolean isOddRow(int position) {
         return position % block >= width;
     }
 }

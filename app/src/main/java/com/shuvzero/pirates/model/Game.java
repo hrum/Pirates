@@ -5,7 +5,7 @@ public class Game {
     private TreasureMap treasureMap;
 
     public void start() {
-        treasureMap = new TreasureMap(25, 10);
+        treasureMap = new TreasureMap(29, 11);
         treasureMap.generate();
     }
 

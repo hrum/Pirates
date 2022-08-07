@@ -2,22 +2,21 @@ package com.shuvzero.pirates.view;
 
 import com.shuvzero.pirates.model.Cell;
 import com.shuvzero.pirates.model.Point;
+import com.shuvzero.pirates.model.TreasureMap;
 
-public class Layout {
+public class MapLayout {
 
-    private static final float f0 = (float)Math.sqrt(3);
-    private static final float f1 = (float)Math.sqrt(3)/2;
-    private static final float f2 = 0;
-    private static final float f3 = 1.5f;
     private static final float b0 = (float)Math.sqrt(3)/3;
     private static final float b1 = -1.0f/3;
     private static final float b2 = 0;
     private static final float b3 = 2.0f/3;
 
+    private TreasureMap map;
     private Point origin;
     private float size;
 
-    public Layout(Point origin, float size) {
+    public MapLayout(TreasureMap map, Point origin, float size) {
+        this.map = map;
         this.origin = origin;
         this.size = size;
     }
@@ -38,14 +37,17 @@ public class Layout {
         this.size = size;
     }
 
-    public Point getPoint(int position, int width) {
-
-        float x = 0;
-        float y = 0;
+    public Point getPoint(int position) {
+        int row = map.getRow(position);
+        float column = map.getColumn(position);
+        if(!map.isOddRow(position))
+            column += 0.5f;
+        float x = column * (float)Math.sqrt(3) * size;
+        float y = row * 6.0f/4 * size;
         return new Point(x + origin.x(), y + origin.y());
     }
 
-    public Cell getHexPoint(Point p) {
+    public Cell getPosition(Point p) {
         Point point = new Point((p.x() - origin.x()) / size, (p.y() - origin.y()) / size);
         float qF = b0 * point.x() + b1 * point.y();
         float rF = b2 * point.x() + b3 * point.y();
