@@ -1,5 +1,0 @@
-
-
-- write method for searching single tiles
-- remove single ocean tiles
-- remove single land tiles

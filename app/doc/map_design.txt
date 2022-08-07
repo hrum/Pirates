@@ -31,14 +31,15 @@ LAND OBJECTS(singular) - singular object can be anywhere inside the cell
 - chest
 - anchor
 - waterfall
-- lake
 
-FLAT OBJECTS
+FLAT OBJECTS - can occupy one or more cells
 - forest
 - mountains
 - hills
 - swamp
 - jungle
+- lake
+- sea (has connection with ocean, or lake with size > 3)
 
 LINEAR OBJECTS
 - river (starts in lake, ends in ocean)
