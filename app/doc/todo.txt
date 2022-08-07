@@ -1,4 +1,10 @@
-- fix create cells method
+- fill edges with ocean
+- fill other map with ocean/land
+
+- fix generate method
+
+
+- get the same functionality
 
 - change coordinate system to single position
 

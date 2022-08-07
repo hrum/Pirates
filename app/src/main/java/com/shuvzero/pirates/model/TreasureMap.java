@@ -27,30 +27,37 @@ public class TreasureMap {
         createCells();
     }
 
-    /*public void generate() {
-        for (int r = 0; r < height; r++) {
-            int r_offset = r/2;
-            for (int q = 0 - r_offset; q < width - r_offset; q++) {
-                Biome biome;
-                if(r == 0 || r == height - 1 || q == -r_offset || q == width - 1 - r_offset)
-                    biome = Biome.Ocean;
-                else
-                    biome = Biome.get(random.nextInt(Biome.getTotalRarity()));
-                CellObject cellObject = null;
-                if(random.nextInt(100) > 20)
-                    cellObject = generateObject(biome);
-                Cell cell = new Cell(q, r, -q-r);
-                cell.setBiome(biome);
-                cell.setCellObject(cellObject);
-                cells.add(cell);
-            }
-        }
-    }*/
+    public void generate() {
+
+        Biome biome;
+        if(r == 0 || r == height - 1 || q == -r_offset || q == width - 1 - r_offset)
+            biome = Biome.Ocean;
+        else
+            biome = Biome.get(random.nextInt(Biome.getTotalRarity()));
+
+
+        CellObject cellObject = null;
+        if(random.nextInt(100) > 20)
+            cellObject = generateObject(biome);
+        cell.setBiome(biome);
+        cell.setCellObject(cellObject);
+        cells.add(cell);
+    }
 
     private void createCells() {
         cells = new ArrayList<>();
         for(int position = 0; position < totalCells; position++)
             cells.add(new Cell(position));
+    }
+
+    private boolean isEdge(int position) {
+        if(position < width)
+            return true;
+        if(position >= totalCells - width - (height + 1) % 2)
+            return true;
+        int rem = position % (2 * width + 1);
+        return (rem == 0 || rem == width || rem == width - 1 || rem == 2 * width);
+
     }
 
     private void fillEdges() {
