@@ -1,4 +1,3 @@
-- generate roads
 - generate flat objects
 - generate single objects
 - each single object on the map must occur at least 2 times

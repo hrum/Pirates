@@ -18,7 +18,8 @@ public class MapGenerator {
 
     public void generate() {
         generateLand();
-        generateRivers(5);
+        generateRivers(3);
+        generateRoads(3);
     }
 
     private void generateLand() {
@@ -63,7 +64,27 @@ public class MapGenerator {
             direction = updateDirection(direction);
             position = adj.getPosition();
         }
+    }
 
+    private void generateRoads(int quantity) {
+        for(int road = 0; road < quantity; road++)
+            generateRoad();
+    }
+
+    private void generateRoad() {
+        int position = landCells.get(random.nextInt(landCells.size()));
+        map.getCell(position).setFeature(Feature.Cross);
+        Direction direction = getRandomDirection();
+        boolean finish = false;
+        while(!finish) {
+            Cell adj = map.getAdjacent(position, direction);
+            if(adj.isLand())
+                adj.setFeature(Feature.Road);
+            else
+                finish = true;
+            direction = updateDirection(direction);
+            position = adj.getPosition();
+        }
     }
 
     private Direction updateDirection(Direction direction) {
