@@ -1,3 +1,6 @@
+- get adjacent cell method
+
+
 - generate  2-3 rivers like this:
 
 - select random position on the land

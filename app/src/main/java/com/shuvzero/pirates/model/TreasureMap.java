@@ -2,8 +2,6 @@ package com.shuvzero.pirates.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-
 
 /*
     Treasure map always have the following symmetrical structure:
@@ -18,6 +16,7 @@ public class TreasureMap {
     private final int height;
     private final int block;
     private final int totalCells;
+    private final int bottomEdge;
     private List<Cell> cells;
 
     public TreasureMap(int height, int width) {
@@ -25,6 +24,7 @@ public class TreasureMap {
         this.width = width;
         this.block = 2 * width + 1;
         this.totalCells = (height / 2) * block + (height % 2) * width;
+        this.bottomEdge = totalCells - width - (height + 1) % 2;
         createCells();
     }
 
@@ -37,11 +37,30 @@ public class TreasureMap {
     public boolean isEdge(int position) {
         if(position < width)
             return true;
-        if(position >= totalCells - width - (height + 1) % 2)
+        if(position >= bottomEdge)
             return true;
         int rem = position % block;
         return (rem == 0 || rem == width || rem == width - 1 || rem == 2 * width);
+    }
 
+    public boolean hasAdjacent(Cell cell, Direction direction) {
+        int position = cell.getPosition();
+        int rem = position % block;
+        switch (direction) {
+            case NW:
+                return position >= width && rem != width;
+            case NE:
+                return position >= width && rem != 2 * width;
+            case SW:
+                return position < bottomEdge && rem != width;
+            case SE:
+                return position < bottomEdge && rem != 2 * width;
+            case W:
+                return rem != 0 && rem != width;
+            case E:
+                return rem != width - 1 && rem != 2 * width;
+        }
+        return false;
     }
 
     public List<Cell> getCells() {
@@ -53,7 +72,7 @@ public class TreasureMap {
     }
 
     public Cell getAdjacent(Cell cell, Direction direction) {
-        return null; //todo
+        return null;
     }
 
     public int getRow(int position) {
