@@ -43,8 +43,7 @@ public class TreasureMap {
         return (rem == 0 || rem == width || rem == width - 1 || rem == 2 * width);
     }
 
-    public boolean hasAdjacent(Cell cell, Direction direction) {
-        int position = cell.getPosition();
+    public boolean hasAdjacent(int position, Direction direction) {
         int rem = position % block;
         switch (direction) {
             case NW:
@@ -63,16 +62,32 @@ public class TreasureMap {
         return false;
     }
 
+    public Cell getAdjacent(int position, Direction direction) {
+        if(hasAdjacent(position, direction)) {
+            switch (direction) {
+                case NW:
+                    return cells.get(position - width - 1);
+                case NE:
+                    return cells.get(position - width);
+                case SW:
+                    return cells.get(position + width);
+                case SE:
+                    return cells.get(position + width + 1);
+                case W:
+                    return cells.get(position - 1);
+                case E:
+                    return cells.get(position + 1);
+            }
+        }
+        return null;
+    }
+
     public List<Cell> getCells() {
         return cells;
     }
 
     public Cell getCell(int position) {
         return cells.get(position);
-    }
-
-    public Cell getAdjacent(Cell cell, Direction direction) {
-        return null;
     }
 
     public int getRow(int position) {
