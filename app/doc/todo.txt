@@ -1,6 +1,8 @@
 - generate rivers
-start/end: lake, sea, ocean, desert
-
+length of river
+don't change direction - x%
+change direction 60 - y%
+change direction 120 - z%
 
 ==================================================================
 - generate roads

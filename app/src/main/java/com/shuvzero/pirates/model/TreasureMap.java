@@ -63,7 +63,7 @@ public class TreasureMap {
             if(isEdge(cell.getPosition()))
                 cell.setLand(false);
             else {
-                cell.setLand(random.nextInt(100) > 15);
+                cell.setLand(random.nextInt(100) > 25);
             }
         }
     }
