@@ -4,7 +4,7 @@ public class Cell {
 
     private final int position;
     private boolean isLand;
-    private CellObject cellObject;
+    private Feature feature;
     private int hint;
     private boolean isFoggy;
 
@@ -20,12 +20,12 @@ public class Cell {
         this.isLand = isLand;
     }
 
-    public void setCellObject(CellObject cellObject) {
-        this.cellObject = cellObject;
+    public void setFeature(Feature feature) {
+        this.feature = feature;
     }
 
-    public CellObject getCellObject() {
-        return cellObject;
+    public Feature getFeature() {
+        return feature;
     }
 
     public int getPosition() {

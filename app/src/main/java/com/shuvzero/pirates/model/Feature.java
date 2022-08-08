@@ -2,7 +2,7 @@ package com.shuvzero.pirates.model;
 
 import com.shuvzero.pirates.R;
 
-public enum CellObject {
+public enum Feature {
 
     Anchor(R.drawable.anchor, 100, true),
     Cactus(R.drawable.cactus, 100, true),
@@ -26,7 +26,7 @@ public enum CellObject {
     private int rarity;
     private boolean isLand;
 
-    CellObject(int id, int rarity, boolean isLand) {
+    Feature(int id, int rarity, boolean isLand) {
         this.id = id;
         this.rarity = rarity;
         this.isLand = isLand;

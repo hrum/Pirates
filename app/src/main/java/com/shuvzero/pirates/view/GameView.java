@@ -43,14 +43,14 @@ public class GameView extends View {
                     Math.round(p.x() + 2 * size),
                     Math.round(p.y() + 2 * size));
             tile.draw(canvas);
-            /*if(cell.getCellObject() != null) {
-                Drawable obj = getDrawable(cell.getCellObject().getId());
-                obj.setBounds(Math.round(p.x()),
+            if(cell.getFeature() != null) {
+                Drawable feature = getDrawable(cell.getFeature().getId());
+                feature.setBounds(Math.round(p.x()),
                         Math.round(p.y()),
                         Math.round(p.x() + 2 * size),
                         Math.round(p.y() + 2 * size));
-                obj.draw(canvas);
-            }*/
+                feature.draw(canvas);
+            }
         }
     }
 

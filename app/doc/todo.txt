@@ -1,12 +1,2 @@
-- generate  2-3 rivers like this:
 
-- select random position on the land
-- check for water in adjacent cells
-- if found water, connect river and get direction (if more than one cell with water, select random one)
-- otherwise select random direction
-on each step:
-    don't change direction - %
-    change direction 60 - %
-    change direction 120 - %
-    finish river - %
 

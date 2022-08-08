@@ -1,14 +1,15 @@
 package com.shuvzero.pirates.model;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
 public class MapGenerator {
 
-    TreasureMap map;
-    List<Integer> waterCells;
-    List<Integer> landCells;
+    private TreasureMap map;
+    private List<Integer> waterCells;
+    private List<Integer> landCells;
     private final Random random = new Random();
 
     public MapGenerator(TreasureMap map) {
@@ -17,10 +18,12 @@ public class MapGenerator {
 
     public void generate() {
         generateLand();
-
+        generateRivers(3);
     }
 
     private void generateLand() {
+        waterCells = new ArrayList<>();
+        landCells = new ArrayList<>();
         boolean isLand;
         for(Cell cell: map.getCells()) {
             if(map.isEdge(cell.getPosition()))
@@ -41,8 +44,45 @@ public class MapGenerator {
         return Direction.values()[random.nextInt(Direction.values().length)];
     }
 
+    private void generateRivers(int quantity) {
+        for(int river = 0; river < quantity; river++)
+            generateRiver();
+    }
+
     private void generateRiver() {
         int position = landCells.get(random.nextInt(landCells.size()));
+        map.getCell(position).setFeature(Feature.River);
+        Direction direction = getRiverDirection(position);
+        while(true) {
+            Cell adj = map.getAdjacent(position, direction);
+            if(adj.isLand())
+                adj.setFeature(Feature.River);
+            else
+                break;
+            if(random.nextInt(100) < 10)
+                break;
+            updateDirection(direction);
+        }
+
+    }
+
+    private void updateDirection(Direction direction) {
+        int num = random.nextInt(1000);
+        if(num < 300) {
+            if(num % 2 == 0)
+                direction = direction.next();
+            else
+                direction = direction.previous();
+        }
+        if(num < 100) {
+            if(num % 2 == 0)
+                direction = direction.next();
+            else
+                direction = direction.previous();
+        }
+    }
+
+    private Direction getRiverDirection(int position) {
         List<Cell> adjCells = map.getAdjacent(position);
         Iterator<Cell> iterator = adjCells.iterator();
         while(iterator.hasNext()) {
@@ -50,21 +90,14 @@ public class MapGenerator {
             if(adjCell.isLand())
                 iterator.remove();
         }
-        Direction dir;
+        Direction direction;
         if(!adjCells.isEmpty()) {
             Cell waterCell = adjCells.get(random.nextInt(adjCells.size()));
-            dir = map.getDirection(waterCell.getPosition(), position);
+            direction = map.getDirection(waterCell.getPosition(), position);
         } else {
-            dir = getRandomDirection();
+            direction = getRandomDirection();
         }
-
-        //on each step:
-        //    don't change direction - %
-        //    change direction 60 - %
-        //    change direction 120 - %
-        //    finish river - %
-
-
+        return direction;
     }
 
 }
