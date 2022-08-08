@@ -1,10 +1,13 @@
 package com.shuvzero.pirates.model;
 
+import java.util.List;
 import java.util.Random;
 
 public class MapGenerator {
 
     TreasureMap map;
+    List<Integer> waterCells;
+    List<Integer> landCells;
     private final Random random = new Random();
 
     public MapGenerator(TreasureMap map) {
@@ -17,19 +20,24 @@ public class MapGenerator {
     }
 
     private void generateLand() {
+        boolean isLand;
         for(Cell cell: map.getCells()) {
             if(map.isEdge(cell.getPosition()))
-                cell.setLand(false);
+                isLand = false;
             else {
-                cell.setLand(random.nextInt(100) > 25);
+                isLand = random.nextInt(100) > 25;
             }
+            cell.setLand(isLand);
+            if(isLand)
+                landCells.add(cell.getPosition());
+            else
+                waterCells.add(cell.getPosition());
+
         }
     }
 
     private void generateRiver() {
-        //select random position on the land
-
-
+        int position = landCells.get(random.nextInt(landCells.size()));
 
         //check for water in adjacent cells
         //if found water, connect river and get direction (if more than one cell with water, select random one)
@@ -41,7 +49,6 @@ public class MapGenerator {
         //    finish river - %
 
 
-
-
     }
+
 }

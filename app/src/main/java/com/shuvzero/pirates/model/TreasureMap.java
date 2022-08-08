@@ -48,6 +48,10 @@ public class TreasureMap {
         return cells;
     }
 
+    public Cell getCell(int position) {
+        return cells.get(position);
+    }
+
     public Cell getAdjacent(Cell cell, Direction direction) {
         return null; //todo
     }
