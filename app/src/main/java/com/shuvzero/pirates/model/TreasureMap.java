@@ -82,6 +82,25 @@ public class TreasureMap {
         return null;
     }
 
+    public List<Cell> getAdjacent(int position) {
+        List<Cell> adjCells = new ArrayList<>();
+        for(Direction direction: Direction.values()) {
+            Cell adjCell = getAdjacent(position, direction);
+            if(adjCell != null)
+                adjCells.add(adjCell);
+        }
+        return adjCells;
+    }
+
+    public Direction getDirection(int startPos, int endPos) {
+        for(Direction dir: Direction.values()) {
+            Cell adj = getAdjacent(startPos, dir);
+            if(adj != null && adj.getPosition() == endPos)
+                return dir;
+        }
+        return null;
+    }
+
     public List<Cell> getCells() {
         return cells;
     }
