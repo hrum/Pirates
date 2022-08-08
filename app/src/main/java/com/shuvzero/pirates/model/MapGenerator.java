@@ -18,7 +18,7 @@ public class MapGenerator {
 
     public void generate() {
         generateLand();
-        generateRivers(3);
+        generateRivers(5);
     }
 
     private void generateLand() {
@@ -29,7 +29,7 @@ public class MapGenerator {
             if(map.isEdge(cell.getPosition()))
                 isLand = false;
             else {
-                isLand = random.nextInt(100) > 25;
+                isLand = random.nextInt(100) > 20;
             }
             cell.setLand(isLand);
             if(isLand)
@@ -53,33 +53,35 @@ public class MapGenerator {
         int position = landCells.get(random.nextInt(landCells.size()));
         map.getCell(position).setFeature(Feature.River);
         Direction direction = getRiverDirection(position);
-        while(true) {
+        boolean finish = false;
+        while(!finish) {
             Cell adj = map.getAdjacent(position, direction);
             if(adj.isLand())
                 adj.setFeature(Feature.River);
             else
-                break;
-            if(random.nextInt(100) < 10)
-                break;
-            updateDirection(direction);
+                finish = true;
+            direction = updateDirection(direction);
+            position = adj.getPosition();
         }
 
     }
 
-    private void updateDirection(Direction direction) {
+    private Direction updateDirection(Direction direction) {
+        Direction dir = direction;
         int num = random.nextInt(1000);
-        if(num < 300) {
+        if(num < 600) {
             if(num % 2 == 0)
-                direction = direction.next();
+                dir = direction.next();
             else
-                direction = direction.previous();
+                dir = direction.previous();
         }
-        if(num < 100) {
+        else if(num < 200) {
             if(num % 2 == 0)
-                direction = direction.next();
+                dir = direction.next().next();
             else
-                direction = direction.previous();
+                dir = direction.previous().previous();
         }
+        return dir;
     }
 
     private Direction getRiverDirection(int position) {
