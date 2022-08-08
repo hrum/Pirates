@@ -6,7 +6,8 @@ public class Game {
 
     public void start() {
         treasureMap = new TreasureMap(29, 11);
-        treasureMap.generate();
+        MapGenerator mapGenerator = new MapGenerator(treasureMap);
+        mapGenerator.generate();
     }
 
     public TreasureMap getTreasureMap() {

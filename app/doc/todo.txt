@@ -1,4 +1,5 @@
 - generate  2-3 rivers like this:
+
 - select random position on the land
 - check for water in adjacent cells
 - if found water, connect river and get direction (if more than one cell with water, select random one)
@@ -9,10 +10,3 @@ on each step:
     change direction 120 - %
     finish river - %
 
-==================================================================
-- generate roads
-- generate flat objects
-- generate single objects
-- each single object on the map must occur at least 2 times
-
-- generate objects in the ocean

@@ -19,7 +19,6 @@ public class TreasureMap {
     private final int block;
     private final int totalCells;
     private List<Cell> cells;
-    private final Random random = new Random();
 
     public TreasureMap(int height, int width) {
         this.height = height;
@@ -29,26 +28,13 @@ public class TreasureMap {
         createCells();
     }
 
-    public void generate() {
-
-        generateLand();
-
-
-        /*CellObject cellObject = null;
-        if(random.nextInt(100) > 20)
-            cellObject = generateObject(biome);
-        cell.setLand(biome);
-        cell.setCellObject(cellObject);
-        cells.add(cell);*/
-    }
-
     private void createCells() {
         cells = new ArrayList<>();
         for(int position = 0; position < totalCells; position++)
             cells.add(new Cell(position));
     }
 
-    private boolean isEdge(int position) {
+    public boolean isEdge(int position) {
         if(position < width)
             return true;
         if(position >= totalCells - width - (height + 1) % 2)
@@ -58,29 +44,11 @@ public class TreasureMap {
 
     }
 
-    private void generateLand() {
-        for(Cell cell: cells) {
-            if(isEdge(cell.getPosition()))
-                cell.setLand(false);
-            else {
-                cell.setLand(random.nextInt(100) > 25);
-            }
-        }
-    }
-
-    private CellObject generateObject(boolean isLand) {
-        CellObject cellObject;
-        do {
-            cellObject = CellObject.values()[random.nextInt(CellObject.values().length)];
-        } while (cellObject.isLand() != isLand);
-            return cellObject;
-    }
-
     public List<Cell> getCells() {
         return cells;
     }
 
-    public Cell getNeighbour(Cell cell, Direction direction) {
+    public Cell getAdjacent(Cell cell, Direction direction) {
         return null; //todo
     }
 
