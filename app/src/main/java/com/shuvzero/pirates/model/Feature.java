@@ -4,42 +4,36 @@ import com.shuvzero.pirates.R;
 
 public enum Feature {
 
-    Anchor(R.drawable.anchor, 100, true),
-    Cactus(R.drawable.cactus, 100, true),
-    Cave(R.drawable.cave, 100, true),
-    Chest(R.drawable.chest, 100, true),
-    Cross(R.drawable.cross, 100, true),
-    House(R.drawable.house, 100, true),
-    Lake(R.drawable.lake, 100, true),
-    Mark(R.drawable.mark, 100, true),
-    Mountain(R.drawable.mountain, 100, true),
-    Palm(R.drawable.palm, 100, true),
-    River(R.drawable.river,100, true),
-    Road(R.drawable.road, 100, true),
-    Skull(R.drawable.skull,100, true),
-    Volcano(R.drawable.volcano, 100, true),
+    Anchor(R.drawable.anchor, true),
+    Cactus(R.drawable.cactus, true),
+    Cave(R.drawable.cave, true),
+    Chest(R.drawable.chest, true),
+    Cross(R.drawable.cross, true),
+    House(R.drawable.house, true),
+    Lake(R.drawable.lake, true),
+    Mark(R.drawable.mark, true),
+    Mountain(R.drawable.mountain, true),
+    Palm(R.drawable.palm, true),
+    River(R.drawable.river, true),
+    Road(R.drawable.road, true),
+    Skull(R.drawable.skull, true),
+    Volcano(R.drawable.volcano, true),
 
-    Shark(R.drawable.shark, 100, false),
-    Coral(R.drawable.coral, 100, false);
+    Shark(R.drawable.shark, false),
+    Coral(R.drawable.coral, false);
 
 
 
     private int id;
-    private int rarity;
     private boolean isLand;
 
-    Feature(int id, int rarity, boolean isLand) {
+    Feature(int id, boolean isLand) {
         this.id = id;
-        this.rarity = rarity;
         this.isLand = isLand;
     }
 
     public int getId() {
         return id;
-    }
-
-    public int getRarity() {
-        return rarity;
     }
 
     public boolean isLand() {
