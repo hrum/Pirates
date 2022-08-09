@@ -8,13 +8,15 @@ MAP GENERATION
 - each object on the map must occur at least 2 times
 
 GAME OBJECTS
-- singular - can not be neighbour with itself
+- singular - can not be adjacent with the same object
 - linear - line across the map
-- flat - always occupies several cells
+- flat - occupies one or more adjacent cells
 - related - one object always near another
 
 OCEAN OBJECTS
 - ocean (empty)
+- sea (has connection with ocean, or lake with size > 1)
+- lake
 - coral
 - turtle
 - jellyfish
@@ -23,17 +25,15 @@ OCEAN OBJECTS
 - octopus
 
 LINEAR OBJECTS
-- river (starts in lake, ends in ocean)
-- road (starts in the ocean, ends with a mark)
+- river
+- road
 
-FLAT OBJECTS - can occupy one or more cells
+FLAT OBJECTS
+- grass
 - forest
-- mountains
 - hills
+- mountains
 - swamp
-- jungle
-- lake
-- sea (has connection with ocean, or lake with size > 3)
 
 SINGLE OBJECTS (single object can be anywhere inside the cell?)
 - desert (empty)

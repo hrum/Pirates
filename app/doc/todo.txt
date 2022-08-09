@@ -1,2 +1,3 @@
-
+- think about objects generation
+- generate flat objects
 

@@ -73,7 +73,7 @@ public class MapGenerator {
 
     private void generateRoad() {
         int position = landCells.get(random.nextInt(landCells.size()));
-        map.getCell(position).setFeature(Feature.Cross);
+        map.getCell(position).setFeature(Feature.Road);
         Direction direction = getRandomDirection();
         boolean finish = false;
         while(!finish) {
@@ -122,5 +122,15 @@ public class MapGenerator {
         }
         return direction;
     }
+
+    private void generateObjects() {
+        //cycle through all land tiles
+        //if tile is empty
+        //x% tile should be empty
+        //check adjacent cells
+        //y% flat object from adjacent cell
+        //0% single object from adjacent cell
+    }
+
 
 }
