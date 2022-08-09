@@ -14,17 +14,19 @@ GAME PROGRESS
 - on each turn, the player can move and/or dig (if the player is on the land tile)
 
 MOVING
-- the player can move one cell around himself
-- rivers/roads increase speed (x2)
-- ocean increase speed (x2)
-- the mountain reduces the speed (/2)
+- 3 moves per turn, 2pt per move (can move or dig)
+- the player can move two cells around himself (explored area)
+- if area is not explored yet, then player moves one cell
+- rivers/roads takes 0.5pt
+- ocean takes 0.5pt
+- moving into mountain/hill/swamp takes 2pt
 - opponent players reduce the speed (/2)
 - some other tiles(hills, forest, jungle, swamp) can also reduce the speed (/2)
 - the mountain increases the view distance by 1 (removes the fog of war)
-- points system: 4 points/move, usual move - 1 point, mountain - 2 points, dig - 1 point
-- dig occurs in 3 steps (0-3 /4-7, etc.)
+- moving across river takes all pt
 
 DIG
+- dig occurs in 3 steps (0-3 /4-7, etc.)
 - player can dig only while he is on the land tile
 - player can dig only 3 times in the same place
 - if there is a treasure in the tile where the player digs 3 times, then the player wins
