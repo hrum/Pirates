@@ -1,3 +1,11 @@
 - think about objects generation
 - generate flat objects
 
+- add feature type: single, linear, flat
+- remove feature rarity
+- make linear features generation the same for all features
+- make minimal length for linear features? - min length = 2
+- check cell is empty
+
+- remove rivers if length < min
+

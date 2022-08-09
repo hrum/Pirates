@@ -124,12 +124,7 @@ public class MapGenerator {
     }
 
     private void generateObjects() {
-        //cycle through all land tiles
-        //if tile is empty
-        //x% tile should be empty
-        //check adjacent cells
-        //y% flat object from adjacent cell
-        //0% single object from adjacent cell
+        //rework algorithm - should be similar to linear
     }
 
 
