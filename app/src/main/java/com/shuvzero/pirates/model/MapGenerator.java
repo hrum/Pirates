@@ -7,8 +7,8 @@ import java.util.Random;
 public class MapGenerator {
 
     private TreasureMap map;
-    private List<Integer> waterCells;
-    private List<Integer> landCells;
+    private List<Integer> emptyWaterCells;
+    private List<Integer> emptyLandCells;
     private final Random random = new Random();
 
     public MapGenerator(TreasureMap map) {
@@ -23,8 +23,8 @@ public class MapGenerator {
     }
 
     private void generateLand() {
-        waterCells = new ArrayList<>();
-        landCells = new ArrayList<>();
+        emptyWaterCells = new ArrayList<>();
+        emptyLandCells = new ArrayList<>();
         boolean isLand;
         for(Cell cell: map.getCells()) {
             if(map.isEdge(cell.getPosition()))
@@ -34,9 +34,9 @@ public class MapGenerator {
             }
             cell.setLand(isLand);
             if(isLand)
-                landCells.add(cell.getPosition());
+                emptyLandCells.add(cell.getPosition());
             else
-                waterCells.add(cell.getPosition());
+                emptyWaterCells.add(cell.getPosition());
 
         }
     }
@@ -51,18 +51,23 @@ public class MapGenerator {
     }
 
     private void generateLinear(Feature feature) {
-        int position = landCells.get(random.nextInt(landCells.size()));
+        int position = emptyLandCells.get(random.nextInt(emptyLandCells.size()));
+
+
+        emptyLandCells.remove((Integer)position);
         map.getCell(position).setFeature(feature);
         Direction direction = getRandomDirection();
+
         boolean finish = false;
         while(!finish) {
             Cell adj = map.getAdjacent(position, direction);
-            if(adj.isLand())
+            if(adj.isLand() && adj.getFeature() == null) {
+                position = adj.getPosition();
+                emptyLandCells.remove((Integer)adj.getPosition());
                 adj.setFeature(feature);
-            else
+                direction = updateDirection(direction);
+            } else
                 finish = true;
-            direction = updateDirection(direction);
-            position = adj.getPosition();
         }
     }
 
