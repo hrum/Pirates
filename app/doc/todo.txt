@@ -1,9 +1,9 @@
 
-- make linear features generation the same for all features
 - make minimal length for linear features? - min length = 2
 - check cell is empty
 - remove rivers if length < min
 
+- create pictures
 - think about objects generation
 - generate flat objects
 

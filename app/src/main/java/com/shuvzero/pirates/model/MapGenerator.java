@@ -1,7 +1,6 @@
 package com.shuvzero.pirates.model;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -18,8 +17,9 @@ public class MapGenerator {
 
     public void generate() {
         generateLand();
-        generateRivers(3);
-        generateRoads(3);
+        generateLinear(Feature.River, 3);
+        generateLinear(Feature.Road, 3);
+
     }
 
     private void generateLand() {
@@ -45,41 +45,20 @@ public class MapGenerator {
         return Direction.values()[random.nextInt(Direction.values().length)];
     }
 
-    private void generateRivers(int quantity) {
-        for(int river = 0; river < quantity; river++)
-            generateRiver();
+    private void generateLinear(Feature feature, int quantity) {
+        for(int i = 0; i < quantity; i++)
+            generateLinear(feature);
     }
 
-    private void generateRiver() {
+    private void generateLinear(Feature feature) {
         int position = landCells.get(random.nextInt(landCells.size()));
-        map.getCell(position).setFeature(Feature.River);
-        Direction direction = getRiverDirection(position);
-        boolean finish = false;
-        while(!finish) {
-            Cell adj = map.getAdjacent(position, direction);
-            if(adj.isLand())
-                adj.setFeature(Feature.River);
-            else
-                finish = true;
-            direction = updateDirection(direction);
-            position = adj.getPosition();
-        }
-    }
-
-    private void generateRoads(int quantity) {
-        for(int road = 0; road < quantity; road++)
-            generateRoad();
-    }
-
-    private void generateRoad() {
-        int position = landCells.get(random.nextInt(landCells.size()));
-        map.getCell(position).setFeature(Feature.Road);
+        map.getCell(position).setFeature(feature);
         Direction direction = getRandomDirection();
         boolean finish = false;
         while(!finish) {
             Cell adj = map.getAdjacent(position, direction);
             if(adj.isLand())
-                adj.setFeature(Feature.Road);
+                adj.setFeature(feature);
             else
                 finish = true;
             direction = updateDirection(direction);
@@ -103,24 +82,6 @@ public class MapGenerator {
                 dir = direction.previous().previous();
         }
         return dir;
-    }
-
-    private Direction getRiverDirection(int position) {
-        List<Cell> adjCells = map.getAdjacent(position);
-        Iterator<Cell> iterator = adjCells.iterator();
-        while(iterator.hasNext()) {
-            Cell adjCell = iterator.next();
-            if(adjCell.isLand())
-                iterator.remove();
-        }
-        Direction direction;
-        if(!adjCells.isEmpty()) {
-            Cell waterCell = adjCells.get(random.nextInt(adjCells.size()));
-            direction = map.getDirection(waterCell.getPosition(), position);
-        } else {
-            direction = getRandomDirection();
-        }
-        return direction;
     }
 
     private void generateObjects() {
