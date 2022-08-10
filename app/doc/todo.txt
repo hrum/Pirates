@@ -1,8 +1,3 @@
-- make minimal length for linear features? - min length = 2
-- remove rivers if length < min
-
-
-
 - create pictures
 - think about objects generation
 - generate flat objects

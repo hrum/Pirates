@@ -1,8 +1,10 @@
 package com.shuvzero.pirates.model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 public class MapGenerator {
 
@@ -17,8 +19,8 @@ public class MapGenerator {
 
     public void generate() {
         generateLand();
-        generateLinear(Feature.River, 3);
-        generateLinear(Feature.Road, 3);
+        generateLinear(Feature.River);
+        generateLinear(Feature.Road);
 
     }
 
@@ -45,29 +47,33 @@ public class MapGenerator {
         return Direction.values()[random.nextInt(Direction.values().length)];
     }
 
-    private void generateLinear(Feature feature, int quantity) {
-        for(int i = 0; i < quantity; i++)
-            generateLinear(feature);
-    }
-
     private void generateLinear(Feature feature) {
-        int position = emptyLandCells.get(random.nextInt(emptyLandCells.size()));
+        for(int i = 0; i < 3; i++) {
+            Set<Integer> cells = new HashSet<>();
+            int position = emptyLandCells.get(random.nextInt(emptyLandCells.size()));
+            cells.add(position);
+            //emptyLandCells.remove((Integer)position);
+            //map.getCell(position).setFeature(feature);
+            Direction direction = getRandomDirection();
 
-
-        emptyLandCells.remove((Integer)position);
-        map.getCell(position).setFeature(feature);
-        Direction direction = getRandomDirection();
-
-        boolean finish = false;
-        while(!finish) {
-            Cell adj = map.getAdjacent(position, direction);
-            if(adj.isLand() && adj.getFeature() == null) {
-                position = adj.getPosition();
-                emptyLandCells.remove((Integer)adj.getPosition());
-                adj.setFeature(feature);
-                direction = updateDirection(direction);
-            } else
-                finish = true;
+            boolean finish = false;
+            while (!finish) {
+                Cell adj = map.getAdjacent(position, direction);
+                if (adj.isLand() && adj.getFeature() == null) {
+                    position = adj.getPosition();
+                    cells.add(position);
+                    //emptyLandCells.remove((Integer)adj.getPosition());
+                    //adj.setFeature(feature);
+                    direction = updateDirection(direction);
+                } else
+                    finish = true;
+            }
+            if (cells.size() >= 2) {
+                for (Integer cell : cells) {
+                    emptyLandCells.remove(cell);
+                    map.getCell(cell).setFeature(feature);
+                }
+            } else i--;
         }
     }
 
