@@ -4,30 +4,43 @@ import com.shuvzero.pirates.R;
 
 public enum Feature {
 
-    Anchor(R.drawable.anchor, true),
-    Cactus(R.drawable.cactus, true),
-    Cave(R.drawable.cave, true),
-    Chest(R.drawable.chest, true),
-    Cross(R.drawable.cross, true),
-    House(R.drawable.house, true),
-    Lake(R.drawable.lake, true),
-    Mark(R.drawable.mark, true),
-    Mountain(R.drawable.mountain, true),
-    Palm(R.drawable.palm, true),
-    River(R.drawable.river, true),
-    Road(R.drawable.road, true),
-    Skull(R.drawable.skull, true),
-    Volcano(R.drawable.volcano, true),
 
-    Shark(R.drawable.shark, false),
-    Coral(R.drawable.coral, false);
+    River(FeatureType.Linear, R.drawable.river, true),
+    Road(FeatureType.Linear, R.drawable.road, true),
+
+    Grass(FeatureType.Flat, -1, true),
+    Forest(FeatureType.Flat, -1, true),
+    Hill(FeatureType.Flat, -1, true),
+    Swamp(FeatureType.Flat, R.drawable.road, true),
+    Mountain(FeatureType.Flat, R.drawable.mountain, true),
+
+    Cave(FeatureType.Single, R.drawable.cave, true),
+    Skull(FeatureType.Single, R.drawable.skull, true),
+    Volcano(FeatureType.Single, R.drawable.volcano, true),
+    Palm(FeatureType.Single, R.drawable.palm, true),
+    House(FeatureType.Single, R.drawable.house, true),
+    Cactus(FeatureType.Single, R.drawable.cactus, true),
+    Cross(FeatureType.Single, R.drawable.cross, true),
+    Chest(FeatureType.Single, R.drawable.chest, true),
+
+    Sea(FeatureType.Flat, -1, false),
+
+    Anchor(FeatureType.Single, R.drawable.anchor, false),
+    Lake(FeatureType.Single, R.drawable.lake, false),
+    Shark(FeatureType.Single, R.drawable.shark, false),
+    Coral(FeatureType.Single, R.drawable.coral, false),
+    Turtle(FeatureType.Single, -1, false),
+    Jellyfish(FeatureType.Single, -1, false),
+    Octopus(FeatureType.Single, -1, false);
 
 
 
+    private FeatureType featureType;
     private int id;
     private boolean isLand;
 
-    Feature(int id, boolean isLand) {
+    Feature(FeatureType featureType, int id, boolean isLand) {
+        this.featureType = featureType;
         this.id = id;
         this.isLand = isLand;
     }
@@ -38,5 +51,9 @@ public enum Feature {
 
     public boolean isLand() {
         return isLand;
+    }
+
+    public FeatureType getFeatureType() {
+        return featureType;
     }
 }

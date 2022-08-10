@@ -17,11 +17,13 @@ OCEAN FEATURES
 - sea (has connection with ocean, or lake with size > 1)
 - lake
 - coral
-- turtle
-- jellyfish
 - shark
 - anchor
+- turtle
+- jellyfish
 - octopus
+- stream (течение)
+
 
 LINEAR FEATURES
 - river
