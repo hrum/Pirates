@@ -8,10 +8,10 @@ public enum Feature {
     River(FeatureType.Linear, R.drawable.river, true),
     Road(FeatureType.Linear, R.drawable.road, true),
 
-    Grass(FeatureType.Flat, -1, true),
-    Forest(FeatureType.Flat, -1, true),
-    Hill(FeatureType.Flat, -1, true),
-    Swamp(FeatureType.Flat, -1, true),
+    Grass(FeatureType.Flat, R.drawable.grass, true),
+    Forest(FeatureType.Flat, R.drawable.forest, true),
+    Hills(FeatureType.Flat, R.drawable.hills, true),
+    Swamp(FeatureType.Flat, R.drawable.swamp, true),
 
     Mountain(FeatureType.Single, R.drawable.mountain, true),
     Cave(FeatureType.Single, R.drawable.cave, true),
