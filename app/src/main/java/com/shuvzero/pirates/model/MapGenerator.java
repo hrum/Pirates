@@ -22,6 +22,10 @@ public class MapGenerator {
         generateLinear(Feature.River);
         generateLinear(Feature.Road);
         generateFlat(Feature.Forest);
+        generateFlat(Feature.Grass);
+        generateFlat(Feature.Hills);
+        generateFlat(Feature.Swamp);
+
     }
 
     private void generateLand() {
@@ -94,17 +98,20 @@ public class MapGenerator {
 
     private void generateFlat(Feature feature) {
 
-        int position = emptyLandCells.get(random.nextInt(emptyLandCells.size()));
-        emptyLandCells.remove((Integer)position);
-        map.getCell(position).setFeature(feature);
+        for(int i = 0; i < 5; i++) {
 
-        for(Direction direction: Direction.values()) {
-            Cell adj = map.getAdjacent(position, direction);
-            if (adj.isLand() && adj.getFeature() == null) {
-                if(random.nextInt(100) < 70) {
-                    position = adj.getPosition();
-                    emptyLandCells.remove((Integer)position);
-                    map.getCell(position).setFeature(feature);
+            int position = emptyLandCells.get(random.nextInt(emptyLandCells.size()));
+            emptyLandCells.remove((Integer) position);
+            map.getCell(position).setFeature(feature);
+
+            for (Direction direction : Direction.values()) {
+                Cell adj = map.getAdjacent(position, direction);
+                if (adj.isLand() && adj.getFeature() == null) {
+                    if (random.nextInt(100) < 70) {
+                        position = adj.getPosition();
+                        emptyLandCells.remove((Integer) position);
+                        map.getCell(position).setFeature(feature);
+                    }
                 }
             }
         }
