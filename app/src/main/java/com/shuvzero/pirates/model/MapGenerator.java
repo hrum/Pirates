@@ -21,7 +21,7 @@ public class MapGenerator {
         generateLand();
         generateLinear(Feature.River);
         generateLinear(Feature.Road);
-
+        generateFlat(Feature.Forest);
     }
 
     private void generateLand() {
@@ -92,10 +92,22 @@ public class MapGenerator {
         return dir;
     }
 
-    private void generateFlat() {
-        //get random land empty position
-        //check all directions around
-        //if cell is land and empty fill it with 70% chance
+    private void generateFlat(Feature feature) {
+
+        int position = emptyLandCells.get(random.nextInt(emptyLandCells.size()));
+        emptyLandCells.remove((Integer)position);
+        map.getCell(position).setFeature(feature);
+
+        for(Direction direction: Direction.values()) {
+            Cell adj = map.getAdjacent(position, direction);
+            if (adj.isLand() && adj.getFeature() == null) {
+                if(random.nextInt(100) < 70) {
+                    position = adj.getPosition();
+                    emptyLandCells.remove((Integer)position);
+                    map.getCell(position).setFeature(feature);
+                }
+            }
+        }
     }
 
 
