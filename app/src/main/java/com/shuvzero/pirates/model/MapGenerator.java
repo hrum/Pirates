@@ -26,6 +26,8 @@ public class MapGenerator {
         generateFlat(Feature.Hills);
         generateFlat(Feature.Swamp);
 
+        generateSingle();
+
     }
 
     private void generateLand() {
@@ -52,7 +54,7 @@ public class MapGenerator {
     }
 
     private void generateLinear(Feature feature) {
-        for(int i = 0; i < 3;) {
+        for(int i = 0; i < 5;) {
             Set<Integer> cells = new HashSet<>();
             int position = emptyLandCells.get(random.nextInt(emptyLandCells.size()));
             cells.add(position);
@@ -117,5 +119,16 @@ public class MapGenerator {
         }
     }
 
+    private void generateSingle() {
+        for(Feature feature: Feature.values()) {
+            if (feature.isLand() && feature.getFeatureType() == FeatureType.Single) {
+                for (int i = 0; i < 3; i++) {
+                    int position = emptyLandCells.get(random.nextInt(emptyLandCells.size()));
+                    emptyLandCells.remove((Integer) position);
+                    map.getCell(position).setFeature(feature);
+                }
+            }
+        }
+    }
 
 }
