@@ -12,6 +12,8 @@ public enum Feature {
     Forest(FeatureType.Flat, R.drawable.forest, true),
     Hills(FeatureType.Flat, R.drawable.hills, true),
     Swamp(FeatureType.Flat, R.drawable.swamp, true),
+    Plains(FeatureType.Flat, R.drawable.plains, true),
+    Jungle(FeatureType.Flat, R.drawable.jungle, true),
 
     Mountain(FeatureType.Single, R.drawable.mountain, true),
     Cave(FeatureType.Single, R.drawable.cave, true),

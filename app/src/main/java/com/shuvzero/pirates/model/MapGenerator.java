@@ -21,13 +21,8 @@ public class MapGenerator {
         generateLand();
         generateLinear(Feature.River);
         generateLinear(Feature.Road);
-        generateFlat(Feature.Forest);
-        generateFlat(Feature.Grass);
-        generateFlat(Feature.Hills);
-        generateFlat(Feature.Swamp);
-
+        generateFlat();
         generateSingle();
-
     }
 
     private void generateLand() {
@@ -98,21 +93,23 @@ public class MapGenerator {
         return dir;
     }
 
-    private void generateFlat(Feature feature) {
-
+    private void generateFlat() {
         for(int i = 0; i < 5; i++) {
+            for (Feature feature : Feature.values()) {
+                if(feature.isLand() && feature.getFeatureType() == FeatureType.Flat) {
+                    int position = emptyLandCells.get(random.nextInt(emptyLandCells.size()));
+                    emptyLandCells.remove((Integer) position);
+                    map.getCell(position).setFeature(feature);
 
-            int position = emptyLandCells.get(random.nextInt(emptyLandCells.size()));
-            emptyLandCells.remove((Integer) position);
-            map.getCell(position).setFeature(feature);
-
-            for (Direction direction : Direction.values()) {
-                Cell adj = map.getAdjacent(position, direction);
-                if (adj.isLand() && adj.getFeature() == null) {
-                    if (random.nextInt(100) < 70) {
-                        position = adj.getPosition();
-                        emptyLandCells.remove((Integer) position);
-                        map.getCell(position).setFeature(feature);
+                    for (Direction direction : Direction.values()) {
+                        Cell adj = map.getAdjacent(position, direction);
+                        if (adj.isLand() && adj.getFeature() == null) {
+                            if (random.nextInt(100) < 70) {
+                                position = adj.getPosition();
+                                emptyLandCells.remove((Integer) position);
+                                map.getCell(position).setFeature(feature);
+                            }
+                        }
                     }
                 }
             }
@@ -122,7 +119,7 @@ public class MapGenerator {
     private void generateSingle() {
         for(Feature feature: Feature.values()) {
             if (feature.isLand() && feature.getFeatureType() == FeatureType.Single) {
-                for (int i = 0; i < 3; i++) {
+                for (int i = 0; i < 5; i++) {
                     int position = emptyLandCells.get(random.nextInt(emptyLandCells.size()));
                     emptyLandCells.remove((Integer) position);
                     map.getCell(position).setFeature(feature);
