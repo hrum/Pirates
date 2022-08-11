@@ -48,12 +48,10 @@ public class MapGenerator {
     }
 
     private void generateLinear(Feature feature) {
-        for(int i = 0; i < 3; i++) {
+        for(int i = 0; i < 3;) {
             Set<Integer> cells = new HashSet<>();
             int position = emptyLandCells.get(random.nextInt(emptyLandCells.size()));
             cells.add(position);
-            //emptyLandCells.remove((Integer)position);
-            //map.getCell(position).setFeature(feature);
             Direction direction = getRandomDirection();
 
             boolean finish = false;
@@ -62,18 +60,17 @@ public class MapGenerator {
                 if (adj.isLand() && adj.getFeature() == null) {
                     position = adj.getPosition();
                     cells.add(position);
-                    //emptyLandCells.remove((Integer)adj.getPosition());
-                    //adj.setFeature(feature);
                     direction = updateDirection(direction);
                 } else
                     finish = true;
             }
             if (cells.size() >= 2) {
+                i++;
                 for (Integer cell : cells) {
                     emptyLandCells.remove(cell);
                     map.getCell(cell).setFeature(feature);
                 }
-            } else i--;
+            }
         }
     }
 
@@ -95,8 +92,10 @@ public class MapGenerator {
         return dir;
     }
 
-    private void generateObjects() {
-        //rework algorithm - should be similar to linear
+    private void generateFlat() {
+        //get random land empty position
+        //check all directions around
+        //if cell is land and empty fill it with 70% chance
     }
 
 

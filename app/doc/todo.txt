@@ -1,6 +1,10 @@
-- create pictures
-- think about objects generation
+- think on algorithm
 - generate flat objects
 
+
+
+
+
+- create pictures
 
 
