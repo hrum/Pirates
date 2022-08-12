@@ -27,14 +27,13 @@ public enum Feature {
 
     Sea(FeatureType.Flat, -1, false),
 
-    Anchor(FeatureType.Single, R.drawable.anchor, false),
     Lake(FeatureType.Single, R.drawable.lake, false),
+    Anchor(FeatureType.Single, R.drawable.anchor, false),
     Shark(FeatureType.Single, R.drawable.shark, false),
     Coral(FeatureType.Single, R.drawable.coral, false),
     Turtle(FeatureType.Single, -1, false),
     Jellyfish(FeatureType.Single, -1, false),
     Octopus(FeatureType.Single, -1, false);
-
 
 
     private FeatureType featureType;

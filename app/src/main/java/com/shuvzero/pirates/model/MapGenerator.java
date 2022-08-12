@@ -23,6 +23,7 @@ public class MapGenerator {
         generateLinear(Feature.Road);
         generateFlat();
         generateSingle();
+        sortWaterCells();
     }
 
     private void generateLand() {
@@ -124,6 +125,24 @@ public class MapGenerator {
                     emptyLandCells.remove((Integer) position);
                     map.getCell(position).setFeature(feature);
                 }
+            }
+        }
+    }
+
+    private void sortWaterCells() {
+        for(int position: emptyWaterCells) {
+            Cell cell = map.getCell(position);
+            if(!map.isEdge(position)) {
+                boolean foundWater = false;
+                for (Direction direction : Direction.values()) {
+                    Cell adj = map.getAdjacent(position, direction);
+                    if(!adj.isLand())
+                        foundWater = true;
+                }
+                if(foundWater)
+                    cell.setFeature(Feature.Sea);
+                else
+                    cell.setFeature(Feature.Lake);
             }
         }
     }
