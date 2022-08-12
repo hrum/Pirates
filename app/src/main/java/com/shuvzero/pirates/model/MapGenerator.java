@@ -8,6 +8,8 @@ import java.util.Set;
 
 public class MapGenerator {
 
+    private static final int COUNT = 4;
+
     private TreasureMap map;
     private List<Integer> emptyWaterCells;
     private List<Integer> emptyLandCells;
@@ -50,7 +52,7 @@ public class MapGenerator {
     }
 
     private void generateLinear(Feature feature) {
-        for(int i = 0; i < 5;) {
+        for(int i = 0; i < COUNT;) {
             Set<Integer> cells = new HashSet<>();
             int position = emptyLandCells.get(random.nextInt(emptyLandCells.size()));
             cells.add(position);
@@ -95,7 +97,7 @@ public class MapGenerator {
     }
 
     private void generateFlat() {
-        for(int i = 0; i < 5; i++) {
+        for(int i = 0; i < COUNT; i++) {
             for (Feature feature : Feature.values()) {
                 if(feature.isLand() && feature.getFeatureType() == FeatureType.Flat) {
                     int position = emptyLandCells.get(random.nextInt(emptyLandCells.size()));
@@ -120,7 +122,7 @@ public class MapGenerator {
     private void generateSingle() {
         for(Feature feature: Feature.values()) {
             if (feature.isLand() && feature.getFeatureType() == FeatureType.Single) {
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < COUNT; i++) {
                     int position = emptyLandCells.get(random.nextInt(emptyLandCells.size()));
                     emptyLandCells.remove((Integer) position);
                     map.getCell(position).setFeature(feature);

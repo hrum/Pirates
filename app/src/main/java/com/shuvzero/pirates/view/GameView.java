@@ -14,7 +14,7 @@ import com.shuvzero.pirates.model.Point;
 
 public class GameView extends View {
 
-    private float size = 51;
+    private float size = 60;
     private Game game;
     private MapLayout layout;
 

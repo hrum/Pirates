@@ -1,3 +1,4 @@
+- create pictures for objects
 - generate objects in the ocean
 
 - test everything
