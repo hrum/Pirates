@@ -25,7 +25,7 @@ public enum Feature {
     Cross(FeatureType.Single, R.drawable.cross, true),
     Chest(FeatureType.Single, R.drawable.chest, true),
 
-    Sea(FeatureType.Flat, -1, false),
+    Sea(FeatureType.Flat, R.drawable.sea, false),
 
     Lake(FeatureType.Single, R.drawable.lake, false),
     Anchor(FeatureType.Single, R.drawable.anchor, false),

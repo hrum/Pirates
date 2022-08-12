@@ -120,7 +120,7 @@ public class MapGenerator {
     private void generateSingle() {
         for(Feature feature: Feature.values()) {
             if (feature.isLand() && feature.getFeatureType() == FeatureType.Single) {
-                for (int i = 0; i < 7; i++) {
+                for (int i = 0; i < 5; i++) {
                     int position = emptyLandCells.get(random.nextInt(emptyLandCells.size()));
                     emptyLandCells.remove((Integer) position);
                     map.getCell(position).setFeature(feature);
