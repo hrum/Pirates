@@ -31,9 +31,9 @@ public enum Feature {
     Anchor(FeatureType.Single, R.drawable.anchor, false),
     Shark(FeatureType.Single, R.drawable.shark, false),
     Coral(FeatureType.Single, R.drawable.coral, false),
-    Turtle(FeatureType.Single, -1, false),
-    Jellyfish(FeatureType.Single, -1, false),
-    Octopus(FeatureType.Single, -1, false);
+    Turtle(FeatureType.Single, R.drawable.turtle, false),
+    Jellyfish(FeatureType.Single, R.drawable.jellyfish, false),
+    Octopus(FeatureType.Single, R.drawable.octopus, false);
 
 
     private FeatureType featureType;
