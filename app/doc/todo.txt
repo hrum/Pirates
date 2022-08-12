@@ -1,1 +1,8 @@
+- find lakes (single water cells)
+- find seas (not lake, not edge)
+
+
+- create pictures
+- generate objects in the ocean
+
 - test everything
