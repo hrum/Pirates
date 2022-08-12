@@ -1,5 +1,6 @@
-- can select cell by clicking it
-- when cell is selected, frame appears around it
+
+
+
 - info window is shown at the bottom of screen
 - name of feature is shown
 - hint is shown
@@ -8,7 +9,3 @@
 
 
 
-- can dig only on land tile
-- can not dig in the same place twice
-- if there is a treasure in the tile = win
-- if there is no treasure, then hint appears

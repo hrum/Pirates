@@ -140,6 +140,10 @@ public class TreasureMap {
         return column;
     }
 
+    public int getPosition(int row, int column) {
+        return (row / 2) * block + (row % 2) * width + column;
+    }
+
     public boolean isOddRow(int position) {
         return position % block >= width;
     }

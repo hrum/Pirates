@@ -3,6 +3,7 @@ package com.shuvzero.pirates.view;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.core.content.ContextCompat;
@@ -17,11 +18,13 @@ public class GameView extends View {
     private Game game;
     private MapLayout layout;
     private float size = 60;
+    private int selectedPosition;
 
     public GameView(Context context, Game game) {
         super(context);
         this.game = game;
         layout = new MapLayout(game.getTreasureMap(), new Point(0,0), size);
+        selectedPosition = -1;
         //size = game.getTreasureMap().getHeight()
     }
 
@@ -29,6 +32,7 @@ public class GameView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         drawMap(canvas);
+        drawFrame(canvas);
     }
 
     private void drawMap(Canvas canvas) {
@@ -55,10 +59,31 @@ public class GameView extends View {
         }
     }
 
+    private void drawFrame(Canvas canvas) {
+        Drawable frame = getDrawable(R.drawable.frame);
+        Point p = layout.getPoint(selectedPosition);
+        frame.setBounds(Math.round(p.x()),
+                Math.round(p.y()),
+                Math.round(p.x() + 2 * size),
+                Math.round(p.y() + 2 * size));
+        frame.draw(canvas);
+    }
+
     private Drawable getDrawable(int id) {
         if(id != 0)
             return ContextCompat.getDrawable(getContext(), id);
         return null;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            float x = event.getX();
+            float y = event.getY();
+            selectedPosition = layout.getPosition(new Point(x, y));
+            invalidate();
+        }
+        return true;
     }
 
 }
