@@ -2,6 +2,7 @@ package com.shuvzero.pirates.model;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -26,6 +27,7 @@ public class MapGenerator {
         generateFlat();
         generateSingle();
         sortWaterCells();
+        generateSingleOcean();
     }
 
     private void generateLand() {
@@ -131,20 +133,35 @@ public class MapGenerator {
         }
     }
 
+    private void generateSingleOcean() {
+        for(Feature feature: Feature.values()) {
+            if (!feature.isLand() && feature.getFeatureType() == FeatureType.Single && feature != Feature.Lake) {
+                for (int i = 0; i < COUNT; i++) {
+                    int position = emptyWaterCells.get(random.nextInt(emptyWaterCells.size()));
+                    emptyWaterCells.remove((Integer) position);
+                    map.getCell(position).setFeature(feature);
+                }
+            }
+        }
+    }
+
     private void sortWaterCells() {
-        for(int position: emptyWaterCells) {
+        Iterator<Integer> iterator = emptyWaterCells.iterator();
+        while(iterator.hasNext()) {
+            int position = iterator.next();
             Cell cell = map.getCell(position);
-            if(!map.isEdge(position)) {
+            if (!map.isEdge(position)) {
                 boolean foundWater = false;
                 for (Direction direction : Direction.values()) {
                     Cell adj = map.getAdjacent(position, direction);
-                    if(!adj.isLand())
+                    if (!adj.isLand())
                         foundWater = true;
                 }
-                if(foundWater)
+                if (foundWater)
                     cell.setFeature(Feature.Sea);
                 else
                     cell.setFeature(Feature.Lake);
+                iterator.remove();
             }
         }
     }
