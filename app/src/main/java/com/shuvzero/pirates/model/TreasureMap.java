@@ -18,6 +18,7 @@ public class TreasureMap {
     private final int totalCells;
     private final int bottomEdge;
     private List<Cell> cells;
+    private int treasurePosition;
 
     public TreasureMap(int height, int width) {
         this.height = height;
@@ -26,6 +27,22 @@ public class TreasureMap {
         this.totalCells = (height / 2) * block + (height % 2) * width;
         this.bottomEdge = totalCells - width - (height + 1) % 2;
         createCells();
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getTreasurePosition() {
+        return treasurePosition;
+    }
+
+    public void setTreasurePosition(int treasurePosition) {
+        this.treasurePosition = treasurePosition;
     }
 
     private void createCells() {

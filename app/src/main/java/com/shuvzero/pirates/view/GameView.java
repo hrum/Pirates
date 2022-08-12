@@ -14,14 +14,15 @@ import com.shuvzero.pirates.model.Point;
 
 public class GameView extends View {
 
-    private float size = 60;
     private Game game;
     private MapLayout layout;
+    private float size = 60;
 
     public GameView(Context context, Game game) {
         super(context);
         this.game = game;
         layout = new MapLayout(game.getTreasureMap(), new Point(0,0), size);
+        //size = game.getTreasureMap().getHeight()
     }
 
     @Override

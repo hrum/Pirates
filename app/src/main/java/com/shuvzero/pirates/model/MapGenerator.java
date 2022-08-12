@@ -22,6 +22,7 @@ public class MapGenerator {
 
     public void generate() {
         generateLand();
+        generateTreasure();
         generateLinear(Feature.River);
         generateLinear(Feature.Road);
         generateFlat();
@@ -47,6 +48,11 @@ public class MapGenerator {
                 emptyWaterCells.add(cell.getPosition());
 
         }
+    }
+
+    private void generateTreasure() {
+        int treasurePosition = emptyLandCells.get(random.nextInt(emptyLandCells.size()));
+        map.setTreasurePosition(treasurePosition);
     }
 
     private Direction getRandomDirection() {
