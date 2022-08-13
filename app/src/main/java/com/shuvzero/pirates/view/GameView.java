@@ -92,7 +92,11 @@ public class GameView extends View {
 
     private void drawInfoWindow(Canvas canvas) {
         if(selectedPosition != -1) {
-            Drawable window = getDrawable(R.drawable.info_window);
+            Drawable window;
+            if(!game.getTreasureMap().getCell(selectedPosition).isLand())
+                window = getDrawable(R.drawable.info_window);
+            else
+                window = getDrawable(R.drawable.info_window2);
             window.setBounds(0, getHeight() - SCREEN_WIDTH/2, SCREEN_WIDTH, getHeight());
             window.draw(canvas);
             drawTitle(canvas);

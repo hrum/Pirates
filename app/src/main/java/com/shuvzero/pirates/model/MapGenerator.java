@@ -9,7 +9,8 @@ import java.util.Set;
 
 public class MapGenerator {
 
-    private static final int COUNT = 3;
+    private static final int LAND_COUNT = 3;
+    private static final int OCEAN_COUNT = 5;
 
     private TreasureMap map;
     private List<Integer> emptyWaterCells;
@@ -61,7 +62,7 @@ public class MapGenerator {
     }
 
     private void generateLinear(Feature feature) {
-        for(int i = 0; i < COUNT;) {
+        for(int i = 0; i < LAND_COUNT;) {
             Set<Integer> cells = new HashSet<>();
             int position = emptyLandCells.get(random.nextInt(emptyLandCells.size()));
             cells.add(position);
@@ -106,7 +107,7 @@ public class MapGenerator {
     }
 
     private void generateFlat() {
-        for(int i = 0; i < COUNT; i++) {
+        for(int i = 0; i < LAND_COUNT; i++) {
             for (Feature feature : Feature.values()) {
                 if(feature.isLand() && feature.getFeatureType() == FeatureType.Flat) {
                     int position = emptyLandCells.get(random.nextInt(emptyLandCells.size()));
@@ -131,7 +132,7 @@ public class MapGenerator {
     private void generateSingle() {
         for(Feature feature: Feature.values()) {
             if (feature.isLand() && feature.getFeatureType() == FeatureType.Single) {
-                for (int i = 0; i < COUNT; i++) {
+                for (int i = 0; i < LAND_COUNT; i++) {
                     int position = emptyLandCells.get(random.nextInt(emptyLandCells.size()));
                     emptyLandCells.remove((Integer) position);
                     map.getCell(position).setFeature(feature);
@@ -143,7 +144,7 @@ public class MapGenerator {
     private void generateSingleOcean() {
         for(Feature feature: Feature.values()) {
             if (!feature.isLand() && feature.getFeatureType() == FeatureType.Single && feature != Feature.Lake) {
-                for (int i = 0; i < COUNT; i++) {
+                for (int i = 0; i < OCEAN_COUNT; i++) {
                     int position = emptyWaterCells.get(random.nextInt(emptyWaterCells.size()));
                     emptyWaterCells.remove((Integer) position);
                     map.getCell(position).setFeature(feature);
