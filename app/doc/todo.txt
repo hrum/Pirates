@@ -1,6 +1,5 @@
-- draw info window
-
 - info window is shown at the bottom of screen
+
 - name of feature is shown
 - dig button is shown
 - close button is shown
