@@ -1,8 +1,5 @@
-- name of feature is shown
-
-
 - dig button is shown
 - close button is shown
-
+- add 'can dig only on land' message
 
 

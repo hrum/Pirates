@@ -3,6 +3,9 @@ package com.shuvzero.pirates.view;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.view.MotionEvent;
 import android.view.View;
@@ -22,13 +25,22 @@ public class GameView extends View {
     private MapLayout layout;
     private float size = 60;
     private int selectedPosition;
+    private Paint paint;
 
     public GameView(Context context, Game game) {
         super(context);
         this.game = game;
         layout = new MapLayout(game.getTreasureMap(), new Point(0,0), size);
         selectedPosition = -1;
+        createPaint();
         //size = game.getTreasureMap().getHeight()
+    }
+
+    private void createPaint() {
+        paint = new Paint();
+        paint.setTextSize(60);
+        paint.setColor(Color.DKGRAY);
+        paint.setTypeface(Typeface.DEFAULT_BOLD);
     }
 
     @Override
@@ -52,7 +64,7 @@ public class GameView extends View {
                     Math.round(p.x() + 2 * size),
                     Math.round(p.y() + 2 * size));
             tile.draw(canvas);
-            if(cell.getFeature() != null) {
+            if(cell.getFeature() != null && cell.getFeature().getDrawableId() != 0) {
                 Drawable feature = getDrawable(cell.getFeature().getDrawableId());
                 feature.setBounds(Math.round(p.x()),
                         Math.round(p.y()),
@@ -90,7 +102,9 @@ public class GameView extends View {
             } else {
                 title = getContext().getString(R.string.ocean);
             }
-            //draw title (feature)
+            float textWidth = paint.measureText(title);
+            float x = (SCREEN_WIDTH - textWidth)/2;
+            canvas.drawText(title, x, getHeight() - 0.42f * SCREEN_WIDTH, paint);
         }
     }
 

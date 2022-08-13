@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class MapGenerator {
 
-    private static final int COUNT = 4;
+    private static final int COUNT = 3;
 
     private TreasureMap map;
     private List<Integer> emptyWaterCells;
