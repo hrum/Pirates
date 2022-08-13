@@ -1,11 +1,14 @@
+- think about name
+- fix issue - can select cell out of map
 
 
+
+- draw info window
 
 - info window is shown at the bottom of screen
 - name of feature is shown
-- hint is shown
 - dig button is shown
-- can close info window by clicking close button
+- close button is shown
 
 
 
