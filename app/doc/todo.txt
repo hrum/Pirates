@@ -1,4 +1,3 @@
-- think about name
 - fix issue - can select cell out of map
 
 
