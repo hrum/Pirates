@@ -44,6 +44,8 @@ public class MapLayout {
     public int getPosition(Point p) {
         Point point = new Point((p.x() - origin.x()) / size, (p.y() - origin.y()) / size);
         int row = Math.round(point.y() * 2/3) - 1;
+        if(row < 0 || row >= map.getHeight())
+            return -1;
         float col = point.x() / (float)Math.sqrt(3) - 1;
         if(row % 2 == 0)
             col -= 0.5f;

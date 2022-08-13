@@ -60,13 +60,15 @@ public class GameView extends View {
     }
 
     private void drawFrame(Canvas canvas) {
-        Drawable frame = getDrawable(R.drawable.frame);
-        Point p = layout.getPoint(selectedPosition);
-        frame.setBounds(Math.round(p.x()),
-                Math.round(p.y()),
-                Math.round(p.x() + 2 * size),
-                Math.round(p.y() + 2 * size));
-        frame.draw(canvas);
+        if(selectedPosition != -1) {
+            Drawable frame = getDrawable(R.drawable.frame);
+            Point p = layout.getPoint(selectedPosition);
+            frame.setBounds(Math.round(p.x()),
+                    Math.round(p.y()),
+                    Math.round(p.x() + 2 * size),
+                    Math.round(p.y() + 2 * size));
+            frame.draw(canvas);
+        }
     }
 
     private Drawable getDrawable(int id) {
