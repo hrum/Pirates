@@ -25,4 +25,6 @@
     <string name="turtle">Turtle</string>
     <string name="jellyfish">Jellyfish</string>
     <string name="octopus">Octopus</string>
+    <string name="desert">Desert</string>
+    <string name="ocean">Ocean</string>
 </resources>

@@ -29,6 +29,7 @@ public class MapGenerator {
         generateSingle();
         sortWaterCells();
         generateSingleOcean();
+        fillEmptyCells();
     }
 
     private void generateLand() {
@@ -169,6 +170,18 @@ public class MapGenerator {
                     cell.setFeature(Feature.Lake);
                 iterator.remove();
             }
+        }
+    }
+
+    private void fillEmptyCells() {
+        for(int position: emptyWaterCells) {
+            Cell cell = map.getCell(position);
+            cell.setFeature(Feature.Ocean);
+        }
+
+        for(int position: emptyLandCells) {
+            Cell cell = map.getCell(position);
+            cell.setFeature(Feature.Desert);
         }
     }
 

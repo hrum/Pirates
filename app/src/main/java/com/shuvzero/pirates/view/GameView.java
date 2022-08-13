@@ -80,6 +80,17 @@ public class GameView extends View {
             Drawable window = getDrawable(R.drawable.info_window);
             window.setBounds(0, getHeight() - SCREEN_WIDTH/2, SCREEN_WIDTH, getHeight());
             window.draw(canvas);
+
+            Cell cell = game.getTreasureMap().getCell(selectedPosition);
+            String title;
+            if(cell.getFeature() != null) {
+                title =  getContext().getString(cell.getFeature().getStringId());
+            } else if (cell.isLand()) {
+                title = getContext().getString(R.string.desert);
+            } else {
+                title = getContext().getString(R.string.ocean);
+            }
+            //draw title (feature)
         }
     }
 

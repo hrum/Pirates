@@ -24,6 +24,7 @@ public enum Feature {
     Cactus(FeatureType.Single, R.drawable.cactus, R.string.cactus, true),
     Cross(FeatureType.Single, R.drawable.cross, R.string.cross, true),
     Chest(FeatureType.Single, R.drawable.chest, R.string.chest, true),
+    Desert(FeatureType.Single, 0, R.string.desert, true),
 
     Sea(FeatureType.Flat, R.drawable.sea, R.string.sea, false),
 
@@ -33,7 +34,8 @@ public enum Feature {
     Coral(FeatureType.Single, R.drawable.coral, R.string.coral, false),
     Turtle(FeatureType.Single, R.drawable.turtle, R.string.turtle, false),
     Jellyfish(FeatureType.Single, R.drawable.jellyfish, R.string.jellyfish, false),
-    Octopus(FeatureType.Single, R.drawable.octopus, R.string.octopus, false);
+    Octopus(FeatureType.Single, R.drawable.octopus, R.string.octopus, false),
+    Ocean(FeatureType.Single, 0, R.string.ocean, false);
 
 
     private FeatureType featureType;
