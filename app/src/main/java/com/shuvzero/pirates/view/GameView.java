@@ -1,6 +1,7 @@
 package com.shuvzero.pirates.view;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.view.MotionEvent;
@@ -14,6 +15,8 @@ import com.shuvzero.pirates.model.Game;
 import com.shuvzero.pirates.model.Point;
 
 public class GameView extends View {
+
+    public static final int SCREEN_WIDTH = Resources.getSystem().getDisplayMetrics().widthPixels;
 
     private Game game;
     private MapLayout layout;
@@ -33,6 +36,7 @@ public class GameView extends View {
         super.onDraw(canvas);
         drawMap(canvas);
         drawFrame(canvas);
+        drawInfoWindow(canvas);
     }
 
     private void drawMap(Canvas canvas) {
@@ -68,6 +72,14 @@ public class GameView extends View {
                     Math.round(p.x() + 2 * size),
                     Math.round(p.y() + 2 * size));
             frame.draw(canvas);
+        }
+    }
+
+    private void drawInfoWindow(Canvas canvas) {
+        if(selectedPosition != -1) {
+            Drawable window = getDrawable(R.drawable.info_window);
+            window.setBounds(0, getHeight() - SCREEN_WIDTH/2, SCREEN_WIDTH, getHeight());
+            window.draw(canvas);
         }
     }
 
