@@ -1,4 +1,3 @@
-- can close window by clicking close button
 - issue: can click through info window
 
 - dig button is shown
