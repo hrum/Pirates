@@ -1,5 +1,3 @@
-- issue: can click through info window
-
 - dig button is shown
 - add 'can only dig on land tiles' message
 

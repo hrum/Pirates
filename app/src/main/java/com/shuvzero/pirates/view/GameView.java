@@ -137,6 +137,11 @@ public class GameView extends View {
                 && y < getHeight() - SCREEN_WIDTH/2 + CLOSE_BUTTON_SIZE + CLOSE_BUTTON_GAP;
     }
 
+    private boolean isInfoWindowClicked(float x, float y) {
+        return selectedPosition != -1
+                && y > getHeight() - SCREEN_WIDTH/2;
+    }
+
     private Drawable getDrawable(int id) {
         if(id != 0)
             return ContextCompat.getDrawable(getContext(), id);
@@ -149,8 +154,10 @@ public class GameView extends View {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             float x = event.getX();
             float y = event.getY();
-            if(isCloseButtonClicked(x, y)) {
-                selectedPosition = -1;
+            if(isInfoWindowClicked(x, y)) {
+                if (isCloseButtonClicked(x, y)) {
+                    selectedPosition = -1;
+                }
             } else {
                 selectedPosition = layout.getPosition(new Point(x, y));
             }
