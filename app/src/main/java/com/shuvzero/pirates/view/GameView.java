@@ -53,7 +53,7 @@ public class GameView extends View {
                     Math.round(p.y() + 2 * size));
             tile.draw(canvas);
             if(cell.getFeature() != null) {
-                Drawable feature = getDrawable(cell.getFeature().getId());
+                Drawable feature = getDrawable(cell.getFeature().getDrawableId());
                 feature.setBounds(Math.round(p.x()),
                         Math.round(p.y()),
                         Math.round(p.x() + 2 * size),

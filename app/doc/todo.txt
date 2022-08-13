@@ -1,6 +1,6 @@
-
-
 - name of feature is shown
+
+
 - dig button is shown
 - close button is shown
 
