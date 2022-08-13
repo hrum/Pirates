@@ -1,5 +1,13 @@
+
+
+- redraw some pictures
+- make window yellow for land?
+
+- can close window by clicking close button
+- issue: can click through info window
+
 - dig button is shown
-- close button is shown
-- add 'can dig only on land' message
+- add 'can only dig on land tiles' message
 
 
+- fix some issues with clicking tiles (emulator)

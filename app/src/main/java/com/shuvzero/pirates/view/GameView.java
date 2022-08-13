@@ -21,6 +21,9 @@ public class GameView extends View {
 
     public static final int SCREEN_WIDTH = Resources.getSystem().getDisplayMetrics().widthPixels;
 
+    private static final int CLOSE_BUTTON_SIZE = SCREEN_WIDTH/10;
+    private static final int CLOSE_BUTTON_GAP = CLOSE_BUTTON_SIZE/10;
+
     private Game game;
     private MapLayout layout;
     private float size = 60;
@@ -92,20 +95,34 @@ public class GameView extends View {
             Drawable window = getDrawable(R.drawable.info_window);
             window.setBounds(0, getHeight() - SCREEN_WIDTH/2, SCREEN_WIDTH, getHeight());
             window.draw(canvas);
-
-            Cell cell = game.getTreasureMap().getCell(selectedPosition);
-            String title;
-            if(cell.getFeature() != null) {
-                title =  getContext().getString(cell.getFeature().getStringId());
-            } else if (cell.isLand()) {
-                title = getContext().getString(R.string.desert);
-            } else {
-                title = getContext().getString(R.string.ocean);
-            }
-            float textWidth = paint.measureText(title);
-            float x = (SCREEN_WIDTH - textWidth)/2;
-            canvas.drawText(title, x, getHeight() - 0.42f * SCREEN_WIDTH, paint);
+            drawTitle(canvas);
+            drawCloseButton(canvas);
         }
+    }
+
+    private void drawTitle(Canvas canvas) {
+        Cell cell = game.getTreasureMap().getCell(selectedPosition);
+        String title;
+        if(cell.getFeature() != null) {
+            title =  getContext().getString(cell.getFeature().getStringId());
+        } else if (cell.isLand()) {
+            title = getContext().getString(R.string.desert);
+        } else {
+            title = getContext().getString(R.string.ocean);
+        }
+        float textWidth = paint.measureText(title);
+        float x = (SCREEN_WIDTH - textWidth)/2;
+        canvas.drawText(title, x, getHeight() - 0.42f * SCREEN_WIDTH, paint);
+    }
+
+    private void drawCloseButton(Canvas canvas) {
+        Drawable closeButton = getDrawable(R.drawable.close);
+        closeButton.setBounds(
+                SCREEN_WIDTH - CLOSE_BUTTON_SIZE - CLOSE_BUTTON_GAP,
+                getHeight() - SCREEN_WIDTH/2 + CLOSE_BUTTON_GAP,
+                SCREEN_WIDTH - CLOSE_BUTTON_GAP,
+                getHeight() - SCREEN_WIDTH/2 + CLOSE_BUTTON_SIZE + CLOSE_BUTTON_GAP);
+        closeButton.draw(canvas);
     }
 
     private Drawable getDrawable(int id) {
