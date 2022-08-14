@@ -68,6 +68,7 @@ public class GameView extends View {
         super.onDraw(canvas);
         drawMap(canvas);
         drawFrame(canvas);
+        drawHints(canvas);
         drawInfoWindow(canvas);
     }
 
@@ -92,14 +93,21 @@ public class GameView extends View {
                         Math.round(p.y() + 2 * size));
                 feature.draw(canvas);
             }
-            if(cell.getHint() != -1) {
+
+        }
+    }
+
+    private void drawHints(Canvas canvas) {
+        for(Cell cell: game.getTreasureMap().getCells()) {
+            if (cell.getHint() != -1) {
+                Point p = layout.getPoint(cell.getPosition());
                 Drawable hintBackground = getDrawable(R.drawable.hint_background);
                 hintBackground.setBounds(Math.round(p.x()),
                         Math.round(p.y()),
                         Math.round(p.x() + 2 * size),
                         Math.round(p.y() + 2 * size));
                 hintBackground.draw(canvas);
-                canvas.drawText(String.valueOf(cell.getHint()), p.x() + 0.8f *size, p.y() + 0.7f * size, hintSmallPaint);
+                canvas.drawText(String.valueOf(cell.getHint()), p.x() + 0.8f * size, p.y() + 0.7f * size, hintSmallPaint);
             }
         }
     }
