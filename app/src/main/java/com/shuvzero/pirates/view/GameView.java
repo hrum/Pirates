@@ -87,6 +87,9 @@ public class GameView extends View {
                         Math.round(p.y() + 2 * size));
                 feature.draw(canvas);
             }
+            if(cell.getHint() != -1) {
+                canvas.drawText(String.valueOf(cell.getHint()), p.x() + size, p.y() + size, messagePaint);
+            }
         }
     }
 
