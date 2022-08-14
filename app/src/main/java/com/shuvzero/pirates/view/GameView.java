@@ -32,6 +32,7 @@ public class GameView extends View {
     private Paint titlePaint;
     private Paint messagePaint;
     private Paint hintPaint;
+    private Paint hintSmallPaint;
 
     public GameView(Context context, Game game) {
         super(context);
@@ -54,8 +55,12 @@ public class GameView extends View {
 
         hintPaint = new Paint();
         hintPaint.setTextSize(150);
-        titlePaint.setColor(Color.DKGRAY);
-        titlePaint.setTypeface(Typeface.DEFAULT_BOLD);
+        hintPaint.setColor(Color.DKGRAY);
+        hintPaint.setTypeface(Typeface.DEFAULT_BOLD);
+
+        hintSmallPaint = new Paint();
+        hintSmallPaint.setTextSize(40);
+        hintSmallPaint.setColor(Color.DKGRAY);
     }
 
     @Override
@@ -88,7 +93,13 @@ public class GameView extends View {
                 feature.draw(canvas);
             }
             if(cell.getHint() != -1) {
-                canvas.drawText(String.valueOf(cell.getHint()), p.x() + size, p.y() + size, messagePaint);
+                Drawable hintBackground = getDrawable(R.drawable.hint_background);
+                hintBackground.setBounds(Math.round(p.x()),
+                        Math.round(p.y()),
+                        Math.round(p.x() + 2 * size),
+                        Math.round(p.y() + 2 * size));
+                hintBackground.draw(canvas);
+                canvas.drawText(String.valueOf(cell.getHint()), p.x() + 0.8f *size, p.y() + 0.7f * size, hintSmallPaint);
             }
         }
     }
