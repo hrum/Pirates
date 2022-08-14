@@ -23,6 +23,7 @@ public class GameView extends View {
 
     private static final int CLOSE_BUTTON_SIZE = SCREEN_WIDTH/10;
     private static final int CLOSE_BUTTON_GAP = CLOSE_BUTTON_SIZE/10;
+    private static final int DIG_BUTTON_SIZE = SCREEN_WIDTH/5;
 
     private Game game;
     private MapLayout layout;
@@ -101,6 +102,7 @@ public class GameView extends View {
             window.draw(canvas);
             drawTitle(canvas);
             drawCloseButton(canvas);
+            drawDigButton(canvas);
         }
     }
 
@@ -120,7 +122,7 @@ public class GameView extends View {
     }
 
     private void drawCloseButton(Canvas canvas) {
-        Drawable closeButton = getDrawable(R.drawable.close);
+        Drawable closeButton = getDrawable(R.drawable.close_button);
         closeButton.setBounds(
                 SCREEN_WIDTH - CLOSE_BUTTON_SIZE - CLOSE_BUTTON_GAP,
                 getHeight() - SCREEN_WIDTH/2 + CLOSE_BUTTON_GAP,
@@ -135,6 +137,13 @@ public class GameView extends View {
                 && x < SCREEN_WIDTH - CLOSE_BUTTON_GAP
                 && y > getHeight() - SCREEN_WIDTH/2 + CLOSE_BUTTON_GAP
                 && y < getHeight() - SCREEN_WIDTH/2 + CLOSE_BUTTON_SIZE + CLOSE_BUTTON_GAP;
+    }
+
+    private void drawDigButton(Canvas canvas) {
+        Drawable digButton = getDrawable(R.drawable.dig_button);
+        digButton.setBounds((SCREEN_WIDTH - DIG_BUTTON_SIZE)/2, getHeight() - SCREEN_WIDTH * 3/10,
+                            (SCREEN_WIDTH + DIG_BUTTON_SIZE)/2, getHeight() - SCREEN_WIDTH * 3/10 + DIG_BUTTON_SIZE);
+        digButton.draw(canvas);
     }
 
     private boolean isInfoWindowClicked(float x, float y) {
