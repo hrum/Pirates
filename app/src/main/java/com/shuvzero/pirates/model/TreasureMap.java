@@ -147,4 +147,8 @@ public class TreasureMap {
     public boolean isOddRow(int position) {
         return position % block >= width;
     }
+
+    public boolean isDigPossible(int position) {
+        return cells.get(position).isLand();
+    }
 }

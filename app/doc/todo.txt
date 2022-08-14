@@ -1,8 +1,4 @@
 
-- add 'can only dig on land tiles' message
-- write is dig possible method
-
-
 
 
 - fix some issues with clicking tiles (emulator)

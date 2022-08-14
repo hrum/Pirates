@@ -29,7 +29,8 @@ public class GameView extends View {
     private MapLayout layout;
     private float size = 60;
     private int selectedPosition;
-    private Paint paint;
+    private Paint titlePaint;
+    private Paint messagePaint;
 
     public GameView(Context context, Game game) {
         super(context);
@@ -41,10 +42,14 @@ public class GameView extends View {
     }
 
     private void createPaint() {
-        paint = new Paint();
-        paint.setTextSize(60);
-        paint.setColor(Color.DKGRAY);
-        paint.setTypeface(Typeface.DEFAULT_BOLD);
+        titlePaint = new Paint();
+        titlePaint.setTextSize(60);
+        titlePaint.setColor(Color.DKGRAY);
+        titlePaint.setTypeface(Typeface.DEFAULT_BOLD);
+
+        messagePaint = new Paint();
+        messagePaint.setTextSize(40);
+        messagePaint.setColor(Color.DKGRAY);
     }
 
     @Override
@@ -116,9 +121,9 @@ public class GameView extends View {
         } else {
             title = getContext().getString(R.string.ocean);
         }
-        float textWidth = paint.measureText(title);
+        float textWidth = titlePaint.measureText(title);
         float x = (SCREEN_WIDTH - textWidth)/2;
-        canvas.drawText(title, x, getHeight() - 0.42f * SCREEN_WIDTH, paint);
+        canvas.drawText(title, x, getHeight() - 0.42f * SCREEN_WIDTH, titlePaint);
     }
 
     private void drawCloseButton(Canvas canvas) {
@@ -140,10 +145,17 @@ public class GameView extends View {
     }
 
     private void drawDigButton(Canvas canvas) {
-        Drawable digButton = getDrawable(R.drawable.dig_button);
-        digButton.setBounds((SCREEN_WIDTH - DIG_BUTTON_SIZE)/2, getHeight() - SCREEN_WIDTH * 3/10,
-                            (SCREEN_WIDTH + DIG_BUTTON_SIZE)/2, getHeight() - SCREEN_WIDTH * 3/10 + DIG_BUTTON_SIZE);
-        digButton.draw(canvas);
+        if(game.getTreasureMap().isDigPossible(selectedPosition)) {
+            Drawable digButton = getDrawable(R.drawable.dig_button);
+            digButton.setBounds((SCREEN_WIDTH - DIG_BUTTON_SIZE) / 2, getHeight() - SCREEN_WIDTH * 3 / 10,
+                    (SCREEN_WIDTH + DIG_BUTTON_SIZE) / 2, getHeight() - SCREEN_WIDTH * 3 / 10 + DIG_BUTTON_SIZE);
+            digButton.draw(canvas);
+        } else {
+            String message = getContext().getString(R.string.dig_message);
+            float textWidth = messagePaint.measureText(message);
+            float x = (SCREEN_WIDTH - textWidth)/2;
+            canvas.drawText(message, x, getHeight() - 0.3f * SCREEN_WIDTH, messagePaint);
+        }
     }
 
     private boolean isInfoWindowClicked(float x, float y) {
