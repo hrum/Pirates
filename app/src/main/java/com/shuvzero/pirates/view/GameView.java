@@ -187,7 +187,7 @@ public class GameView extends View {
                     selectedPosition = -1;
                 } else if (isDigButtonClicked(x, y)) {
                     if(game.getTreasureMap().isDigPossible(selectedPosition))
-                        selectedPosition = -1;
+                        game.dig(selectedPosition);
                 }
             } else {
                 selectedPosition = layout.getPosition(new Point(x, y));

@@ -13,4 +13,12 @@ public class Game {
     public TreasureMap getTreasureMap() {
         return treasureMap;
     }
+
+    public int dig(int position) {
+        int hint = 0;
+        for(Feature feature: treasureMap.getFeatures(position))
+            if(treasureMap.getTreasureFeatures().contains(feature))
+                hint++;
+        return hint;
+    }
 }

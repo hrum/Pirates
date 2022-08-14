@@ -17,8 +17,10 @@ public class TreasureMap {
     private final int block;
     private final int totalCells;
     private final int bottomEdge;
+
     private List<Cell> cells;
     private int treasurePosition;
+    private List<Feature> treasureFeatures;
 
     public TreasureMap(int height, int width) {
         this.height = height;
@@ -43,6 +45,19 @@ public class TreasureMap {
 
     public void setTreasurePosition(int treasurePosition) {
         this.treasurePosition = treasurePosition;
+        treasureFeatures = getFeatures(treasurePosition);
+    }
+
+    public List<Feature> getTreasureFeatures() {
+        return treasureFeatures;
+    }
+
+    public List<Feature> getFeatures(int position) {
+        List<Feature> features = new ArrayList<>();
+        features.add(cells.get(position).getFeature());
+        for(Direction direction: Direction.values())
+            features.add(getAdjacent(position, direction).getFeature());
+        return features;
     }
 
     private void createCells() {
