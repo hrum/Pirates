@@ -15,11 +15,14 @@ public class Game {
         return treasureMap;
     }
 
-    public void dig(int position) {
+    public boolean dig(int position) {
+        if(position == treasureMap.getTreasurePosition())
+            return true;
         int hint = 0;
         for(Feature feature: treasureMap.getFeatures(position))
             if(treasureMap.getTreasureFeatures().contains(feature))
                 hint++;
         treasureMap.getCell(position).setHint(hint);
+        return false;
     }
 }

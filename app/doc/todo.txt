@@ -1,2 +1,4 @@
-- if there is a treasure in the tile = win
+
+
+
 - can not dig in the same place twice

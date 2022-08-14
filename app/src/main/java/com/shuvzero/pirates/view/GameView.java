@@ -29,6 +29,7 @@ public class GameView extends View {
     private MapLayout layout;
     private float size = 60;
     private int selectedPosition;
+    private boolean status;
     private Paint titlePaint;
     private Paint messagePaint;
     private Paint hintPaint;
@@ -70,6 +71,7 @@ public class GameView extends View {
         drawFrame(canvas);
         drawHints(canvas);
         drawInfoWindow(canvas);
+        drawWinMessage(canvas);
     }
 
     private void drawMap(Canvas canvas) {
@@ -191,6 +193,15 @@ public class GameView extends View {
         }
     }
 
+    private void drawWinMessage(Canvas canvas) {
+        if(status) {
+            String message = getContext().getString(R.string.win_message);
+            float textWidth = hintPaint.measureText(message);
+            float x = (SCREEN_WIDTH - textWidth)/2;
+            canvas.drawText(message, x, getHeight() / 2, hintPaint);
+        }
+    }
+
     private boolean isDigButtonClicked(float x, float y) {
         return x > (SCREEN_WIDTH - DIG_BUTTON_SIZE) / 2
                 && x < (SCREEN_WIDTH + DIG_BUTTON_SIZE) / 2
@@ -219,8 +230,9 @@ public class GameView extends View {
                 if (isCloseButtonClicked(x, y)) {
                     selectedPosition = -1;
                 } else if (isDigButtonClicked(x, y)) {
-                    if(game.getTreasureMap().isDigPossible(selectedPosition))
-                        game.dig(selectedPosition);
+                    if(game.getTreasureMap().isDigPossible(selectedPosition)) {
+                        status = game.dig(selectedPosition);
+                    }
                 }
             } else {
                 selectedPosition = layout.getPosition(new Point(x, y));

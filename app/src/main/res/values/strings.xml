@@ -28,4 +28,5 @@
     <string name="desert">Desert</string>
     <string name="ocean">Ocean</string>
     <string name="dig_message">Can only dig on land tiles.</string>
+    <string name="win_message">You win!</string>
 </resources>
