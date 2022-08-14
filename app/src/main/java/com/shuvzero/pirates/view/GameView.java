@@ -145,7 +145,12 @@ public class GameView extends View {
     }
 
     private void drawDigButton(Canvas canvas) {
-        if(game.getTreasureMap().isDigPossible(selectedPosition)) {
+        int hint = game.getTreasureMap().getCell(selectedPosition).getHint();
+        if(hint != -1) {
+            canvas.drawText(String.valueOf(hint),
+                    (SCREEN_WIDTH - DIG_BUTTON_SIZE) / 2,
+                    getHeight() - SCREEN_WIDTH * 3 / 10 + DIG_BUTTON_SIZE, messagePaint);
+        } else if(game.getTreasureMap().isDigPossible(selectedPosition)) {
             Drawable digButton = getDrawable(R.drawable.dig_button);
             digButton.setBounds((SCREEN_WIDTH - DIG_BUTTON_SIZE) / 2, getHeight() - SCREEN_WIDTH * 3 / 10,
                     (SCREEN_WIDTH + DIG_BUTTON_SIZE) / 2, getHeight() - SCREEN_WIDTH * 3 / 10 + DIG_BUTTON_SIZE);

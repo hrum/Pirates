@@ -10,6 +10,7 @@ public class Cell {
 
     public Cell(int position) {
         this.position = position;
+        hint = -1;
     }
 
     public boolean isLand() {
@@ -30,5 +31,13 @@ public class Cell {
 
     public int getPosition() {
         return position;
+    }
+
+    public void setHint(int hint) {
+        this.hint = hint;
+    }
+
+    public int getHint() {
+        return hint;
     }
 }

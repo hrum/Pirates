@@ -45,11 +45,14 @@ public class TreasureMap {
 
     public void setTreasurePosition(int treasurePosition) {
         this.treasurePosition = treasurePosition;
-        treasureFeatures = getFeatures(treasurePosition);
     }
 
     public List<Feature> getTreasureFeatures() {
         return treasureFeatures;
+    }
+
+    public void setTreasureFeatures() {
+        treasureFeatures = getFeatures(treasurePosition);
     }
 
     public List<Feature> getFeatures(int position) {

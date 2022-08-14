@@ -8,17 +8,18 @@ public class Game {
         treasureMap = new TreasureMap(24, 9);
         MapGenerator mapGenerator = new MapGenerator(treasureMap);
         mapGenerator.generate();
+        treasureMap.setTreasureFeatures();
     }
 
     public TreasureMap getTreasureMap() {
         return treasureMap;
     }
 
-    public int dig(int position) {
+    public void dig(int position) {
         int hint = 0;
         for(Feature feature: treasureMap.getFeatures(position))
             if(treasureMap.getTreasureFeatures().contains(feature))
                 hint++;
-        return hint;
+        treasureMap.getCell(position).setHint(hint);
     }
 }
