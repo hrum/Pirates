@@ -1,4 +1,4 @@
+- can not dig in the same place twice
 
-
-
-- fix some issues with clicking tiles (emulator)
+- if there is a treasure in the tile = win
+- if there is no treasure, then hint appears

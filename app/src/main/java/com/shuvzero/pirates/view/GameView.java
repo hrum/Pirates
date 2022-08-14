@@ -158,6 +158,13 @@ public class GameView extends View {
         }
     }
 
+    private boolean isDigButtonClicked(float x, float y) {
+        return x > (SCREEN_WIDTH - DIG_BUTTON_SIZE) / 2
+                && x < (SCREEN_WIDTH + DIG_BUTTON_SIZE) / 2
+                && y > getHeight() - SCREEN_WIDTH * 3 / 10
+                && y < getHeight() - SCREEN_WIDTH * 3 / 10 + DIG_BUTTON_SIZE;
+    }
+
     private boolean isInfoWindowClicked(float x, float y) {
         return selectedPosition != -1
                 && y > getHeight() - SCREEN_WIDTH/2;
@@ -178,6 +185,9 @@ public class GameView extends View {
             if(isInfoWindowClicked(x, y)) {
                 if (isCloseButtonClicked(x, y)) {
                     selectedPosition = -1;
+                } else if (isDigButtonClicked(x, y)) {
+                    if(game.getTreasureMap().isDigPossible(selectedPosition))
+                        selectedPosition = -1;
                 }
             } else {
                 selectedPosition = layout.getPosition(new Point(x, y));
