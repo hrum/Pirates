@@ -1,9 +1,5 @@
-
-
-
-
 - show hint on the map in the upper corner
-- if there is no treasure, then hint appears
+
 
 - if there is a treasure in the tile = win
 - can not dig in the same place twice

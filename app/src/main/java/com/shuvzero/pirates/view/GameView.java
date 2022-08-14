@@ -31,6 +31,7 @@ public class GameView extends View {
     private int selectedPosition;
     private Paint titlePaint;
     private Paint messagePaint;
+    private Paint hintPaint;
 
     public GameView(Context context, Game game) {
         super(context);
@@ -50,6 +51,11 @@ public class GameView extends View {
         messagePaint = new Paint();
         messagePaint.setTextSize(40);
         messagePaint.setColor(Color.DKGRAY);
+
+        hintPaint = new Paint();
+        hintPaint.setTextSize(150);
+        titlePaint.setColor(Color.DKGRAY);
+        titlePaint.setTypeface(Typeface.DEFAULT_BOLD);
     }
 
     @Override
@@ -147,9 +153,9 @@ public class GameView extends View {
     private void drawDigButton(Canvas canvas) {
         int hint = game.getTreasureMap().getCell(selectedPosition).getHint();
         if(hint != -1) {
-            canvas.drawText(String.valueOf(hint),
-                    (SCREEN_WIDTH - DIG_BUTTON_SIZE) / 2,
-                    getHeight() - SCREEN_WIDTH * 3 / 10 + DIG_BUTTON_SIZE, messagePaint);
+            float textWidth = hintPaint.measureText(String.valueOf(hint));
+            float x = (SCREEN_WIDTH - textWidth)/2;
+            canvas.drawText(String.valueOf(hint), x, getHeight() - SCREEN_WIDTH * 4 / 10 + DIG_BUTTON_SIZE, hintPaint);
         } else if(game.getTreasureMap().isDigPossible(selectedPosition)) {
             Drawable digButton = getDrawable(R.drawable.dig_button);
             digButton.setBounds((SCREEN_WIDTH - DIG_BUTTON_SIZE) / 2, getHeight() - SCREEN_WIDTH * 3 / 10,
