@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Hint: HIddeN Treasure</string>
+    <string name="river">Река</string>
+    <string name="road">Дорога</string>
+    <string name="grass">Трава</string>
+    <string name="forest">Лес</string>
+    <string name="hills">Холмы</string>
+    <string name="swamp">Болото</string>
+    <string name="plains">Равнина</string>
+    <string name="jungle">Джунгли</string>
+    <string name="mountain">Гора</string>
+    <string name="cave">Пещера</string>
+    <string name="skull">Череп</string>
+    <string name="volcano">Вулкан</string>
+    <string name="palm">Пальма</string>
+    <string name="house">Дом</string>
+    <string name="cactus">Кактус</string>
+    <string name="cross">Метка</string>
+    <string name="chest">Сундук</string>
+    <string name="sea">Море</string>
+    <string name="lake">Озеро</string>
+    <string name="anchor">Якорь</string>
+    <string name="shark">Акула</string>
+    <string name="coral">Коралл</string>
+    <string name="turtle">Черепаха</string>
+    <string name="jellyfish">Медуза</string>
+    <string name="octopus">Осьминог</string>
+    <string name="desert">Пустыня</string>
+    <string name="ocean">Океан</string>
+    <string name="dig_message">Можно копать только на суше.</string>
+    <string name="win_message">Победа!</string>
+</resources>
