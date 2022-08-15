@@ -1,5 +1,0 @@
-PROTOTYPE REQUIREMENTS:
-- hex grid
-- some simple graphics
-- solo mode
-- player can just dig
