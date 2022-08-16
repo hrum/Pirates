@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -17,7 +18,7 @@ import com.shuvzero.pirates.model.Cell;
 import com.shuvzero.pirates.model.Game;
 import com.shuvzero.pirates.model.Point;
 
-public class GameView extends View {
+public class GameView extends View implements GestureDetector.OnGestureListener{
 
     public static final int SCREEN_WIDTH = Resources.getSystem().getDisplayMetrics().widthPixels;
 
@@ -240,6 +241,36 @@ public class GameView extends View {
             invalidate();
         }
         return true;
+    }
+
+    @Override
+    public boolean onDown(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent motionEvent) {
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent event1, MotionEvent event2, float distanceX, float distanceY) {
+        return true;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent motionEvent) {
+
+    }
+
+    @Override
+    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
+        return false;
     }
 
 }

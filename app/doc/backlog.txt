@@ -1,2 +1,3 @@
 - fix some issues with clicking tiles (emulator)
 - can not dig in the same place twice
+- improve win animation

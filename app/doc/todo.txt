@@ -1,2 +1,5 @@
-- improve win animation
+- read about gestures
+- get gesture from android
+- handle gesture
+- can scroll the map
 
