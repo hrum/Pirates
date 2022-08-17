@@ -240,12 +240,12 @@ public class GameView extends View implements GestureDetector.OnGestureListener{
             }
             invalidate();
         }
-        return true;
+        return false;
     }
 
     @Override
     public boolean onDown(MotionEvent motionEvent) {
-        return false;
+        return true;
     }
 
     @Override
