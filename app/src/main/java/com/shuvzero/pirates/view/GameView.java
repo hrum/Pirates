@@ -7,18 +7,20 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.core.content.ContextCompat;
+import androidx.core.view.GestureDetectorCompat;
 
 import com.shuvzero.pirates.R;
 import com.shuvzero.pirates.model.Cell;
 import com.shuvzero.pirates.model.Game;
 import com.shuvzero.pirates.model.Point;
 
-public class GameView extends View implements GestureDetector.OnGestureListener{
+public class GameView extends View {
 
     public static final int SCREEN_WIDTH = Resources.getSystem().getDisplayMetrics().widthPixels;
 
@@ -36,6 +38,8 @@ public class GameView extends View implements GestureDetector.OnGestureListener{
     private Paint hintPaint;
     private Paint hintSmallPaint;
 
+    private GestureDetectorCompat gestureDetector;
+
     public GameView(Context context, Game game) {
         super(context);
         this.game = game;
@@ -43,6 +47,8 @@ public class GameView extends View implements GestureDetector.OnGestureListener{
         selectedPosition = -1;
         createPaint();
         //size = game.getTreasureMap().getHeight()
+
+        gestureDetector = new GestureDetectorCompat(context, new MyGestureListener());
     }
 
     private void createPaint() {
@@ -221,8 +227,10 @@ public class GameView extends View implements GestureDetector.OnGestureListener{
         return null;
     }
 
+/*
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        Log.d("Debug","onTouchEvent: " + event.toString());
 
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             float x = event.getX();
@@ -240,37 +248,37 @@ public class GameView extends View implements GestureDetector.OnGestureListener{
             }
             invalidate();
         }
-        return false;
-    }
-
-    @Override
-    public boolean onDown(MotionEvent motionEvent) {
         return true;
-    }
+    }*/
 
     @Override
-    public void onShowPress(MotionEvent motionEvent) {
-
-    }
-
-    @Override
-    public boolean onSingleTapUp(MotionEvent motionEvent) {
-        return false;
-    }
-
-    @Override
-    public boolean onScroll(MotionEvent event1, MotionEvent event2, float distanceX, float distanceY) {
+    public boolean onTouchEvent(MotionEvent event){
+        Log.d("Debug","onTouchEvent: " + event.toString());
+        gestureDetector.onTouchEvent(event);
         return true;
+        //return super.onTouchEvent(event);
     }
 
-    @Override
-    public void onLongPress(MotionEvent motionEvent) {
+    class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
+        private static final String DEBUG_TAG = "Gestures";
 
-    }
+        @Override
+        public boolean onDown(MotionEvent event) {
+            //Log.d(DEBUG_TAG,"onDown: " + event.toString());
+            return true;
+        }
 
-    @Override
-    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
-        return false;
+        @Override
+        public boolean onScroll(MotionEvent event1, MotionEvent event2, float distanceX, float distanceY) {
+            Log.d(DEBUG_TAG, "onScroll: " + event1.toString() + event2.toString());
+            return true;
+        }
+
+        @Override
+        public boolean onFling(MotionEvent event1, MotionEvent event2, float velocityX, float velocityY) {
+            Log.d(DEBUG_TAG, "onFling: " + event1.toString() + event2.toString());
+            return true;
+        }
     }
 
 }

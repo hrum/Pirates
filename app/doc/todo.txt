@@ -1,6 +1,6 @@
+- get scroll gesture from android
+- handle gesture (scroll the map)
 
-- get gesture from android
-- handle gesture
-- can scroll the map
+
 
 - info window should appear after releasing finger
