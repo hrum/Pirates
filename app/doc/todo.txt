@@ -1,4 +1,3 @@
 480x854
 
-- can't scroll to the right edge
-- can't scroll to the bottom edge
+
