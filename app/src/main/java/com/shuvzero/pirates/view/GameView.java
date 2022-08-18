@@ -43,7 +43,7 @@ public class GameView extends View {
     public GameView(Context context, Game game) {
         super(context);
         this.game = game;
-        layout = new MapLayout(game.getTreasureMap(), new Point(0,0), size);
+        layout = new MapLayout(game.getTreasureMap(), size);
         selectedPosition = -1;
         createPaint();
         //size = game.getTreasureMap().getHeight()
@@ -253,7 +253,7 @@ public class GameView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event){
-        Log.d("Debug","onTouchEvent: " + event.toString());
+        //Log.d("Debug","onTouchEvent: " + event.toString());
         gestureDetector.onTouchEvent(event);
         return true;
         //return super.onTouchEvent(event);
@@ -270,7 +270,11 @@ public class GameView extends View {
 
         @Override
         public boolean onScroll(MotionEvent event1, MotionEvent event2, float distanceX, float distanceY) {
-            Log.d(DEBUG_TAG, "onScroll: " + event1.toString() + event2.toString());
+            //Log.d(DEBUG_TAG, "onScroll: " + event1.toString() + event2.toString());
+            Log.d(DEBUG_TAG, "onScroll: " + distanceX + " " + distanceY);
+            layout.changeOriginX(distanceX);
+            layout.changeOriginY(distanceY);
+            invalidate();
             return true;
         }
 
