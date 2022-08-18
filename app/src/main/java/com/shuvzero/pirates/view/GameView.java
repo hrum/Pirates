@@ -27,10 +27,10 @@ public class GameView extends View {
     private static final int CLOSE_BUTTON_SIZE = SCREEN_WIDTH/10;
     private static final int CLOSE_BUTTON_GAP = CLOSE_BUTTON_SIZE/10;
     private static final int DIG_BUTTON_SIZE = SCREEN_WIDTH/5;
+    private float size = SCREEN_WIDTH/18;
 
     private Game game;
     private MapLayout layout;
-    private float size = 60;
     private int selectedPosition;
     private boolean status;
     private Paint titlePaint;
@@ -67,7 +67,7 @@ public class GameView extends View {
         hintPaint.setTypeface(Typeface.DEFAULT_BOLD);
 
         hintSmallPaint = new Paint();
-        hintSmallPaint.setTextSize(40);
+        hintSmallPaint.setTextSize(SCREEN_WIDTH/27);
         hintSmallPaint.setColor(Color.DKGRAY);
     }
 

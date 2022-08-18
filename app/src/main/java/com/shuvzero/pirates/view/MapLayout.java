@@ -24,10 +24,6 @@ public class MapLayout {
         RIGHT_LIMIT = screenWidth/2;
         TOP_LIMIT = -(Math.round(1.5f * map.getHeight() * size) - screenHeight/2);
         BOTTOM_LIMIT = screenHeight/2;
-        Log.d("hui", "left: " + LEFT_LIMIT);
-        Log.d("hui", "right: " + RIGHT_LIMIT);
-        Log.d("hui", "top: " + TOP_LIMIT);
-        Log.d("hui", "bottom: " + BOTTOM_LIMIT);
     }
 
     public float getOriginX() {
