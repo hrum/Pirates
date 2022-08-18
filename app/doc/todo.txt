@@ -1,5 +1,4 @@
+- test how it works
+
 
 - make cells larger by default
-=======================================================
-
-- info window should appear after releasing finger
