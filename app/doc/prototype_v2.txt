@@ -1,11 +1,13 @@
-REQUIREMENTS:
-- support Russian language
-- can scroll the map
-- support (and test on) different screen resolutions
+DEVELOPMENT
++ support Russian language
++ can scroll the map
+- support different screen resolutions
+- add help
 - create main menu
 - can select map size in main menu(small, medium, large)
-- add help
 - add sounds
-- fix all known major issues
 
+TESTING/RELEASE
+- test and fix all major issues
+- test on different screen resolutions
 - upload to Google Play

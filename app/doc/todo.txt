@@ -1,4 +1,4 @@
-- test how it works
+480x854
 
-
-- make cells larger by default
+- can't scroll to the right edge
+- can't scroll to the bottom edge

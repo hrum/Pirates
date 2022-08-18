@@ -53,16 +53,16 @@ public class GameView extends View {
 
     private void createPaint() {
         titlePaint = new Paint();
-        titlePaint.setTextSize(60);
+        titlePaint.setTextSize(SCREEN_WIDTH/18);
         titlePaint.setColor(Color.DKGRAY);
         titlePaint.setTypeface(Typeface.DEFAULT_BOLD);
 
         messagePaint = new Paint();
-        messagePaint.setTextSize(40);
+        messagePaint.setTextSize(SCREEN_WIDTH/27);
         messagePaint.setColor(Color.DKGRAY);
 
         hintPaint = new Paint();
-        hintPaint.setTextSize(150);
+        hintPaint.setTextSize(SCREEN_WIDTH/7);
         hintPaint.setColor(Color.DKGRAY);
         hintPaint.setTypeface(Typeface.DEFAULT_BOLD);
 
