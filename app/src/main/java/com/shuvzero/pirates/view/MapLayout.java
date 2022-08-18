@@ -5,14 +5,23 @@ import com.shuvzero.pirates.model.TreasureMap;
 
 public class MapLayout {
 
+    private final int LEFT_LIMIT;
+    private final int RIGHT_LIMIT;
+    private final int TOP_LIMIT;
+    private final int BOTTOM_LIMIT;
+
     private TreasureMap map;
     private float originX;
     private float originY;
     private float size;
 
-    public MapLayout(TreasureMap map, float size) {
+    public MapLayout(TreasureMap map, int screenWidth, int screenHeight, float size) {
         this.map = map;
         this.size = size;
+        LEFT_LIMIT = -screenWidth/2;
+        RIGHT_LIMIT = Math.round(map.getWidth() * (float)Math.sqrt(3)) + screenWidth/2;
+        TOP_LIMIT = -screenHeight/2;
+        BOTTOM_LIMIT = Math.round(map.getHeight() * 1.5f) + screenHeight/2;
     }
 
     public float getOriginX() {
@@ -29,10 +38,18 @@ public class MapLayout {
 
     public void changeOriginX(float change) {
         originX -= change;
+        if(originX < LEFT_LIMIT)
+            originX = LEFT_LIMIT;
+        if(originX > RIGHT_LIMIT)
+            originX = RIGHT_LIMIT;
     }
 
     public void changeOriginY(float change) {
         originY -= change;
+        if(originY < TOP_LIMIT)
+            originY = TOP_LIMIT;
+        if(originY > BOTTOM_LIMIT)
+            originY = BOTTOM_LIMIT;
     }
 
     public void setSize(float size) {

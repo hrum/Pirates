@@ -23,6 +23,7 @@ import com.shuvzero.pirates.model.Point;
 public class GameView extends View {
 
     public static final int SCREEN_WIDTH = Resources.getSystem().getDisplayMetrics().widthPixels;
+    public static final int SCREEN_HEIGHT = Resources.getSystem().getDisplayMetrics().heightPixels;
 
     private static final int CLOSE_BUTTON_SIZE = SCREEN_WIDTH/10;
     private static final int CLOSE_BUTTON_GAP = CLOSE_BUTTON_SIZE/10;
@@ -43,7 +44,7 @@ public class GameView extends View {
     public GameView(Context context, Game game) {
         super(context);
         this.game = game;
-        layout = new MapLayout(game.getTreasureMap(), size);
+        layout = new MapLayout(game.getTreasureMap(), SCREEN_WIDTH, SCREEN_HEIGHT, size);
         selectedPosition = -1;
         createPaint();
         //size = game.getTreasureMap().getHeight()
