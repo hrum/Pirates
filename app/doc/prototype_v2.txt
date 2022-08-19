@@ -2,7 +2,7 @@ DEVELOPMENT
 + support Russian language
 + can scroll the map
 + support different screen resolutions
-- add help
++ add help
 
 
 TESTING/RELEASE

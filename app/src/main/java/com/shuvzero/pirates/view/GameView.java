@@ -33,7 +33,7 @@ public class GameView extends View {
     private Game game;
     private MapLayout layout;
     private int selectedPosition;
-    private boolean status;
+    private boolean treasureFound;
     private Paint titlePaint;
     private Paint messagePaint;
     private Paint hintPaint;
@@ -80,7 +80,7 @@ public class GameView extends View {
         drawHints(canvas);
         drawInfoWindow(canvas);
         drawHelpButton(canvas);
-        drawWinMessage(canvas);
+        drawTreasure(canvas);
     }
 
     private void drawMap(Canvas canvas) {
@@ -202,12 +202,15 @@ public class GameView extends View {
         }
     }
 
-    private void drawWinMessage(Canvas canvas) {
-        if(status) {
-            String message = getContext().getString(R.string.win_message);
-            float textWidth = hintPaint.measureText(message);
-            float x = (SCREEN_WIDTH - textWidth)/2;
-            canvas.drawText(message, x, getHeight() / 2, hintPaint);
+    private void drawTreasure(Canvas canvas) {
+        if(treasureFound) {
+            Drawable treasure = getDrawable(R.drawable.treasure);
+            treasure.setBounds(
+                    SCREEN_WIDTH/4,
+                    (SCREEN_HEIGHT - SCREEN_WIDTH/2) /2,
+                    3 * SCREEN_WIDTH /4,
+                    (SCREEN_HEIGHT + SCREEN_WIDTH/2) /2);
+            treasure.draw(canvas);
         }
     }
 
@@ -284,7 +287,7 @@ public class GameView extends View {
                     selectedPosition = -1;
                 } else if (isDigButtonClicked(x, y)) {
                     if(game.getTreasureMap().isDigPossible(selectedPosition)) {
-                        status = game.dig(selectedPosition);
+                        treasureFound = game.dig(selectedPosition);
                     }
                 }
             } else {

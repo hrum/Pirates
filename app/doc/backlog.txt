@@ -1,6 +1,5 @@
 - fix some issues with clicking tiles (emulator)
 - can not dig in the same place twice
-- improve win animation
 
 - create main menu
 - can select map size in main menu(small, medium, large)

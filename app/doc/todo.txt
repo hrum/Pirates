@@ -1,1 +1,3 @@
+- on any tap, start new game
 
+- test the game
