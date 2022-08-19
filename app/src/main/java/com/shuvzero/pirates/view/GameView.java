@@ -78,6 +78,7 @@ public class GameView extends View {
         drawFrame(canvas);
         drawHints(canvas);
         drawInfoWindow(canvas);
+        drawHelpButton(canvas);
         drawWinMessage(canvas);
     }
 
@@ -207,6 +208,16 @@ public class GameView extends View {
             float x = (SCREEN_WIDTH - textWidth)/2;
             canvas.drawText(message, x, getHeight() / 2, hintPaint);
         }
+    }
+
+    private void drawHelpButton(Canvas canvas) {
+        Drawable helpButton = getDrawable(R.drawable.help_button);
+        helpButton.setBounds(
+                SCREEN_WIDTH - CLOSE_BUTTON_SIZE - CLOSE_BUTTON_GAP,
+                 CLOSE_BUTTON_GAP,
+                SCREEN_WIDTH - CLOSE_BUTTON_GAP,
+                CLOSE_BUTTON_SIZE + CLOSE_BUTTON_GAP);
+        helpButton.draw(canvas);
     }
 
     private boolean isDigButtonClicked(float x, float y) {

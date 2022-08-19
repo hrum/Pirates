@@ -7,6 +7,6 @@
 \n4) Each time player digs in any cell, he gets a hint.
 \n5) The hint indicates the number of features contained in the neighbourhood of the cell
 in which the player is digging, which are also contained in the neighbourhood of the cell in which the treasure is buried.
-\n6) The player's task is to find the treasure as quickly as possible.
+\n6) The player\'s task is to find the treasure as quickly as possible.
     </string>
 </resources>
