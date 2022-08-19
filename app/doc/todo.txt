@@ -1,3 +1,2 @@
-- balance game play (map generation)
-
+- test on different screen resolutions
 - test the game

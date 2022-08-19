@@ -44,6 +44,7 @@ public class GameView extends View {
     public GameView(Context context) {
         super(context);
         startNewGame();
+        setBackgroundColor(Color.argb(255, 0, 0, 255));
         layout = new MapLayout(game.getTreasureMap(), SCREEN_WIDTH, SCREEN_HEIGHT, size);
         selectedPosition = -1;
         createPaint();
