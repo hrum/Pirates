@@ -41,15 +41,20 @@ public class GameView extends View {
 
     private GestureDetectorCompat gestureDetector;
 
-    public GameView(Context context, Game game) {
+    public GameView(Context context) {
         super(context);
-        this.game = game;
+        startNewGame();
         layout = new MapLayout(game.getTreasureMap(), SCREEN_WIDTH, SCREEN_HEIGHT, size);
         selectedPosition = -1;
         createPaint();
         //size = game.getTreasureMap().getHeight()
 
         gestureDetector = new GestureDetectorCompat(context, new MyGestureListener());
+    }
+
+    private void startNewGame() {
+        game = new Game();
+        game.start();
     }
 
     private void createPaint() {
@@ -279,7 +284,11 @@ public class GameView extends View {
         public boolean onSingleTapUp(MotionEvent event) {
             float x = event.getX();
             float y = event.getY();
-            if(isHelpButtonClicked(x, y)) {
+            if(treasureFound) {
+                treasureFound = false;
+                selectedPosition = -1;
+                startNewGame();
+            } else if(isHelpButtonClicked(x, y)) {
                 Intent intent = new Intent(getContext(), HelpActivity.class);
                 getContext().startActivity(intent);
             } else if(isInfoWindowClicked(x, y)) {

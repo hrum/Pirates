@@ -9,9 +9,7 @@ public class GameActivity extends FullScreenActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Game game = new Game();
-        game.start();
-        GameView gameView = new GameView(this, game);
+        GameView gameView = new GameView(this);
         setContentView(gameView);
     }
 }

@@ -1,3 +1,3 @@
-- on any tap, start new game
+- balance game play (map generation)
 
 - test the game
