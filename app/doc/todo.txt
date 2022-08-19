@@ -1,19 +1,2 @@
 - add help button into game view
-- add help activity
 
-1) Клад может быть закопан в любой клетке на суше.
-2) Каждая клетка карты содержит какую-то особенность (например - река).
-3) Для любой клетки на карте можно определить ее "окрестность" - это сама клетка и все ее соседние клетки (итого 7 клеток).
-4) Каждый раз, когда игрок копает в какой-либо клетке, он получает числовую подсказку.
-5) Подсказка обозначает количество особенностей, содержащихся в окрестности клетки,
-в которой копает игрок, которые содержатся также и в окрестности клетки, в которой закопан клад.
-6) Задача игрока - найти клад как можно быстрее.
-
-
-1) The treasure can be buried in any cell on the land.
-2) Each cell of the map contains some feature (for example, a river).
-3) For any cell on the map, we can define its "neighbourhood" - this is the cell itself and all its neighbouring cells (a total of 7 cells).
-4) Each time player digs in any cell, he gets a hint.
-5) The hint indicates the number of features contained in the neighbourhood of the cell
-in which the player is digging, which are also contained in the neighbourhood of the cell in which the treasure is buried.
-6) The player's task is to find the treasure as quickly as possible.

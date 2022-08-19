@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="help_text">
+1) The treasure can be buried in any cell on the land.
+\n2) Each cell on the map contains some feature (for example, a river).
+\n3) For each cell on the map, we can define its "neighbourhood" - this is the cell itself and all its neighbouring cells (a total of 7 cells).
+\n4) Each time player digs in any cell, he gets a hint.
+\n5) The hint indicates the number of features contained in the neighbourhood of the cell
+in which the player is digging, which are also contained in the neighbourhood of the cell in which the treasure is buried.
+\n6) The player's task is to find the treasure as quickly as possible.
+    </string>
+</resources>
