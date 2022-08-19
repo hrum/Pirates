@@ -1,6 +1,7 @@
 package com.shuvzero.pirates.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -220,6 +221,13 @@ public class GameView extends View {
         helpButton.draw(canvas);
     }
 
+    private boolean isHelpButtonClicked(float x, float y) {
+        return  x > SCREEN_WIDTH - CLOSE_BUTTON_SIZE - CLOSE_BUTTON_GAP
+                && x < SCREEN_WIDTH - CLOSE_BUTTON_GAP
+                && y > CLOSE_BUTTON_GAP
+                && y < CLOSE_BUTTON_SIZE + CLOSE_BUTTON_GAP;
+    }
+
     private boolean isDigButtonClicked(float x, float y) {
         return x > (SCREEN_WIDTH - DIG_BUTTON_SIZE) / 2
                 && x < (SCREEN_WIDTH + DIG_BUTTON_SIZE) / 2
@@ -268,7 +276,10 @@ public class GameView extends View {
         public boolean onSingleTapUp(MotionEvent event) {
             float x = event.getX();
             float y = event.getY();
-            if(isInfoWindowClicked(x, y)) {
+            if(isHelpButtonClicked(x, y)) {
+                Intent intent = new Intent(getContext(), HelpActivity.class);
+                getContext().startActivity(intent);
+            } else if(isInfoWindowClicked(x, y)) {
                 if (isCloseButtonClicked(x, y)) {
                     selectedPosition = -1;
                 } else if (isDigButtonClicked(x, y)) {

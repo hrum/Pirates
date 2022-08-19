@@ -1,2 +1,1 @@
-- when help button is clicked help should be shown
-- when back button is clicked in help game view should be shown
+

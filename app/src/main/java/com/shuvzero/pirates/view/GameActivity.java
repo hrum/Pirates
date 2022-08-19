@@ -11,7 +11,7 @@ public class GameActivity extends FullScreenActivity {
         super.onCreate(savedInstanceState);
         Game game = new Game();
         game.start();
-        GameView gameView = new GameView(getBaseContext(), game);
+        GameView gameView = new GameView(this, game);
         setContentView(gameView);
     }
 }
