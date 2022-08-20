@@ -10,6 +10,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 
 import androidx.core.content.ContextCompat;
@@ -24,11 +25,9 @@ public class GameView extends View {
 
     public static final int SCREEN_WIDTH = Resources.getSystem().getDisplayMetrics().widthPixels;
     public static final int SCREEN_HEIGHT = Resources.getSystem().getDisplayMetrics().heightPixels;
-
     private static final int CLOSE_BUTTON_SIZE = SCREEN_WIDTH/10;
     private static final int CLOSE_BUTTON_GAP = CLOSE_BUTTON_SIZE/10;
     private static final int DIG_BUTTON_SIZE = SCREEN_WIDTH/5;
-    private float size = SCREEN_WIDTH/18;
 
     private Game game;
     private MapLayout layout;
@@ -40,17 +39,18 @@ public class GameView extends View {
     private Paint hintSmallPaint;
 
     private GestureDetectorCompat gestureDetector;
+    private ScaleGestureDetector scaleGestureDetector;
 
     public GameView(Context context) {
         super(context);
         startNewGame();
         setBackgroundColor(Color.argb(255, 0, 0, 255));
-        layout = new MapLayout(game.getTreasureMap(), SCREEN_WIDTH, SCREEN_HEIGHT, size);
+        layout = new MapLayout(game.getTreasureMap(), SCREEN_WIDTH, SCREEN_HEIGHT);
         selectedPosition = -1;
-        createPaint();
-        //size = game.getTreasureMap().getHeight()
+        createPaints();
 
         gestureDetector = new GestureDetectorCompat(context, new MyGestureListener());
+        scaleGestureDetector = new ScaleGestureDetector(context, new ScaleListener());
     }
 
     private void startNewGame() {
@@ -58,7 +58,7 @@ public class GameView extends View {
         game.start();
     }
 
-    private void createPaint() {
+    private void createPaints() {
         titlePaint = new Paint();
         titlePaint.setTextSize(SCREEN_WIDTH/18);
         titlePaint.setColor(Color.DKGRAY);
@@ -90,6 +90,7 @@ public class GameView extends View {
     }
 
     private void drawMap(Canvas canvas) {
+        float size = layout.getSize();
         for(Cell cell: game.getTreasureMap().getCells()) {
             Drawable tile;
             if(cell.isLand())
@@ -115,6 +116,7 @@ public class GameView extends View {
     }
 
     private void drawHints(Canvas canvas) {
+        float size = layout.getSize();
         for(Cell cell: game.getTreasureMap().getCells()) {
             if (cell.getHint() != -1) {
                 Point p = layout.getPoint(cell.getPosition());
@@ -131,6 +133,7 @@ public class GameView extends View {
 
     private void drawFrame(Canvas canvas) {
         if(selectedPosition != -1) {
+            float size = layout.getSize();
             Drawable frame = getDrawable(R.drawable.frame);
             Point p = layout.getPoint(selectedPosition);
             frame.setBounds(Math.round(p.x()),
@@ -258,10 +261,11 @@ public class GameView extends View {
     @Override
     public boolean onTouchEvent(MotionEvent event){
         gestureDetector.onTouchEvent(event);
+        scaleGestureDetector.onTouchEvent(event);
         return true;
     }
 
-    class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
+    private class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
         private static final String DEBUG_TAG = "Gestures";
 
         @Override
@@ -303,6 +307,15 @@ public class GameView extends View {
             } else {
                 selectedPosition = layout.getPosition(new Point(x, y));
             }
+            invalidate();
+            return true;
+        }
+    }
+
+    private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+        @Override
+        public boolean onScale(ScaleGestureDetector detector) {
+            layout.changeSize(detector.getScaleFactor());
             invalidate();
             return true;
         }

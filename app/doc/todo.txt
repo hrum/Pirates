@@ -1,3 +1,6 @@
+- add zoom
+- change font?
+
 - create site on github
 - publish privacy policy
 

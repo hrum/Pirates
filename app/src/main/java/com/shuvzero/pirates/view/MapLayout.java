@@ -1,7 +1,5 @@
 package com.shuvzero.pirates.view;
 
-import android.util.Log;
-
 import com.shuvzero.pirates.model.Point;
 import com.shuvzero.pirates.model.TreasureMap;
 
@@ -11,15 +9,19 @@ public class MapLayout {
     private final int RIGHT_LIMIT;
     private final int TOP_LIMIT;
     private final int BOTTOM_LIMIT;
+    private final float SIZE_MIN;
+    private final float SIZE_MAX;
 
     private TreasureMap map;
     private float originX;
     private float originY;
     private float size;
 
-    public MapLayout(TreasureMap map, int screenWidth, int screenHeight, float size) {
+    public MapLayout(TreasureMap map, int screenWidth, int screenHeight) {
         this.map = map;
-        this.size = size;
+        size = screenWidth/18;
+        SIZE_MIN = size / 2;
+        SIZE_MAX = size * 2;
         LEFT_LIMIT = -(Math.round((float)Math.sqrt(3) * (map.getWidth() + 1) * size) - screenWidth/2);
         RIGHT_LIMIT = screenWidth/2;
         TOP_LIMIT = -(Math.round(1.5f * map.getHeight() * size) - screenHeight/2);
@@ -54,8 +56,8 @@ public class MapLayout {
             originY = BOTTOM_LIMIT;
     }
 
-    public void setSize(float size) {
-        this.size = size;
+    public void changeSize(float scaleFactor) {
+        size = Math.max(SIZE_MIN, Math.min(size * scaleFactor, SIZE_MAX));
     }
 
     public Point getPoint(int position) {
