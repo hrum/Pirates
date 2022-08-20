@@ -1,2 +1,4 @@
-- test on different screen resolutions
-- test the game
+- think what else can be done
+- check backlog
+
+- upload to Google Play

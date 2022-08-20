@@ -4,7 +4,6 @@ import com.shuvzero.pirates.R;
 
 public enum Feature {
 
-
     River(FeatureType.Linear, R.drawable.river, R.string.river, true),
     Road(FeatureType.Linear, R.drawable.road, R.string.road, true),
 

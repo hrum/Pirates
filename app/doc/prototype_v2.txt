@@ -4,8 +4,7 @@ DEVELOPMENT
 + support different screen resolutions
 + add help
 
-
 TESTING/RELEASE
-- test and fix all major issues
-- test on different screen resolutions
++ test and fix all major issues
++ test on different screen resolutions
 - upload to Google Play

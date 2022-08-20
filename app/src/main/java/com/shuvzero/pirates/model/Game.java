@@ -16,13 +16,11 @@ public class Game {
     }
 
     public boolean dig(int position) {
-        if(position == treasureMap.getTreasurePosition())
-            return true;
         int hint = 0;
         for(Feature feature: treasureMap.getFeatures(position))
             if(treasureMap.getTreasureFeatures().contains(feature))
                 hint++;
         treasureMap.getCell(position).setHint(hint);
-        return false;
+        return position == treasureMap.getTreasurePosition();
     }
 }
