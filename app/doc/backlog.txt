@@ -4,3 +4,6 @@
 - create main menu
 - can select map size in main menu(small, medium, large)
 - add sounds
+
+- add zoom (https://developer.android.com/training/gestures/scale)
+- change font?

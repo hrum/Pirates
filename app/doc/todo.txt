@@ -1,8 +1,9 @@
-- add zoom
-- change font?
+- create site on google sites
 
-- create site on github
+
+
+
 - publish privacy policy
-
+https://github.com/WrichikBasu/ShakeAlarmClock/blob/master/PRIVACY_POLICY.md
 
 - upload to Google Play
