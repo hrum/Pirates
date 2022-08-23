@@ -1,7 +1,3 @@
-- create site on google sites
-
-
-
 
 - publish privacy policy
 https://github.com/WrichikBasu/ShakeAlarmClock/blob/master/PRIVACY_POLICY.md
