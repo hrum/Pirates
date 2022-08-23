@@ -1,5 +1,1 @@
-
-- publish privacy policy
-https://github.com/WrichikBasu/ShakeAlarmClock/blob/master/PRIVACY_POLICY.md
-
 - upload to Google Play
