@@ -85,7 +85,6 @@ public class GameView extends View {
         drawFrame(canvas);
         drawHints(canvas);
         drawInfoWindow(canvas);
-        drawHelpButton(canvas);
         drawTreasure(canvas);
     }
 
@@ -223,23 +222,6 @@ public class GameView extends View {
         }
     }
 
-    private void drawHelpButton(Canvas canvas) {
-        Drawable helpButton = getDrawable(R.drawable.help_button);
-        helpButton.setBounds(
-                SCREEN_WIDTH - CLOSE_BUTTON_SIZE - CLOSE_BUTTON_GAP,
-                 CLOSE_BUTTON_GAP,
-                SCREEN_WIDTH - CLOSE_BUTTON_GAP,
-                CLOSE_BUTTON_SIZE + CLOSE_BUTTON_GAP);
-        helpButton.draw(canvas);
-    }
-
-    private boolean isHelpButtonClicked(float x, float y) {
-        return  x > SCREEN_WIDTH - CLOSE_BUTTON_SIZE - CLOSE_BUTTON_GAP
-                && x < SCREEN_WIDTH - CLOSE_BUTTON_GAP
-                && y > CLOSE_BUTTON_GAP
-                && y < CLOSE_BUTTON_SIZE + CLOSE_BUTTON_GAP;
-    }
-
     private boolean isDigButtonClicked(float x, float y) {
         return x > (SCREEN_WIDTH - DIG_BUTTON_SIZE) / 2
                 && x < (SCREEN_WIDTH + DIG_BUTTON_SIZE) / 2
@@ -293,9 +275,6 @@ public class GameView extends View {
                 treasureFound = false;
                 selectedPosition = -1;
                 startNewGame();
-            } else if(isHelpButtonClicked(x, y)) {
-                Intent intent = new Intent(getContext(), HelpActivity.class);
-                getContext().startActivity(intent);
             } else if(isInfoWindowClicked(x, y)) {
                 if (isCloseButtonClicked(x, y)) {
                     selectedPosition = -1;

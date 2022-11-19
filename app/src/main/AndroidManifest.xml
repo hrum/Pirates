@@ -10,10 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".view.HelpActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
             android:name=".view.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait">

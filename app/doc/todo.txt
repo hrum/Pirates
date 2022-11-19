@@ -1,25 +1,7 @@
 - create some sort of tutorial
-
-
 - create main menu
-- remove help at all
 - improve ui to show some info (like possible cells)
 
 
 - first level: map is very small(4*4) find treasure on the land
 - second level: add some features. add hint to the player
-
-
-The treasure can be buried in any cell on the land.
-Each cell on the map contains some feature (for example, a river).
-For each cell on the map, we can define its "neighbourhood" - this is the cell itself and all its neighbouring cells.
-Each time player digs in any cell, he gets a hint.
-The hint indicates the number of features contained in the neighbourhood of the cell
-in which the player is digging, which are also contained in the neighbourhood of the cell in which the treasure is buried.
-The player's task is to find the treasure as quickly as possible.
-
-
-игрок задумывает слово из пяти разных букв.
-затем игрок называет сопернику другие пятибуквенные слова
-надо отвечать, сколько букв в названном слове совпадает с задуманными буквами
-сколько раз совпадающая буква повторяется в названном слове, столько раз ее считают
