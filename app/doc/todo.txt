@@ -1,7 +1,3 @@
-- test, think what is next
-
-
-
 - improve ui to show some info (like possible cells)
 - show all features from neighbourhood
 
