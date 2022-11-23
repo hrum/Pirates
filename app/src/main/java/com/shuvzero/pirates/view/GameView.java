@@ -1,7 +1,6 @@
 package com.shuvzero.pirates.view;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -18,6 +17,7 @@ import androidx.core.view.GestureDetectorCompat;
 
 import com.shuvzero.pirates.R;
 import com.shuvzero.pirates.model.Cell;
+import com.shuvzero.pirates.model.Direction;
 import com.shuvzero.pirates.model.Game;
 import com.shuvzero.pirates.model.Point;
 
@@ -132,15 +132,24 @@ public class GameView extends View {
 
     private void drawFrame(Canvas canvas) {
         if(selectedPosition != -1) {
-            float size = layout.getSize();
-            Drawable frame = getDrawable(R.drawable.frame);
-            Point p = layout.getPoint(selectedPosition);
-            frame.setBounds(Math.round(p.x()),
-                    Math.round(p.y()),
-                    Math.round(p.x() + 2 * size),
-                    Math.round(p.y() + 2 * size));
-            frame.draw(canvas);
+            Drawable areaFrame = getDrawable(R.drawable.area_frame);
+            for(Direction direction: Direction.values()) {
+                Cell adjCell = game.getTreasureMap().getAdjacent(selectedPosition, direction);
+                if(adjCell != null)
+                    drawFrame(canvas, areaFrame, adjCell.getPosition());
+            }
+            Drawable frame = getDrawable(R.drawable.cell_frame);
+            drawFrame(canvas, frame, selectedPosition);
         }
+    }
+
+    private void drawFrame(Canvas canvas, Drawable frame, int position) {
+        Point point = layout.getPoint(position);
+        frame.setBounds(Math.round(point.x()),
+                Math.round(point.y()),
+                Math.round(point.x() + 2 * layout.getSize()),
+                Math.round(point.y() + 2 * layout.getSize()));
+        frame.draw(canvas);
     }
 
     private void drawInfoWindow(Canvas canvas) {

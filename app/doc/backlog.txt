@@ -1,13 +1,22 @@
+MAIN MENU
+- create main menu
+- can select map size in main menu(small, medium, large)
+- different map sizes (and different number of features)
+
+TUTORIAL
+- create some sort of tutorial
+- first level: map is very small(4*4) find treasure on the land
+- second level: add some features. add hint to the player
+
+ISSUES
 - fix some issues with clicking tiles (emulator)
 - can not dig in the same place twice
 
-- can select map size in main menu(small, medium, large)
+MISC
 - add sounds
-
 - add zoom (https://developer.android.com/training/gestures/scale)
-- change font?
-
-- different map sizes (and different number of features)
-- show neighbourhood of cell on the map
-- show all features from neighbourhood
 - add possibility to check/uncheck feature
+
+MAP GENERATION
+- make it interesting
+- each neighborhood should contain at least 3 features

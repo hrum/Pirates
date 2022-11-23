@@ -1,7 +1,8 @@
-- create some sort of tutorial
-- create main menu
+- test, think what is next
+
+
+
 - improve ui to show some info (like possible cells)
+- show all features from neighbourhood
 
 
-- first level: map is very small(4*4) find treasure on the land
-- second level: add some features. add hint to the player
