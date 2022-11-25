@@ -132,23 +132,28 @@ public class GameView extends View {
 
     private void drawFrame(Canvas canvas) {
         if(selectedPosition != -1) {
-            Drawable areaFrame = getDrawable(R.drawable.area_frame);
-            for(Direction direction: Direction.values()) {
-                Cell adjCell = game.getTreasureMap().getAdjacent(selectedPosition, direction);
-                if(adjCell != null)
-                    drawFrame(canvas, areaFrame, adjCell.getPosition());
-            }
-            Drawable frame = getDrawable(R.drawable.cell_frame);
-            drawFrame(canvas, frame, selectedPosition);
+            //drawCellFrame(canvas, selectedPosition);
+            drawAreaFrame(canvas, selectedPosition);
         }
     }
 
-    private void drawFrame(Canvas canvas, Drawable frame, int position) {
+    private void drawCellFrame(Canvas canvas, int position) {
+        Drawable frame = getDrawable(R.drawable.cell_frame);
         Point point = layout.getPoint(position);
         frame.setBounds(Math.round(point.x()),
                 Math.round(point.y()),
                 Math.round(point.x() + 2 * layout.getSize()),
                 Math.round(point.y() + 2 * layout.getSize()));
+        frame.draw(canvas);
+    }
+
+    private void drawAreaFrame(Canvas canvas, int position) {
+        Drawable frame = getDrawable(R.drawable.area_frame);
+        Point point = layout.getPoint(position);
+        frame.setBounds(Math.round(point.x() - 1.5f * layout.getSize()),
+                Math.round(point.y() - 1.5f * layout.getSize()),
+                Math.round(point.x() + 3.5f * layout.getSize()),
+                Math.round(point.y() + 3.5f * layout.getSize()));
         frame.draw(canvas);
     }
 

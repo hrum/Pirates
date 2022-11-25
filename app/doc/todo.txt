@@ -1,4 +1,4 @@
+- each cell has 3 states (<empty>, V, X)
+- show state in the bottom corner of cell
+
 - improve ui to show some info (like possible cells)
-- show all features from neighbourhood
-
-
