@@ -20,3 +20,9 @@ MISC
 MAP GENERATION
 - make it interesting
 - each neighborhood should contain at least 3 features
+
+CELL STATE
+- each cell has 3 states (<empty>, V, X)
+- show state in the bottom corner of cell
+- state can be changed by clicking on the cell in window mode
+- improve ui to show some info (like possible cells)

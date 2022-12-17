@@ -1,4 +1,8 @@
-- each cell has 3 states (<empty>, V, X)
-- show state in the bottom corner of cell
++ reduce map size
++ reduce features count
++ remove all ocean features
+- make ocean, sea, lake the same
 
-- improve ui to show some info (like possible cells)
+
+- simplify everything
+

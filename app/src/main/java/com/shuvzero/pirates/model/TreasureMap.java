@@ -63,6 +63,10 @@ public class TreasureMap {
         return features;
     }
 
+    public Feature getFeature(int position) {
+        return cells.get(position).getFeature();
+    }
+
     private void createCells() {
         cells = new ArrayList<>();
         for(int position = 0; position < totalCells; position++)

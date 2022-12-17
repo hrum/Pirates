@@ -25,11 +25,11 @@ public class MapGenerator {
         generateLand();
         generateTreasure();
         generateLinear(Feature.River);
-        generateLinear(Feature.Road);
+        //generateLinear(Feature.Road);
         generateFlat();
         generateSingle();
-        sortWaterCells();
-        generateSingleOcean();
+        //sortWaterCells();
+        //generateSingleOcean();
         fillEmptyCells();
     }
 
