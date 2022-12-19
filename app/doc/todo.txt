@@ -1,8 +1,0 @@
-+ reduce map size
-+ reduce features count
-+ remove all ocean features
-- make ocean, sea, lake the same
-
-
-- simplify everything
-

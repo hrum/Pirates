@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class MapGenerator {
 
-    private static final int LAND_COUNT = 3;
+    private static final int MAX_OBJECTS_COUNT = 5;
     private static final int OCEAN_COUNT = 5;
 
     private TreasureMap map;
@@ -24,12 +24,12 @@ public class MapGenerator {
     public void generate() {
         generateLand();
         generateTreasure();
-        generateLinear(Feature.River);
-        //generateLinear(Feature.Road);
-        generateFlat();
-        generateSingle();
-        //sortWaterCells();
-        //generateSingleOcean();
+        generateLinearFeature(Feature.River);
+        generateLinearFeature(Feature.Road);
+        generateFlatFeatures();
+        generateSingleFeatures();
+        sortWaterCells();
+        //generateSingleOceanFeatures();
         fillEmptyCells();
     }
 
@@ -61,8 +61,8 @@ public class MapGenerator {
         return Direction.values()[random.nextInt(Direction.values().length)];
     }
 
-    private void generateLinear(Feature feature) {
-        for(int i = 0; i < LAND_COUNT;) {
+    private void generateLinearFeature(Feature feature) {
+        for(int number = 0; number < random.nextInt(MAX_OBJECTS_COUNT + 1); ) {
             Set<Integer> cells = new HashSet<>();
             int position = emptyLandCells.get(random.nextInt(emptyLandCells.size()));
             cells.add(position);
@@ -79,7 +79,7 @@ public class MapGenerator {
                     finish = true;
             }
             if (cells.size() >= 2) {
-                i++;
+                number++;
                 for (Integer cell : cells) {
                     emptyLandCells.remove(cell);
                     map.getCell(cell).setFeature(feature);
@@ -106,10 +106,10 @@ public class MapGenerator {
         return dir;
     }
 
-    private void generateFlat() {
-        for(int i = 0; i < LAND_COUNT; i++) {
-            for (Feature feature : Feature.values()) {
-                if(feature.isLand() && feature.getFeatureType() == FeatureType.Flat) {
+    private void generateFlatFeatures() {
+        for (Feature feature : Feature.values()) {
+            if(feature.isLand() && feature.getFeatureType() == FeatureType.Flat) {
+                for(int i = 0; i < random.nextInt(MAX_OBJECTS_COUNT + 1); i++) {
                     int position = emptyLandCells.get(random.nextInt(emptyLandCells.size()));
                     emptyLandCells.remove((Integer) position);
                     map.getCell(position).setFeature(feature);
@@ -129,10 +129,10 @@ public class MapGenerator {
         }
     }
 
-    private void generateSingle() {
+    private void generateSingleFeatures() {
         for(Feature feature: Feature.values()) {
             if (feature.isLand() && feature.getFeatureType() == FeatureType.Single) {
-                for (int i = 0; i < LAND_COUNT; i++) {
+                for (int i = 0; i < random.nextInt(MAX_OBJECTS_COUNT + 1); i++) {
                     int position = emptyLandCells.get(random.nextInt(emptyLandCells.size()));
                     emptyLandCells.remove((Integer) position);
                     map.getCell(position).setFeature(feature);
@@ -141,7 +141,7 @@ public class MapGenerator {
         }
     }
 
-    private void generateSingleOcean() {
+    private void generateSingleOceanFeatures() {
         for(Feature feature: Feature.values()) {
             if (!feature.isLand() && feature.getFeatureType() == FeatureType.Single && feature != Feature.Lake) {
                 for (int i = 0; i < OCEAN_COUNT; i++) {

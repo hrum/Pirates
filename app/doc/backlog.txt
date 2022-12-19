@@ -26,3 +26,4 @@ CELL STATE
 - show state in the bottom corner of cell
 - state can be changed by clicking on the cell in window mode
 - improve ui to show some info (like possible cells)
+- combine both statuses (with circle color)
