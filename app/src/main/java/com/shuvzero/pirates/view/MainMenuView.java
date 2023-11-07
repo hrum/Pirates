@@ -1,9 +1,11 @@
 package com.shuvzero.pirates.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
+import android.view.MotionEvent;
 
 import com.shuvzero.pirates.R;
 
@@ -65,5 +67,27 @@ public class MainMenuView extends GeneralView {
         float x = button.getBounds().exactCenterX() - textWidth/2;
         float y = button.getBounds().top + MARGIN_RATIO * button.getBounds().height();
         canvas.drawText(text, x, y, textPaint);
+    }
+
+    private boolean isMenuItemClicked(int index, float x, float y) {
+        if(x > xMenuStart && x < xMenuStart + BUTTON_WIDTH
+                && y > yMenuStart + menuButtonYSpace * index
+                && y < yMenuStart + menuButtonYSpace * index + BUTTON_HEIGHT)
+            return true;
+        return false;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                float x = event.getX();
+                float y = event.getY();
+                if(isMenuItemClicked(EASY_GAME, x, y)) {
+                    Intent intent = new Intent(getContext(), GameActivity.class);
+                    getContext().startActivity(intent);
+                }
+        }
+        return true;
     }
 }
