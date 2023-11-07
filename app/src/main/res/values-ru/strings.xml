@@ -29,4 +29,7 @@
     <string name="ocean">Океан</string>
     <string name="dig_message">Можно копать только на суше.</string>
     <string name="win_message">Победа!</string>
+    <string name="medium">Средне</string>
+    <string name="easy">Легко</string>
+    <string name="hard">Трудно</string>
 </resources>

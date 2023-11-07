@@ -16,7 +16,7 @@ public class SplashActivity extends FullScreenActivity {
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {
-                Intent intent = new Intent(SplashActivity.this, GameActivity.class);
+                Intent intent = new Intent(SplashActivity.this, MainMenuActivity.class);
                 startActivity(intent);
                 finish();
             }

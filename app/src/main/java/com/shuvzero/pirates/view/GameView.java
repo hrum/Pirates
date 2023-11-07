@@ -1,7 +1,6 @@
 package com.shuvzero.pirates.view;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -10,21 +9,18 @@ import android.graphics.drawable.Drawable;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
-import android.view.View;
 
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GestureDetectorCompat;
 
 import com.shuvzero.pirates.R;
 import com.shuvzero.pirates.model.Cell;
-import com.shuvzero.pirates.model.Direction;
 import com.shuvzero.pirates.model.Game;
 import com.shuvzero.pirates.model.Point;
 
-public class GameView extends View {
+public class GameView extends GeneralView {
 
-    public static final int SCREEN_WIDTH = Resources.getSystem().getDisplayMetrics().widthPixels;
-    public static final int SCREEN_HEIGHT = Resources.getSystem().getDisplayMetrics().heightPixels;
+
     private static final int CLOSE_BUTTON_SIZE = SCREEN_WIDTH/10;
     private static final int CLOSE_BUTTON_GAP = CLOSE_BUTTON_SIZE/10;
     private static final int DIG_BUTTON_SIZE = SCREEN_WIDTH/5;
@@ -246,12 +242,6 @@ public class GameView extends View {
     private boolean isInfoWindowClicked(float x, float y) {
         return selectedPosition != -1
                 && y > getHeight() - SCREEN_WIDTH/2;
-    }
-
-    private Drawable getDrawable(int id) {
-        if(id != 0)
-            return ContextCompat.getDrawable(getContext(), id);
-        return null;
     }
 
     @Override

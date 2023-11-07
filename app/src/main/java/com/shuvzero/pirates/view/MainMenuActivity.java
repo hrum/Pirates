@@ -1,15 +1,13 @@
 package com.shuvzero.pirates.view;
 
-import android.graphics.Canvas;
 import android.os.Bundle;
 
-public class GameActivity extends FullScreenActivity {
+public class MainMenuActivity extends FullScreenActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        GameView gameView = new GameView(this);
-        setContentView(gameView);
+        MainMenuView mainMenuView = new MainMenuView(this);
+        setContentView(mainMenuView);
     }
-
 }

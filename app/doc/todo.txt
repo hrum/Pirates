@@ -1,0 +1,6 @@
+- make buttons work
+
+- add easy levels: show list of correct and wrong features
+- add some kind of progression (cells count, list of features)
+- add medium levels: show correct and wrong features after each dig, show digit hint as well
+- add hard levels: show digit hint only
