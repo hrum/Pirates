@@ -1,6 +1,5 @@
 package com.shuvzero.pirates.view;
 
-import android.graphics.Canvas;
 import android.os.Bundle;
 
 public class GameActivity extends FullScreenActivity {
@@ -8,7 +7,8 @@ public class GameActivity extends FullScreenActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        GameView gameView = new GameView(this);
+        int difficulty = getIntent().getIntExtra("Difficulty", 0);
+        GameView gameView = new GameView(this, difficulty);
         setContentView(gameView);
     }
 

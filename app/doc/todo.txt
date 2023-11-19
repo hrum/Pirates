@@ -1,4 +1,12 @@
-- add easy levels: show list of correct and wrong features
-- add some kind of progression (cells count, list of features)
-- add medium levels: show correct and wrong features after each dig, show digit hint as well
-- add hard levels: show digit hint only
+- in easy mode player can not check water tiles
+- test both modes
+
+
+- make fixed field and "application"
+
+- create paper prototype
+- design/add movement system
+
+- player can say at any time "I know where is the treasure!"/"Я знаю где клад!"
+- in this case his chip is moved to destination and he digs there
+- if treasure was really found, then player wins, other wise he is kicked out

@@ -1,12 +1,16 @@
-MAIN MENU
-- create main menu
-- can select map size in main menu(small, medium, large)
-- different map sizes (and different number of features)
+LEVELS
+- add easy levels: show correct and wrong features using digit hint
+- add hard levels: show number of correct features using digit hint
 
-TUTORIAL
-- create some sort of tutorial
-- first level: map is very small(4*4) find treasure on the land
-- second level: add some features. add hint to the player
+MISC
+- show two columns: "Near" and "NOT near"
+- show feature icons in corresponding columns
+- add some kind of progression (map size, list of features)
+- 3 small, 3 medium, 3 large
+
+MAP SIZE
+- can select map size in main menu (small, medium, large)
+- map size affects number of features
 
 ISSUES
 - fix some issues with clicking tiles (emulator)

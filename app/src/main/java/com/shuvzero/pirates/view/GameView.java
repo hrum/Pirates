@@ -37,9 +37,9 @@ public class GameView extends GeneralView {
     private GestureDetectorCompat gestureDetector;
     private ScaleGestureDetector scaleGestureDetector;
 
-    public GameView(Context context) {
+    public GameView(Context context, int difficulty) {
         super(context);
-        startNewGame();
+        startNewGame(difficulty);
         setBackgroundColor(Color.argb(255, 0, 0, 255));
         layout = new MapLayout(game.getTreasureMap(), SCREEN_WIDTH, SCREEN_HEIGHT);
         selectedPosition = -1;
@@ -49,8 +49,8 @@ public class GameView extends GeneralView {
         scaleGestureDetector = new ScaleGestureDetector(context, new ScaleListener());
     }
 
-    private void startNewGame() {
-        game = new Game();
+    private void startNewGame(int difficulty) {
+        game = new Game(difficulty);
         game.start();
     }
 
@@ -278,7 +278,8 @@ public class GameView extends GeneralView {
             if(treasureFound) {
                 treasureFound = false;
                 selectedPosition = -1;
-                startNewGame();
+                //startNewGame();
+                //need to finish activity
             } else if(isInfoWindowClicked(x, y)) {
                 if (isCloseButtonClicked(x, y)) {
                     selectedPosition = -1;

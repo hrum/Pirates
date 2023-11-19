@@ -1,8 +1,16 @@
 package com.shuvzero.pirates.model;
 
+import static com.shuvzero.pirates.view.MainMenuView.EASY_GAME;
+import static com.shuvzero.pirates.view.MainMenuView.HARD_GAME;
+
 public class Game {
 
     private TreasureMap treasureMap;
+    private int difficulty;
+
+    public Game(int difficulty) {
+        this.difficulty = difficulty;
+    }
 
     public void start() {
         treasureMap = new TreasureMap(12, 10);
@@ -17,9 +25,14 @@ public class Game {
 
     public boolean dig(int position) {
         int hint = 0;
-        for(Feature feature: treasureMap.getFeatures(position))
-            if(treasureMap.getTreasureFeatures().contains(feature))
+        if(difficulty == EASY_GAME) {
+            if(treasureMap.getTreasureFeatures().contains(treasureMap.getFeature(position)))
                 hint++;
+        } else if(difficulty == HARD_GAME) {
+            for (Feature feature : treasureMap.getFeatures(position))
+                if (treasureMap.getTreasureFeatures().contains(feature))
+                    hint++;
+        }
         treasureMap.getCell(position).setHint(hint);
         return position == treasureMap.getTreasurePosition();
     }
