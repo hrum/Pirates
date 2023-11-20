@@ -24,10 +24,10 @@ public enum Feature {
     Cross(FeatureType.Single, R.drawable.cross, R.string.cross, true),
     Chest(FeatureType.Single, R.drawable.chest, R.string.chest, true),
     Desert(FeatureType.Single, 0, R.string.desert, true),
+    Lake(FeatureType.Single, R.drawable.lake, R.string.lake, true),
 
     Sea(FeatureType.Flat, R.drawable.sea, R.string.sea, false),
 
-    Lake(FeatureType.Single, R.drawable.lake, R.string.lake, false),
     Anchor(FeatureType.Single, R.drawable.anchor, R.string.anchor, false),
     Shark(FeatureType.Single, R.drawable.shark, R.string.shark, false),
     Coral(FeatureType.Single, R.drawable.coral, R.string.coral, false),

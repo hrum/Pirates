@@ -13,7 +13,7 @@ public class Game {
     }
 
     public void start() {
-        treasureMap = new TreasureMap(12, 10);
+        treasureMap = new TreasureMap(15, 12);
         MapGenerator mapGenerator = new MapGenerator(treasureMap);
         mapGenerator.generate();
         treasureMap.setTreasureFeatures();
@@ -27,7 +27,7 @@ public class Game {
         int hint = 0;
         if(difficulty == EASY_GAME) {
             if(treasureMap.getTreasureFeatures().contains(treasureMap.getFeature(position)))
-                hint++;
+                hint = 1;
         } else if(difficulty == HARD_GAME) {
             for (Feature feature : treasureMap.getFeatures(position))
                 if (treasureMap.getTreasureFeatures().contains(feature))

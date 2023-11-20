@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class MapGenerator {
 
-    private static final int MAX_OBJECTS_COUNT = 5;
+    private static final int MAX_OBJECTS_COUNT = 8;
     private static final int OCEAN_COUNT = 5;
 
     private TreasureMap map;
@@ -134,7 +134,7 @@ public class MapGenerator {
             if (feature.isLand() && feature.getFeatureType() == FeatureType.Single) {
                 for (int i = 0; i < random.nextInt(MAX_OBJECTS_COUNT + 1); i++) {
                     int position = emptyLandCells.get(random.nextInt(emptyLandCells.size()));
-                    emptyLandCells.remove((Integer) position);
+                    emptyLandCells.remove(emptyLandCells.indexOf(position));
                     map.getCell(position).setFeature(feature);
                 }
             }
@@ -159,16 +159,7 @@ public class MapGenerator {
             int position = iterator.next();
             Cell cell = map.getCell(position);
             if (!map.isEdge(position)) {
-                boolean foundWater = false;
-                for (Direction direction : Direction.values()) {
-                    Cell adj = map.getAdjacent(position, direction);
-                    if (!adj.isLand())
-                        foundWater = true;
-                }
-                if (foundWater)
-                    cell.setFeature(Feature.Sea);
-                else
-                    cell.setFeature(Feature.Lake);
+                cell.setFeature(Feature.Sea);
                 iterator.remove();
             }
         }
