@@ -1,19 +1,7 @@
-- check all features
-
-
-- increase number of features, etc
-
-
-
-- generate good field
-- create "fixed" field
-- create paper prototype
-
-
-
-
-
 - design/add movement system
+
+
+
 
 - player can say at any time "I know where is the treasure!"/"Я знаю где клад!"
 - in this case his chip is moved to destination and he digs there

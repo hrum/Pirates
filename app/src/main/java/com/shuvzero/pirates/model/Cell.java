@@ -23,6 +23,7 @@ public class Cell {
 
     public void setFeature(Feature feature) {
         this.feature = feature;
+        this.isLand = feature.isLand();
     }
 
     public Feature getFeature() {

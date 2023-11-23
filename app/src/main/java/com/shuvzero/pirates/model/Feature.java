@@ -28,6 +28,9 @@ public enum Feature {
 
     Sea(FeatureType.Flat, R.drawable.sea, R.string.sea, false),
 
+
+
+    ///not used
     Anchor(FeatureType.Single, R.drawable.anchor, R.string.anchor, false),
     Shark(FeatureType.Single, R.drawable.shark, R.string.shark, false),
     Coral(FeatureType.Single, R.drawable.coral, R.string.coral, false),

@@ -173,4 +173,11 @@ public class TreasureMap {
     public boolean isDigPossible(int position) {
         return cells.get(position).isLand();
     }
+
+    public void setRow(int rowNumber, String[] features) {
+        for(int colNumber = 0; colNumber < features.length; colNumber++) {
+            int position = getPosition(rowNumber, colNumber);
+            getCell(position).setFeature(Feature.valueOf(features[colNumber]));
+        }
+    }
 }

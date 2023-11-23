@@ -22,7 +22,7 @@ public class MapGenerator {
     }
 
     public void generate() {
-        generateLand();
+        /*generateLand();
         generateTreasure();
         generateLinearFeature(Feature.River);
         generateLinearFeature(Feature.Road);
@@ -30,7 +30,31 @@ public class MapGenerator {
         generateSingleFeatures();
         sortWaterCells();
         //generateSingleOceanFeatures();
-        fillEmptyCells();
+        fillEmptyCells();*/
+        setFixedField();
+        generateTreasure();
+    }
+
+    private void setFixedField() {
+        for(Cell cell: map.getCells()) {
+            if(map.isEdge(cell.getPosition()))
+                cell.setFeature(Feature.Ocean);
+            else
+                cell.setFeature(Feature.Desert);
+        }
+        map.setRow(1, new String[]{"Ocean","Skull","River","Jungle","Jungle","Road","Cactus","Desert","Sea","Sea","Sea","Mountain","Ocean"});
+        map.setRow(2, new String[]{"Ocean","Grass","River","Palm","Forest","Road","Road","Grass","Grass","Sea","Desert","Ocean"});
+        map.setRow(3, new String[]{"Ocean","Grass","Grass","River","Forest","Desert","Plains","Road","Volcano","House","Forest","Desert","Ocean"});
+        map.setRow(4, new String[]{"Ocean","Cave","River","Desert","Sea","Sea","Plains","Road","Road","Forest","Road","Ocean"});
+        map.setRow(5, new String[]{"Ocean","Cactus","Plains","River","Plains","Sea","Plains","Road","Mountain","Road","Road","House", "Ocean"});
+        map.setRow(6, new String[]{"Ocean","Plains","River","Plains","Cave","Hills","Hills","Road","Cactus","Skull","Swamp","Ocean"});
+        map.setRow(7, new String[]{"Ocean","Mountain","Swamp","River","River","River","Hills","Forest","Road","Plains","Swamp","Hills","Ocean"});
+        map.setRow(8, new String[]{"Ocean","House","Swamp","Swamp","Forest","River","Forest","Forest","Road","Plains","Hills","Ocean"});
+        map.setRow(9, new String[]{"Ocean","Sea","Sea","Sea","Forest","River","Forest","Desert","Road","Desert","Sea","Sea","Ocean"});
+        map.setRow(10, new String[]{"Ocean","Hills","Sea","Volcano","River","Forest","Cactus","Road","Desert","Sea","Desert","Ocean"});
+        map.setRow(11, new String[]{"Ocean","Hills","Hills","Desert","River","Palm","Desert","Grass","Road","Skull","Swamp","Desert","Ocean"});
+        map.setRow(12, new String[]{"Ocean","Jungle","Volcano","Sea","Sea","Cave","Grass","Grass","Road","Jungle","Swamp","Ocean"});
+        map.setRow(13, new String[]{"Ocean","Jungle","Jungle","Sea","Sea","Sea","Desert","Grass","Road","Palm","Jungle","Swamp","Ocean"});
     }
 
     private void generateLand() {
@@ -53,8 +77,14 @@ public class MapGenerator {
     }
 
     private void generateTreasure() {
-        int treasurePosition = emptyLandCells.get(random.nextInt(emptyLandCells.size()));
-        map.setTreasurePosition(treasurePosition);
+        boolean done = false;
+        while(!done) {
+            int treasurePosition = random.nextInt(map.getCells().size());
+            if(map.getCell(treasurePosition).isLand()) {
+                map.setTreasurePosition(treasurePosition);
+                done = true;
+            }
+        }
     }
 
     private Direction getRandomDirection() {
