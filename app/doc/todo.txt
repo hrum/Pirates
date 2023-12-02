@@ -1,7 +1,3 @@
-- update app to show hints to the current player only
-
-
-
 - check cryptid
 
 POINTS/MOVEMENT SYSTEM

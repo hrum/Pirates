@@ -36,4 +36,8 @@ public class Game {
         treasureMap.getCell(position).setHint(hint);
         return position == treasureMap.getTreasurePosition();
     }
+
+    public void erase(int position) {
+        treasureMap.getCell(position).setHint(-1);
+    }
 }
