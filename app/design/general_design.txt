@@ -1,0 +1,22 @@
+START OF THE GAME
+- random map is generated (see map_design)
+- a treasure is placed in one of the randomly selected land tiles
+
+VICTORY CONDITION
+- player needs to find the treasure as quickly as possible
+
+DIG
+- player can only dig on land tiles
+- if there is no treasure, then player receives a hint
+- if there is a treasure, then player wins
+
+HINT
+- a tile with a treasure and 6 adjacent tiles are treasure objects
+- the dig tile and 6 adjacent tiles are dig objects
+- the game determines the number of intersections of objects of the treasure area and dig area
+- the number of intersections is shown at the map
+- hints are saved on the map
+
+MAP VIEW
+- player can scroll the map
+- player can zoom in/zoom out the map

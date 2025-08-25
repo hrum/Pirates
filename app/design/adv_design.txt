@@ -1,0 +1,30 @@
+MOVE AND DIG
+- on each turn, the player can move and/or dig (if the player is on the land tile)
+- The player's turn consists of two phases:
+    1) Move - the player can move up to three squares away.
+    2) Digging
+
+MULTI-PLAYER MODE
+- each received hint is visible only for the current player
+- the number of players can be from 1 to 4
+- the order of the move for players is determined randomly
+- players take their turns in order
+- each player can choose any square in the ocean as a starting position and place his chip there.
+- a player cannot enter a square where another player's chip is already located.
+- a player cannot pass through a square where another player's chip is located.
+- the first player who finds the treasure wins
+
+MOVING
+- 3 moves per turn, 2pt per move (can move or dig)
+- the player can move two cells around himself (explored area)
+- if area is not explored yet, then player moves one cell
+- rivers/roads takes 0.5pt
+- ocean takes 0.5pt
+- moving into mountain/hill/swamp takes 2pt
+- some tiles(hills, forest, jungle, swamp) can also reduce the speed (/2)
+- the mountain increases the view distance by 1 (removes the fog of war)
+- moving across river takes all pt
+
+
+
+

@@ -1,8 +1,28 @@
+MISC
+- revert some changes made for board game
+- add some scoring system (based on number of moves)
+- add some notes to reduce the amount of information to remember
+
+MOVEMENT SYSTEM
+- create different background - light, normal, dark
+- add values to features
+- some features require 1 point
+- some features require 2 points
+- some features require 0.5 points
+- player can use caves for fast moving
+
+MAP
+- create a map, where any spot is unique (hint 7 means treasure)
+- all features should present at least 4-5 times
+- remove spots 4-2-1
+- add ocean features?
+
 LEVELS
 - add easy levels: show correct and wrong features using digit hint
 - add hard levels: show number of correct features using digit hint
 
 MISC
+- check cryptid game
 - show two columns: "Near" and "NOT near"
 - show feature icons in corresponding columns
 - add some kind of progression (map size, list of features)
@@ -20,6 +40,9 @@ MISC
 - add sounds
 - add zoom (https://developer.android.com/training/gestures/scale)
 - add possibility to check/uncheck feature
+- it should be a digital game (board game will require app, which is not convenient)
+- players can move simultaneously
+- it can be a massive game (up to 100 players similar to pubg)
 
 MAP GENERATION
 - make it interesting
