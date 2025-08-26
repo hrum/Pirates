@@ -281,7 +281,6 @@ public class GameView extends GeneralView {
                 //need to finish activity
             } else if(isInfoWindowClicked(x, y)) {
                 if (isCloseButtonClicked(x, y)) {
-                    game.erase(selectedPosition);
                     selectedPosition = -1;
                 } else if (isDigButtonClicked(x, y)) {
                     if(game.getTreasureMap().isDigPossible(selectedPosition)) {
