@@ -1,5 +1,4 @@
 MISC
-- revert some changes made for board game
 - add some scoring system (based on number of moves)
 - add some notes to reduce the amount of information to remember
 

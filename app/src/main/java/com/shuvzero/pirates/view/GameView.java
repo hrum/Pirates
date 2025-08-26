@@ -10,7 +10,6 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 
-import androidx.core.content.ContextCompat;
 import androidx.core.view.GestureDetectorCompat;
 
 import com.shuvzero.pirates.R;
@@ -37,9 +36,9 @@ public class GameView extends GeneralView {
     private GestureDetectorCompat gestureDetector;
     private ScaleGestureDetector scaleGestureDetector;
 
-    public GameView(Context context, int difficulty) {
+    public GameView(Context context) {
         super(context);
-        startNewGame(difficulty);
+        startNewGame();
         setBackgroundColor(Color.argb(255, 0, 0, 255));
         layout = new MapLayout(game.getTreasureMap(), SCREEN_WIDTH, SCREEN_HEIGHT);
         selectedPosition = -1;
@@ -49,8 +48,8 @@ public class GameView extends GeneralView {
         scaleGestureDetector = new ScaleGestureDetector(context, new ScaleListener());
     }
 
-    private void startNewGame(int difficulty) {
-        game = new Game(difficulty);
+    private void startNewGame() {
+        game = new Game();
         game.start();
     }
 

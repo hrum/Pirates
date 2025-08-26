@@ -15,8 +15,7 @@ public class MainMenuView extends GeneralView {
     public static final int BUTTON_HEIGHT = Math.round(0.1f * SCREEN_WIDTH);
     public static final int FONT_COLOR = 0xFFF2E3A7;
 
-    public static final int EASY_GAME = 0;
-    public static final int HARD_GAME = 1;
+    public static final int PLAY = 0;
     private static final float MARGIN_RATIO = 0.68f;
     private static final float TEXT_SIZE_RATIO = 0.50f;
 
@@ -33,8 +32,7 @@ public class MainMenuView extends GeneralView {
         super.onDraw(canvas);
         initValues();
         drawBackground(canvas);
-        drawMenuItem(canvas, EASY_GAME, getContext().getString(R.string.easy));
-        drawMenuItem(canvas, HARD_GAME, getContext().getString(R.string.hard));
+        drawMenuItem(canvas, PLAY, getContext().getString(R.string.play));
     }
 
     private void drawBackground(Canvas canvas) {
@@ -81,14 +79,8 @@ public class MainMenuView extends GeneralView {
             case MotionEvent.ACTION_DOWN:
                 float x = event.getX();
                 float y = event.getY();
-                if(isMenuItemClicked(EASY_GAME, x, y)) {
+                if(isMenuItemClicked(PLAY, x, y)) {
                     Intent intent = new Intent(getContext(), GameActivity.class);
-                    intent.putExtra("Difficulty", EASY_GAME);
-                    getContext().startActivity(intent);
-                }
-                if(isMenuItemClicked(HARD_GAME, x, y)) {
-                    Intent intent = new Intent(getContext(), GameActivity.class);
-                    intent.putExtra("Difficulty", HARD_GAME);
                     getContext().startActivity(intent);
                 }
         }
