@@ -1,6 +1,5 @@
 MISC
 - add some scoring system (based on number of moves)
-- add some notes to reduce the amount of information to remember
 
 MOVEMENT SYSTEM
 - create different background - light, normal, dark

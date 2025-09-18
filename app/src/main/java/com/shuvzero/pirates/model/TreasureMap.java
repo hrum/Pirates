@@ -151,7 +151,7 @@ public class TreasureMap {
     public int getRow(int position) {
         int row = position / block * 2;
         if(isOddRow(position))
-        row++;
+            row++;
         return row;
     }
 

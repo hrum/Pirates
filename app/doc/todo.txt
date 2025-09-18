@@ -1,0 +1,18 @@
+- read code, try to understand what is going on
+
+- refactor map generator code
+- scale objects count with map size
+
+
+
+
+
+
+
+
+
+=================================================
+- add various map sizes (small - easy, big - hard)
+- make different map types (one continent, several continents, islands, etc)
+- add some notes to reduce the amount of information to remember
+- notes affect map (show somehow where treasure can be found)
